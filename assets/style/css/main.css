@@ -115,7 +115,7 @@ input, input:focus {
     height: calc(100% - 49px);
     width: 100%;
     position: relative;
-    background: url(../../media/images/hero-image-1.jpg) no-repeat top center;
+    background: url(../../media/images/hero-image-1.jpg) no-repeat center center;
     text-align: center;
     transition: 2.5s;
 }
@@ -359,6 +359,10 @@ i.scroll-down:hover {
 .section.wwd .row h4 {
     float: left;
     padding-right: 75px;
+}
+
+.section.flow {
+    height: 800px;
 }
 
 .section.flow h3 {
@@ -722,7 +726,8 @@ input.search {
 }
 
 .logo {
-    height: 30px;
+    height: 25px;
+    margin-top: 2.5px;
     float: left;
 }
 
