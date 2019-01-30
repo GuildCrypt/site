@@ -291,7 +291,7 @@ i.scroll-down:hover {
 }
 
 .section.checkers .col-xs-4 {
-    height: 250px;
+    min-height: 250px;
 }
 
 .section.checkers .col-xs-4 img {
@@ -833,6 +833,10 @@ input.search {
     .section.hiw:nth-of-type(5) h1 {
         display: block;
         margin: auto;
+    }
+
+    .section.checkers .col-xs-4 {
+        min-height: 0px;
     }
 
 }
