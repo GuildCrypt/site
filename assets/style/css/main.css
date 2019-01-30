@@ -468,6 +468,10 @@ i.scroll-down:hover {
     position: absolute;
 }
 
+.flow-box a {
+  text-decoration: underline;
+}
+
 .vertical-align {
     display: flex;
     flex-direction: row;
