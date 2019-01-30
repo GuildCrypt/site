@@ -834,20 +834,15 @@ input.search {
 
     .section.marketplace a.button {
         margin-bottom: 25px;
-        margin-right: 100%;
         white-space: nowrap;
         display: block;
     }
 
     .section.marketplace h3 {
-        text-align: left;
+        text-align: center;
         position: static;
         padding: 0;
-    }
-
-    .section.marketplace img {
-        float: left;
-        position: static;
+        margin-bottom: 20px;
     }
 
     .section.marketplace h3 {
