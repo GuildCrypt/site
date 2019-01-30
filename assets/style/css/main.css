@@ -67,9 +67,11 @@ input, input:focus {
     padding: 10px 15px 10px 15px;
     color: rgba(0,0,0,0.6);
     font-weight: bold;
-    margin-right: 25px;
+    margin-right: 10px;
     border: 2px solid #D88D02;
     border-bottom: 4px solid #D88D02;
+    margin-bottom: 10px;
+    line-height: 4em;
 }
 
 .button:hover {
@@ -675,12 +677,8 @@ input.search {
     color: #370F39;
 }
 
-.section.marketplace .button {
-    float: left;
-}
-
 .section.marketplace img {
-    width: 60%;
+    max-width: 260px;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
@@ -832,23 +830,6 @@ input.search {
         width: 100%;
     }
 
-    .section.marketplace a.button {
-        margin-bottom: 25px;
-        white-space: nowrap;
-        display: block;
-    }
-
-    .section.marketplace h3 {
-        text-align: center;
-        position: static;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-
-    .section.marketplace h3 {
-        margin-bottom: 0;
-    }
-
     .section.hiw:nth-of-type(5) h1 {
         display: block;
         margin: auto;
@@ -857,6 +838,13 @@ input.search {
 }
 
 @media screen and (max-width: 800px) {
+
+    .section.marketplace h3 {
+        text-align: center;
+        position: static;
+        padding: 0;
+        margin-bottom: 20px;
+    }
 
     [class^="col"] {
         width: 100% !important;
