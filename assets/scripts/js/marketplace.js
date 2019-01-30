@@ -16,8 +16,13 @@ const pat = new Tokenizer({
 
 function Token(data) {
   this.data = data
-  this.imageUrl = `${assetsDir}/tokens/${this.data.id}/image.png`
-  this.thumbUrl = `${assetsDir}/tokens/${this.data.id}/thumb.png`
+  this.images = [{
+    thumbUrl: `${assetsDir}/tokens/${this.data.id}/images/front.thumb.png`,
+    fullUrl: `${assetsDir}/tokens/${this.data.id}/images/front.png`
+  }, {
+    thumbUrl: `${assetsDir}/tokens/${this.data.id}/images/back.thumb.png`,
+    fullUrl: `${assetsDir}/tokens/${this.data.id}/images/back.png`
+  }]
   this.redeemUrl = `https://redeem.guildcrypt.com/#${this.data.id}`
   this.termsUrl = `${assetsDir}/tokens/${this.data.id}/terms.pdf`
   this.trackerUrl = `https://etherscan.io/token/0x${contractAddressHex}?a=${this.data.id}`
@@ -30,6 +35,8 @@ const tokens = [
     name: 'Unlimited Black Lotus (BGS 6.0)',
     description: 'A BGS graded 6.0 (9/6/6/6) Unlimited Black Lotus. BGS #0010945396.',
     sunsetLength: '90 Days',
+    thumbFileNames: ['front.thumb.png', 'back.thumb.png'],
+    imageFileNames: ['front.png', 'back.png'],
     redemptionMethod: 'In store pickup; $10 Redemption Fee',
     watchUrl: 'http://eepurl.com/dOV-YD',
     tokenizer: pat
@@ -39,6 +46,8 @@ const tokens = [
     name: 'Beta Mox Jet (BGS 9.0)',
     description: 'A BGS graded 9.0 (9/9/9/8.5) Unlimited Mox Jet. BGS #0010945394.',
     sunsetLength: '90 Days',
+    thumbFileNames: ['front.thumb.png', 'back.thumb.png'],
+    imageFileNames: ['front.png', 'back.png'],
     redemptionMethod: 'In store pickup; $10 Redemption Fee',
     watchUrl: 'http://eepurl.com/dPaMPj',
     tokenizer: pat
@@ -48,8 +57,8 @@ const tokens = [
     name: 'Beta Mox Pearl (BGS 8.5)',
     description: 'A BGS graded 8.5 (8/9/9/9.5) Beta Mox Pearl. BGS #0010945395.',
     sunsetLength: '90 Days',
-    thumbUrls: ['front.thumb.png', 'back.thumb.png'],
-    imageUrls: ['front.png', 'back.png'],
+    thumbFileNames: ['front.thumb.png', 'back.thumb.png'],
+    imageFileNames: ['front.png', 'back.png'],
     redemptionMethod: 'In store pickup; $10 Redemption Fee',
     watchUrl: 'http://eepurl.com/dPaNnz',
     tokenizer: pat
@@ -70,8 +79,7 @@ app.directive('tokens', function () {
 app.directive('images', function () {
   return {
     scope: {
-      thumbUrls: '=thumbUrls',
-      imageUrls: '=imageUrls'
+      images: '=',
     },
     templateUrl: `${templatesDir}/images.html`,
     link: function ($scope) {
