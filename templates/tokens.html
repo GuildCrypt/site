@@ -1,0 +1,24 @@
+<div class="cover">
+  <div class="container tokens">
+    <div ng-repeat="token in tokens" class="row vertical-align upper-row token">
+      <div class="col-xs-4 token-image">
+        <img ng-src={{token.thumbUrl}}/>
+      </div>
+      <div class="col-xs-8 vert-center">
+      <div class="container">
+        <div>
+          <h3 class="title">#{{token.data.id}}: {{token.data.name}}</h3>
+          <p>{{token.data.description}}</p>
+          <p>Sunset length of {{token.data.sunsetLength}}; Tokenized by <a target="_blank" href={{token.termsUrl}}>{{token.data.tokenizer.data.name}}</a>.</p>
+        </div>
+        <div class="token-buttons">
+          <a class="button" target="_blank" href="{{token.buyUrl}}">Buy Token</a>
+          <a class="button" target="_blank" href="{{token.termsUrl}}">Terms</a>
+          <a class="button" target="_blank" href="{{token.data.watchUrl}}">Watch</a>
+          <a class="button" target="_blank" href="{{token.data.trackerUrl}}">Etherscan</a>
+          <a class="button" target="_blank" href="{{token.redeemUrl}}">Redeem</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

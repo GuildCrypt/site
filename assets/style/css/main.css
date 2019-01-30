@@ -691,9 +691,24 @@ input.search {
     margin-bottom: 50px;
 }
 
-.section.marketplace h3 {
-    position: absolute;
-    left: 94px;
+.token {
+    text-align: left;
+}
+
+.token h3 {
+    margin-bottom: 10px;
+}
+
+.token a {
+    color: #370F39;
+}
+
+.token-image {
+  text-align: center;
+}
+
+.token-buttons {
+  margin-top: 40px;
 }
 
 .market-card {
