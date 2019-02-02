@@ -72,11 +72,31 @@ input, input:focus {
     border-bottom: 4px solid #D88D02;
     margin-bottom: 10px;
     line-height: 4em;
+    cursor: pointer;
+}
+
+.button.button-secondary {
+  background-color: #eee;
+  border-bottom-color: #ccc;
+  border-color: #ddd;
+}
+
+.button[disabled] {
+  background-color: #ccc;
+  border-bottom-color: #666;
+  border-color: #999;
+  color: #eee;
+  cursor: not-allowed;
 }
 
 .button:hover {
     filter: brightness(115%);
     color: rgba(0,0,0,0.6);
+}
+
+.button.button-secondary:hover {
+  filter: brightness(105%);
+  color: rgba(0,0,0,0.6);
 }
 
 .button:focus, .button.active {
@@ -103,12 +123,10 @@ input, input:focus {
 
 ::-webkit-scrollbar-track {
 	background-color: #370F39;
-    border-left: 1px solid #FFF;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: #FFF;
-    border-left: 1px solid #FFF;
+	background-color: #eee;
 }
 
 /* Home */
@@ -154,9 +172,17 @@ input, input:focus {
     font-size: 45px;
 }
 
-.splash h4 {
+.splash h4, .gradient h4 {
+    color: #ccc;
     margin-top: 10px;
     text-shadow: 0px 0px 5px rgba(0,0,0,0.25);
+}
+
+.account {
+  color: #333;
+}
+p a {
+  text-decoration: underline;
 }
 
 @keyframes scroll-down {
@@ -288,6 +314,11 @@ i.scroll-down:hover {
 .section h3 {
     color: #370F39;
     margin-bottom: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #370F39;
+  margin-bottom: .5em;
 }
 
 .section.checkers .col-xs-4 {
@@ -695,6 +726,7 @@ input.search {
 
 .token {
     text-align: left;
+    margin-bottom: 40px;
 }
 
 .token h3 {
@@ -824,6 +856,28 @@ input.search {
     width: 75px;
     margin-bottom: -50px;
     margin-top: 50px;
+}
+
+.modal {
+  display: block;
+  background-color: rgba(0, 0, 0, .5);
+  color: #333;
+}
+
+.modal-title {
+  color: #370F39;
+}
+
+.modal-header .close {
+  margin-top: -1em;
+}
+
+input[type = "checkbox"] {
+  margin-right: .5em;
+}
+
+label {
+  margin-bottom: 0;
 }
 
 /* Responsiveness */

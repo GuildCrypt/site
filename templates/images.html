@@ -1,5 +1,5 @@
 <div class="images">
-  <a target="_blank" href="{{images[index].fullUrl}}"><img ng-src={{images[index].thumbUrl}}></a>
+  <a target="_blank" href="{{images[index].full}}"><img ng-src={{images[index].thumb}}></a>
   <div class="image-selectors">
     <div ng-repeat="image in images" class="image-selector" ng-class="index == $index ? 'image-selector-selected' : ''" ng-click="$parent.index = $index"></div>
   </div>

@@ -1,0 +1,21 @@
+.account {
+  min-height: calc(100% - 366px);
+}
+
+.gate {
+  padding-bottom: 150px;
+  color: #333;
+}
+
+.gate .tos {
+  margin-top: 10px;
+  display: block;
+}
+
+.gate .tos-checkbox {
+  margin-right: 4px;
+}
+
+.gate .button {
+  display: inline;
+}
