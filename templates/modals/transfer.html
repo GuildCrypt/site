@@ -7,6 +7,10 @@
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: progress + '%' }"></div>
     </div>
+    <div ng-show="stage === 'networkCheck'">
+      <div class="alert alert-info" ng-show="!networkCheckError">Checking network status</div>
+      <div class="alert alert-danger" ng-show="networkCheckError">{{networkCheckError.message}}</div>
+    </div>
     <div ng-show="stage === 'start'">
       <h5>Who would you like to send the Oath to?</h5>
       <div class="input-group">
@@ -49,12 +53,28 @@
         </label>
       </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button ng-show="stage === 'start'" class="btn btn-primary" ng-disabled="!isToAddressGood" ng-click="stage = 'confirmation'">Next</button>
-    <div>
-      <button ng-show="stage === 'confirmation'" class="btn" ng-click="stage = 'start'">Back</button>
-      <button ng-show="stage === 'confirmation'" class="btn btn-primary" ng-disabled="!isWarned" ng-click="submit()">Submit</button>
+    <div ng-show="stage === 'submitting'">
+      <div class="alert alert-info" ng-show="!submittingError">Please follow the instructions on Metamask</div>
+      <div class="alert alert-danger" ng-show="submittingError">{{submittingError.message}}</div>
     </div>
+    <div ng-show="stage === 'confirming'" class="alert alert-info">
+      Your transaction has been broadcast. We're waiting for <a ng-href="{{transactionUrl}}" target="_blank">a confirmation from the Ethereum network</a>.
+    </div>
+    <div ng-show="stage === 'confirmed'" class="alert alert-success">
+      Success! Your transaction has been confirmed. Your account should be updated.
+    </div>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'networkCheck' && networkCheckError">
+    <button class="btn btn-primary" ng-click="checkNetwork()">Try Again</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'start'">
+    <button class="btn btn-primary" ng-disabled="!isToAddressGood" ng-click="stage = 'confirmation'">Next</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'confirmation'" >
+    <button class="btn" ng-click="stage = 'start'">Back</button>
+    <button class="btn btn-primary" ng-disabled="!isWarned" ng-click="submit()">Submit</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'submitting' && submittingError" >
+    <button class="btn" ng-click="stage = 'confirmation'">Back</button>
   </div>
 </div>

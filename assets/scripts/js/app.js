@@ -1,3 +1,5 @@
+import networkManager from './networkManager.js'
+
 import AccountController from './AccountController.js'
 import AccountGateController from './AccountGateController.js'
 import AccountTokensController from './AccountTokensController.js'
@@ -26,6 +28,23 @@ app.directive('images', function () {
     templateUrl: `/templates/images.html`,
     link: function ($scope) {
       $scope.index = 0
+    }
+  }
+})
+
+app.directive('networkToggle', function () {
+  console.log('x')
+  return {
+    templateUrl: `/templates/network-toggle.html`,
+    link: function ($scope) {
+      console.log(networkManager)
+      $scope.network = networkManager.network
+      $scope.toggleNetwork = () => {
+        if(!confirm('Toggle Network?')) {
+          return
+        }
+        networkManager.toggleNetwork()
+      }
     }
   }
 })

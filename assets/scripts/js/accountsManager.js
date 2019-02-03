@@ -1,4 +1,4 @@
-import { getWeb3, CouldNotEnableEthereumError, NoEthereumWalletDetectedError } from './web3.js'
+import web3Manager from './web3Manager.js'
 import EventEmitter from './EventEmitter.js'
 
 export class NoWeb3Error extends Error {}
@@ -15,7 +15,7 @@ class AccountsManager extends EventEmitter {
   }
 
   tryLogin() {
-    return getWeb3().then(() => {
+    return web3Manager.fetchWeb3().then(() => {
       return this.login()
     })
   }

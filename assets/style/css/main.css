@@ -181,7 +181,7 @@ input, input:focus {
 .account {
   color: #333;
 }
-p a {
+p a, .alert a {
   text-decoration: underline;
 }
 
@@ -989,4 +989,22 @@ label {
         padding-left: 0;
     }
 
+}
+
+.network-toggle {
+  position: fixed;
+  height: 20px;
+  width: 20px;
+  left:0px;
+  bottom: 0px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.network-mainnet {
+  background-color: greenyellow;
+}
+
+.network-rinkeby {
+  background-color: red;
 }
