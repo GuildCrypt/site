@@ -1,0 +1,29 @@
+{
+  "name": "site",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "engines": {
+    "node": "8.x"
+  },
+  "dependencies": {
+    "forever": "^0.15.3",
+    "forver": "^0.0.6",
+    "node-static": "^0.7.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aakilfernandes/site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aakilfernandes/site/issues"
+  },
+  "homepage": "https://github.com/aakilfernandes/site#readme"
+}
