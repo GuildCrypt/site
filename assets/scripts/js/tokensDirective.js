@@ -10,7 +10,7 @@ export default function tokensDirective ($timeout) {
       $scope.openTransferModal = (token) => {
         modalManager.open({
           modalSize: 'lg',
-          templateUrl: '/templates/modals/transfer',
+          templateUrl: '/templates/modals/transfer.html',
           data: token
         })
       }
