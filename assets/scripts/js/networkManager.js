@@ -7,13 +7,9 @@ class NetworkManager {
       const cookieString = document.cookie.split(';').find((cookieString) => {
          return cookieString.indexOf('network=') === 0
       })
-      if (!cookieString) {
-        return
-      }
       if (cookieString) {
         network = cookieString.replace('network=', '')
       }
-      network = cookieString.replace('network=', '')
     }
 
     this.network = network
