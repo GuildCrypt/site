@@ -72,6 +72,11 @@ export default function TransferModalController($scope, $timeout) {
       $scope.receiverHexUnprefixed = receiverHexUnprefixed.substr(2)
     }
     $scope.isToAddressGood = getIsAddressHexUnprefixed(receiverHexUnprefixed)
+
+    if ($scope.isToAddressGood) {
+      $scope.senderUrl = networkManager.getAddressUrl($scope.token.data.ownerHexUnprefixed)
+      $scope.receiverUrl = networkManager.getAddressUrl(receiverHexUnprefixed)
+    }
   })
 
   $scope.submit = () => {

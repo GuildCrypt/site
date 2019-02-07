@@ -10,14 +10,8 @@ class AccountsManager extends EventEmitter {
     super()
     this.isLoggedIn = false
     if (window.web3 && window.web3.eth.defaultAccount) {
-      this.login()
+      this.setAccounts()
     }
-  }
-
-  tryLogin() {
-    return web3Manager.fetchWeb3().then(() => {
-      return this.login()
-    })
   }
 
   login() {
@@ -25,18 +19,17 @@ class AccountsManager extends EventEmitter {
       throw new NoWeb3Error
     }
     ethereum.enable().then(() => {
-      this.setAccounts(window.web3.eth.defaultAccount, window.web3.eth.accounts)
-      this.isLoggedIn = true
+      this.setAccounts()
       this.emit('logged-in')
     })
   }
 
-  setAccounts(defaultAddressHexPrefixed, addressesHexPrefixed) {
-    this.defaultAddressHexUnprefixed = defaultAddressHexPrefixed.substr(2).toLowerCase()
-    this.addressesHexUnprefixed = addressesHexPrefixed.map((addressHexPrefixed) => {
+  setAccounts() {
+    this.isLoggedIn = true
+    this.defaultAddressHexUnprefixed = window.web3.eth.defaultAccount.substr(2).toLowerCase()
+    this.addressesHexUnprefixed = window.web3.eth.accounts.map((addressHexPrefixed) => {
       return addressHexPrefixed.substr(2).toLowerCase()
     })
-    console.log(this.addressesHexUnprefixed)
   }
 
   getIsControlling(addressHexUnprefixed) {

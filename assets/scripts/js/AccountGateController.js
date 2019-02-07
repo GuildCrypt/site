@@ -1,4 +1,4 @@
-import accountsManager from './accountsManager.js'
+import { default as accountsManager, NoWeb3Error} from './accountsManager.js'
 
 export default function AccountGateController($scope) {
   $scope.isTosConfirmed = false
@@ -6,6 +6,13 @@ export default function AccountGateController($scope) {
     if (!$scope.isTosConfirmed) {
       return
     }
-    return accountsManager.login()
+
+    try {
+      accountsManager.login()
+    } catch(error) {
+      if (error instanceof NoWeb3Error) {
+        $scope.isNoWeb3 = true
+      }
+    }
   }
 }

@@ -181,7 +181,7 @@ input, input:focus {
 .account {
   color: #333;
 }
-p a, .alert a {
+p a, .alert a, .table a {
   text-decoration: underline;
 }
 
@@ -872,12 +872,20 @@ input.search {
   margin-top: -1em;
 }
 
+.no-web3-notification {
+  margin-top: 20px;
+}
+
 input[type = "checkbox"] {
   margin-right: .5em;
 }
 
 label {
   margin-bottom: 0;
+}
+
+.ng-hide {
+  display: none;
 }
 
 /* Responsiveness */
@@ -1002,7 +1010,7 @@ label {
 }
 
 .network-mainnet {
-  background-color: greenyellow;
+  background-color: transparent;
 }
 
 .network-rinkeby {

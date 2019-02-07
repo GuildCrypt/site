@@ -33,11 +33,9 @@ app.directive('images', function () {
 })
 
 app.directive('networkToggle', function () {
-  console.log('x')
   return {
     templateUrl: `/templates/network-toggle.html`,
     link: function ($scope) {
-      console.log(networkManager)
       $scope.network = networkManager.network
       $scope.toggleNetwork = () => {
         if(!confirm('Toggle Network?')) {

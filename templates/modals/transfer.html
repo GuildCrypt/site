@@ -39,11 +39,11 @@
         </tr>
         <tr>
           <td>From</td>
-          <td>0x{{token.data.ownerHexUnprefixed}}</td>
+          <td><a ng-href="{{senderUrl}}" target="_blank">0x{{token.data.ownerHexUnprefixed}}</a></td>
         </tr>
         <tr>
           <td>To</td>
-          <td>0x{{receiverHexUnprefixed}}</td>
+          <td><a ng-href="{{receiverUrl}}" target="_blank">0x{{receiverHexUnprefixed}}</a></td>
         </tr>
       </table>
       <div class="alert alert-warning">
@@ -58,7 +58,7 @@
       <div class="alert alert-danger" ng-show="submittingError">{{submittingError.message}}</div>
     </div>
     <div ng-show="stage === 'confirming'" class="alert alert-info">
-      Your transaction has been broadcast. We're waiting for <a ng-href="{{transactionUrl}}" target="_blank">a confirmation from the Ethereum network</a>.
+      Your transaction has been broadcasted. We're waiting for <a ng-href="{{transactionUrl}}" target="_blank">a confirmation from the Ethereum network</a>.
     </div>
     <div ng-show="stage === 'confirmed'" class="alert alert-success">
       Success! Your transaction has been confirmed. Your account should be updated.
