@@ -181,7 +181,7 @@ input, input:focus {
 .account {
   color: #333;
 }
-p a, .alert a {
+p a, .alert a, .table a {
   text-decoration: underline;
 }
 
@@ -884,6 +884,10 @@ label {
   margin-bottom: 0;
 }
 
+.ng-hide {
+  display: none;
+}
+
 /* Responsiveness */
 
 @media screen and (max-width: 1200px) {
@@ -1006,7 +1010,7 @@ label {
 }
 
 .network-mainnet {
-  background-color: greenyellow;
+  background-color: transparent;
 }
 
 .network-rinkeby {

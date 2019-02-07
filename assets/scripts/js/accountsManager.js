@@ -30,7 +30,6 @@ class AccountsManager extends EventEmitter {
     this.addressesHexUnprefixed = window.web3.eth.accounts.map((addressHexPrefixed) => {
       return addressHexPrefixed.substr(2).toLowerCase()
     })
-    console.log(this.addressesHexUnprefixed)
   }
 
   getIsControlling(addressHexUnprefixed) {

@@ -51,6 +51,11 @@ class NetworkManager {
     return `https://${prefix}etherscan.io/tx/0x${transactionIdHexUnprefixed}`
   }
 
+  getAddressUrl(addressHexUnprefixed) {
+    const prefix = this.network === 'rinkeby' ? 'rinkeby.' : ''
+    return `https://${prefix}etherscan.io/address/0x${addressHexUnprefixed}`
+  }
+
 }
 
 export default new NetworkManager
