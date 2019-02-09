@@ -1,4 +1,5 @@
 import accountsManager from './accountsManager.js'
+import watchManager from './watchManager.js'
 
 export default class Token {
 
@@ -11,6 +12,8 @@ export default class Token {
     this.tokenizer = {
       name: 'Pat Liu'
     }
+    this.stringId = `oath.${this.oathForgeAddressHexUnprefixed}.${this.data.idNumber}`
+    this.isWatching = this.getIsWatching()
 
     if (accountsManager.isLoggedIn) {
       this.isUsers = this.getIsOwned()
@@ -46,6 +49,17 @@ export default class Token {
       throw new NotLoggedInError
     }
     return accountsManager.getIsControlling(this.data.ownerHexUnprefixed)
+  }
+
+  getIsWatching() {
+    return watchManager.getIsWatching(this.stringId)
+  }
+
+  setIsWatching(isWatching) {
+    if (watchManager.getUserEmailAddress()) {
+      return watchManager.setIsWatching(this.idString, isWatching)
+    }
+    return 
   }
 
 }

@@ -14,6 +14,12 @@ export default function tokensDirective ($timeout) {
           data: token
         })
       }
+
+      $scope.watch = (token) => {
+        if (token.getIsWatching()) {
+          token.setIsWatching()
+        }
+      }
     }
   }
 }

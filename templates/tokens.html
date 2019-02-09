@@ -14,7 +14,7 @@
           <a class="button" target="_blank" href="{{token.buyUrl}}">{{token.isUsers ? 'Sell' : 'Buy'}} Oath</a>
           <a class="button button-secondary ng-hide" ng-show="token.isUsers" target="_blank" ng-click="openTransferModal(token)">Transfer</a>
           <a class="button button-secondary" target="_blank" href="{{token.data.uriData.termsPdf}}">Terms</a>
-          <a class="button button-secondary" target="_blank" href="{{token.data.watchUrl}}">Watch</a>
+          <a class="button button-secondary" ng-click="watch(token)">Watch</a>
           <a class="button button-secondary" target="_blank" href="{{token.trackerUrl}}">Etherscan</a>
           <a class="button button-secondary" target="_blank" href="{{token.redeemUrl}}" ng-show="token.isUsers">Redeem</a>
         </div>
