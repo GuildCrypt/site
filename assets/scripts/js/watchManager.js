@@ -1,16 +1,27 @@
+import emailServerUrl from './emailServerUrl.js'
+import emailManager from './emailManager.js'
+
 class WatchManager {
-  constructor(emailServerUrl) {
-    this.emailServerUrl = emailServerUrl
+  getIsWatching(token) {
+    return localStorage.getItem(`isWatching.${token.stringId}`) === 'true'
   }
-  getUserEmailAddress() {
-    return localStorage.getItem('userEmailAddress')
-  }
-  getIsWatching(stringId) {
-    return localStorage.getItem(`isWatching.${stringId}`) === 'true'
-  }
-  setIsWatching(stringId, isWatching) {
-    return localStorage.setItem(`isWatching.${stringId}`, isWatching ? 'true' : 'false')
+  setIsWatching(token, isWatching) {
+    return fetch(`${emailServerUrl}/v0/watchlist/oath`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      mode: 'cors',
+      body: JSON.stringify({
+        isWatching: isWatching,
+        email: emailManager.get(),
+        oathForgeAddressHexUnprefixed: token.oathForgeAddressHexUnprefixed,
+        idNumber: token.data.idNumber
+      })
+    }).then(() => {
+      localStorage.setItem(`isWatching.${token.stringId}`, isWatching ? 'true' : 'false')
+    })
   }
 }
 
-export default new WatchManager('http://localhost:8080')
+export default new WatchManager()

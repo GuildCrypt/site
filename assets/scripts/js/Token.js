@@ -12,6 +12,7 @@ export default class Token {
     this.tokenizer = {
       name: 'Pat Liu'
     }
+    this.watchlistEndpoint = '/'
     this.stringId = `oath.${this.oathForgeAddressHexUnprefixed}.${this.data.idNumber}`
     this.isWatching = this.getIsWatching()
 
@@ -52,14 +53,16 @@ export default class Token {
   }
 
   getIsWatching() {
-    return watchManager.getIsWatching(this.stringId)
+    return watchManager.getIsWatching(this)
   }
 
   setIsWatching(isWatching) {
-    if (watchManager.getUserEmailAddress()) {
-      return watchManager.setIsWatching(this.idString, isWatching)
-    }
-    return 
+    this.isWatching = isWatching
+    watchManager.setIsWatching(this, isWatching)
+  }
+
+  toggleIsWatching() {
+    this.setIsWatching(!this.isWatching)
   }
 
 }

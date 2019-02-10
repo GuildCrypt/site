@@ -888,6 +888,13 @@ label {
   display: none;
 }
 
+.watch-icon {
+  opacity: .2;
+}
+.watch-icon.active {
+  opacity: 1;
+}
+
 /* Responsiveness */
 
 @media screen and (max-width: 1200px) {

@@ -5,6 +5,7 @@ import AccountGateController from './AccountGateController.js'
 import AccountTokensController from './AccountTokensController.js'
 import MarketplaceController from './MarketplaceController.js'
 import TransferModalController from './TransferModalController.js'
+import WatchEmailModalController from './WatchEmailModalController.js'
 
 import modalDirective from './modalDirective.js'
 import tokensDirective from './tokensDirective.js'
@@ -16,6 +17,7 @@ app.controller('AccountGateController', AccountGateController)
 app.controller('AccountTokensController', AccountTokensController)
 app.controller('MarketplaceController', MarketplaceController)
 app.controller('TransferModalController', TransferModalController)
+app.controller('WatchEmailModalController', WatchEmailModalController)
 
 app.directive('tokens', tokensDirective)
 app.directive('modal', modalDirective)

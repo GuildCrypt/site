@@ -1,4 +1,6 @@
 import modalManager from './modalManager.js'
+import emailManager from './emailManager.js'
+import watchManager from './watchManager.js'
 
 export default function tokensDirective ($timeout) {
   return {
@@ -15,9 +17,20 @@ export default function tokensDirective ($timeout) {
         })
       }
 
-      $scope.watch = (token) => {
-        if (token.getIsWatching()) {
-          token.setIsWatching()
+      $scope.toggleIsWatching = (token) => {
+        if(!token.isWatching && !emailManager.get()) {
+          modalManager.open({
+            modalSize: 'md',
+            templateUrl: '/templates/modals/watch-email.html',
+            data: token
+          }).then(() => {
+            if (emailManager.get()) {
+              token.toggleIsWatching()
+              $scope.$apply()
+            }
+          })
+        } else {
+          token.toggleIsWatching()
         }
       }
     }
