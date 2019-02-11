@@ -889,7 +889,7 @@ label {
 }
 
 .watch-icon {
-  opacity: .2;
+  opacity: .3;
 }
 .watch-icon.active {
   opacity: 1;
