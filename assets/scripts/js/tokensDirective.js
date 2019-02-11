@@ -33,6 +33,14 @@ export default function tokensDirective ($timeout) {
           token.toggleIsWatching()
         }
       }
+
+      $scope.redeem = (token) => {
+        modalManager.open({
+          modalSize: 'lg',
+          templateUrl: '/templates/modals/redeem.html',
+          data: token
+        })
+      }
     }
   }
 }

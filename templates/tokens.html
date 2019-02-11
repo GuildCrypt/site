@@ -19,7 +19,7 @@
             {{token.isWatching ? 'Watching': 'Watch'}}
           </a>
           <a class="button button-secondary" target="_blank" href="{{token.trackerUrl}}">Etherscan</a>
-          <a class="button button-secondary" target="_blank" href="{{token.redeemUrl}}" ng-show="token.isUsers">Redeem</a>
+          <a class="button button-secondary" ng-click="redeem(token)" ng-show="token.isUsers">Redeem</a>
         </div>
       </div>
     </div>

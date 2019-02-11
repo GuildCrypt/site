@@ -1,0 +1,31 @@
+<div class="modal-content" ng-controller="RedeemModalController">
+  <div class="modal-header">
+    <h4 class="modal-title">Redeem Oath #{{token.data.idNumber}}: {{token.data.uriData.name}}</h4>
+    <div ng-include="'/templates/modal-close.html'"></div>
+  </div>
+  <div class="modal-body">
+    <p>
+      To redeem this Oath, please email redemptions@guildcrypt.com with:
+    </p>
+    <ul>
+      <li>The id of the Oath you would like to redeem</li>
+      <li>A photo of the front of an ID issued by a US State or Federal Agency</li>
+    </ul>
+    <br/>
+    <p>
+      After verifying your ID, we will:
+    </p>
+    <ul>
+      <li>Send you an invoice for the delivery fee</li>
+      <li>Send you a form where you can burn the Oath and complete the redemption process</li>
+    </ul>
+    <br/>
+    <p>
+      Please allow 3-5 business days for a response
+    </p>
+    <br/>
+    <div class="alert alert-danger">
+      We will only ship to the address listed on your ID.
+    </div>
+  </div>
+</div>
