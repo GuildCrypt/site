@@ -965,6 +965,7 @@ label {
       display: none;
     }
     .dib .hook {
+      padding: 50px 30px;
       height: auto;
       width: 100%;
     }
