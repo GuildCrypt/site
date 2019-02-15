@@ -961,6 +961,10 @@ label {
       min-height: auto;
       padding-bottom: 0;
     }
+
+    .dib h1 {
+      font-size: 36px;
+    }
     .dib-graphic {
       display: none;
     }
