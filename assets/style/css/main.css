@@ -699,7 +699,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .dib {
   overflow: hidden;
-  height: calc(100% - 300px);
+  min-height: calc(100% - 300px);
   color: #333;
 }
 
