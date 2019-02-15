@@ -74,6 +74,9 @@ input, input:focus {
     line-height: 4em;
     cursor: pointer;
 }
+button.button {
+  line-height: 1.5em;
+}
 
 .button.button-secondary {
   background-color: #eee;
@@ -950,6 +953,13 @@ label {
 
     .section.checkers .col-xs-4 {
         min-height: 0px;
+    }
+
+    .dib-graphic {
+      display: none;
+    }
+    .dib .hook {
+      width: 100%
     }
 
 }

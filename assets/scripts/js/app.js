@@ -7,6 +7,7 @@ import MarketplaceController from './MarketplaceController.js'
 import TransferModalController from './TransferModalController.js'
 import WatchEmailModalController from './WatchEmailModalController.js'
 import RedeemModalController from './RedeemModalController.js'
+import DexInABoxController from './DexInABoxController.js'
 
 import modalDirective from './modalDirective.js'
 import tokensDirective from './tokensDirective.js'
@@ -20,6 +21,7 @@ app.controller('MarketplaceController', MarketplaceController)
 app.controller('TransferModalController', TransferModalController)
 app.controller('WatchEmailModalController', WatchEmailModalController)
 app.controller('RedeemModalController', RedeemModalController)
+app.controller('DexInABoxController', DexInABoxController)
 
 app.directive('tokens', tokensDirective)
 app.directive('modal', modalDirective)

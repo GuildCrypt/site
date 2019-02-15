@@ -27,13 +27,9 @@
 
 		<!-- Scripts -->
 
-		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="../assets/scripts/js/main.js"></script>
-
 	</head>
 
-	<body>
+	<body ng-app="app">
 
 		<!-- Header -->
 
@@ -58,21 +54,22 @@
     <!-- How it Works -->
     <div class="section gradient dib">
 			<div class="container banner">
-				<div class="hook">
+				<div class="hook" ng-controller="DexInABoxController">
 	        <h1>DEX-in-a-Box</h1>
-					<p>Running your own Decentralized Exchange should be as easy as running a Wordpress site.</p>
+					<p>Running your own Decentralized Exchange should be as easy.</p>
 					<br>
 					<p>Earn trading fees and power the decentralized web.</p>
-					<br/>
 					<hr/>
 					<br/>
-					<input type="text" class="form-control" placeholder="First Name" autocomplete="firstNameAscii">
+					<form ng-submit="submit($event)" ng-disabled="isSubmitting">
+					<input type="text" class="form-control" required placeholder="First Name" autocomplete="given-name" ng-model="firstName" ng-disabled="isSubmitting">
 					<br/>
-					<input type="text" class="form-control" placeholder="Last Name" autocomplete="lastNameAscii">
+					<input type="text" class="form-control" required placeholder="Last Name" autocomplete="family-name" ng-model="lastName" ng-disabled="isSubmitting">
 					<br/>
-					<input type="email" class="form-control" placeholder="Email" autocomplete="email">
+					<input type="email" class="form-control" required placeholder="Email" autocomplete="email" ng-model="email" ng-disabled="isSubmitting">
 					<br/>
-					<a class="button">Submit</a>
+					<button class="button" ng-disabled="isSubmitting">Get More Info</button>
+					<form>
 				</div>
         <img src="../assets/media/images/dex-in-a-box.png" class="dib-graphic"/>
 			</div>
@@ -111,6 +108,14 @@
 			</div>
 			<img src="../assets/media/images/icon-black.svg" class="footer-icon"/>
 		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js" integrity="sha384-CJ+cVuy4UuycwlS2fnvOLZAjXavw5D+nRzvnajUytjRGfDXIA1hQUFPvNoOseK7K" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" integrity="sha384-du5g06MyvN/hl4HwDjcFNmKiX3lFDaekrtlW37Bs3hY+FAKWFpVrZwlP/bh20AXW" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js" integrity="sha384-+CaKnwteOIsdVqN3DxF1ZKOTwjH572ZPyEfKv6G4h+fqzUKXZ4l34FKpmcWdZHDY" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha384-U/+EF1mNzvy5eahP9DeB32duTkAmXrePwnRWtuSh1C/bHHhyR1KZCr/aGZBkctpY" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="../assets/scripts/js/main.js"></script>
+		<script type="module" src="../assets/scripts/js/app.js"></script>
 	</body>
 
 </html>
