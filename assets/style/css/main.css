@@ -694,15 +694,54 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
 }
 
+.dib {
+  overflow: hidden;
+  height: calc(100% - 300px);
+  color: #333;
+}
+
+.dib h1 {
+  font-size: 48px;
+  color: rgba(105,28,43,1) !important;
+  text-shadow: 0px 0px 5px rgba(0,0,0,0.25);
+}
+
+.dib .banner {
+  position: relative;
+}
+
+.dib-graphic {
+  width: 70%;
+  position: absolute;
+  right: -100px;
+  z-index: 100;
+  top: 0;
+}
+
+.dib .hook {
+  padding: 60px;
+  border-radius: 4px;
+  border: 2px;
+  height: 100000px;
+  width: 55%;
+  background: -moz-linear-gradient(left, #ffffff 0%, #cccccc 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #fffffffff), color-stop(100%, #cccccc));
+  background: -webkit-linear-gradient(left, #ffffff 0%, #cccccc 100%);
+  background: -o-linear-gradient(left, #ffffff 0%, #cccccc 100%);
+  background: -ms-linear-gradient(left, #ffffff 0%, #cccccc 100%);
+  background: linear-gradient(to right, #ffffff 0%, #cccccc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=1 );
+}
+
 input.search {
-    height: 30px;
-    margin-top: 5px;
-    float: right;
-    width: 300px;
-    padding: 5px;
-    padding-left: 30px;
-    border-radius: 5px;
-    color: #444;
+  height: 30px;
+  margin-top: 5px;
+  float: right;
+  width: 300px;
+  padding: 5px;
+  padding-left: 30px;
+  border-radius: 5px;
+  color: #444;
 }
 
 .search i {
