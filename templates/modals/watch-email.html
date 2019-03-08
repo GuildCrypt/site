@@ -1,0 +1,13 @@
+<div class="modal-content" ng-controller="WatchEmailModalController">
+  <div class="modal-header">
+    <h4 class="modal-title">Watch Oath #{{token.data.idNumber}}: {{token.data.uriData.name}}</h4>
+    <div ng-include="'/templates/modal-close.html'"></div>
+  </div>
+  <div class="modal-body">
+    <p>Let us know your email address, and we'll let you know when this token is updated</p>
+    <input type="email" class="form-control" ng-model="email" autocomplete="email"/>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="submit()" ng-disabled="!isEmailGood">Submit</button>
+  </div>
+</div>
