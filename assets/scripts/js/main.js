@@ -79,8 +79,8 @@ $(document).ready(function() {
 
 	$("input.search").keypress(function() {
 
-		$(".section.marketplace .row.upper-row").hide();
-		$('.section.marketplace h3.title:contains(" '+ $(this).val() +'")').closest(".upper-row").show();
+		$(".section.browse .row.upper-row").hide();
+		$('.section.browse h3.title:contains(" '+ $(this).val() +'")').closest(".upper-row").show();
 
 	});
 

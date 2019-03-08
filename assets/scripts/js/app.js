@@ -3,7 +3,7 @@ import networkManager from './networkManager.js'
 import AccountController from './AccountController.js'
 import AccountGateController from './AccountGateController.js'
 import AccountTokensController from './AccountTokensController.js'
-import MarketplaceController from './MarketplaceController.js'
+import BrowseController from './BrowseController.js'
 import TransferModalController from './TransferModalController.js'
 import WatchEmailModalController from './WatchEmailModalController.js'
 import RedeemModalController from './RedeemModalController.js'
@@ -17,7 +17,7 @@ const app = angular.module('app', [])
 app.controller('AccountController', AccountController)
 app.controller('AccountGateController', AccountGateController)
 app.controller('AccountTokensController', AccountTokensController)
-app.controller('MarketplaceController', MarketplaceController)
+app.controller('BrowseController', BrowseController)
 app.controller('TransferModalController', TransferModalController)
 app.controller('WatchEmailModalController', WatchEmailModalController)
 app.controller('RedeemModalController', RedeemModalController)

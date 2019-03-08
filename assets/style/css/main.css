@@ -690,7 +690,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 10px;
 }
 
-/* Marketplace */
+/* Browse */
 
 .section.search {
     position: relative;
@@ -755,7 +755,7 @@ input.search {
     color: #370F39;
 }
 
-.section.marketplace img {
+.section.browse img {
     max-width: 260px;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
@@ -763,7 +763,7 @@ input.search {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
-.section.marketplace .row:not(:last-child) {
+.section.browse .row:not(:last-child) {
     margin-bottom: 50px;
 }
 
@@ -978,7 +978,7 @@ label {
 
 @media screen and (max-width: 800px) {
 
-    .section.marketplace h3 {
+    .section.browse h3 {
         text-align: center;
         position: static;
         padding: 0;
