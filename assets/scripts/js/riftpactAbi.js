@@ -1,13 +1,31 @@
 export default [
   {
     "constant": true,
-    "inputs": [
+    "inputs": [],
+    "name": "topBidder",
+    "outputs": [
       {
-        "name": "interfaceId",
-        "type": "bytes4"
+        "name": "",
+        "type": "address"
       }
     ],
-    "name": "supportsInterface",
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "approve",
     "outputs": [
       {
         "name": "",
@@ -15,76 +33,21 @@ export default [
       }
     ],
     "payable": false,
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "constant": true,
     "inputs": [],
-    "name": "name",
+    "name": "auctionStartedAt",
     "outputs": [
       {
         "name": "",
-        "type": "string"
+        "type": "uint256"
       }
     ],
     "payable": false,
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "getApproved",
-    "outputs": [
-      {
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "approve",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      },
-      {
-        "name": "tokenURI",
-        "type": "string"
-      }
-    ],
-    "name": "setTokenURI",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -103,17 +66,12 @@ export default [
   },
   {
     "constant": true,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "sunsetInitiatedAt",
+    "inputs": [],
+    "name": "currencyAddress",
     "outputs": [
       {
         "name": "",
-        "type": "uint256"
+        "type": "address"
       }
     ],
     "payable": false,
@@ -132,33 +90,90 @@ export default [
         "type": "address"
       },
       {
-        "name": "tokenId",
+        "name": "value",
         "type": "uint256"
       }
     ],
     "name": "transferFrom",
-    "outputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "payable": false,
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "minBidDeltaPermille",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "auctionAllowedAt",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
     "constant": false,
     "inputs": [
       {
-        "name": "from",
+        "name": "spender",
         "type": "address"
       },
       {
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "name": "tokenId",
+        "name": "addedValue",
         "type": "uint256"
       }
     ],
-    "name": "safeTransferFrom",
+    "name": "increaseAllowance",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "minBid",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "completeAuction",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
@@ -166,21 +181,34 @@ export default [
   },
   {
     "constant": true,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "ownerOf",
+    "inputs": [],
+    "name": "topBid",
     "outputs": [
       {
         "name": "",
-        "type": "address"
+        "type": "uint256"
       }
     ],
     "payable": false,
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "payout",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "startAuction",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -212,32 +240,27 @@ export default [
     "type": "function"
   },
   {
-    "constant": true,
-    "inputs": [],
-    "name": "nextTokenId",
-    "outputs": [
+    "constant": false,
+    "inputs": [
       {
-        "name": "",
+        "name": "bid",
         "type": "uint256"
       }
     ],
+    "name": "submitBid",
+    "outputs": [],
     "payable": false,
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "constant": true,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "sunsetLength",
+    "inputs": [],
+    "name": "parentToken",
     "outputs": [
       {
         "name": "",
-        "type": "uint256"
+        "type": "address"
       }
     ],
     "payable": false,
@@ -259,20 +282,6 @@ export default [
     "type": "function"
   },
   {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "initiateSunset",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "constant": true,
     "inputs": [],
     "name": "isOwner",
@@ -280,20 +289,6 @@ export default [
       {
         "name": "",
         "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "symbol",
-    "outputs": [
-      {
-        "name": "",
-        "type": "string"
       }
     ],
     "payable": false,
@@ -322,42 +317,21 @@ export default [
     "constant": false,
     "inputs": [
       {
-        "name": "to",
+        "name": "spender",
         "type": "address"
       },
       {
-        "name": "approved",
+        "name": "subtractedValue",
+        "type": "uint256"
+      }
+    ],
+    "name": "decreaseAllowance",
+    "outputs": [
+      {
+        "name": "",
         "type": "bool"
       }
     ],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "from",
-        "type": "address"
-      },
-      {
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      },
-      {
-        "name": "_data",
-        "type": "bytes"
-      }
-    ],
-    "name": "safeTransferFrom",
-    "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -370,33 +344,43 @@ export default [
         "type": "address"
       },
       {
-        "name": "tokenURI",
-        "type": "string"
-      },
-      {
-        "name": "__sunsetLength",
+        "name": "value",
         "type": "uint256"
       }
     ],
-    "name": "mint",
-    "outputs": [],
+    "name": "transfer",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "constant": true,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "tokenURI",
+    "inputs": [],
+    "name": "minAuctionCompleteWait",
     "outputs": [
       {
         "name": "",
-        "type": "string"
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "parentTokenId",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -411,15 +395,15 @@ export default [
         "type": "address"
       },
       {
-        "name": "operator",
+        "name": "spender",
         "type": "address"
       }
     ],
-    "name": "isApprovedForAll",
+    "name": "allowance",
     "outputs": [
       {
         "name": "",
-        "type": "bool"
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -427,32 +411,9 @@ export default [
     "type": "function"
   },
   {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      },
-      {
-        "name": "__redemptionCodeHash",
-        "type": "bytes32"
-      }
-    ],
-    "name": "submitRedemptionCodeHash",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "constant": true,
-    "inputs": [
-      {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "redemptionCodeHashSubmittedAt",
+    "inputs": [],
+    "name": "auctionCompletedAt",
     "outputs": [
       {
         "name": "",
@@ -481,25 +442,6 @@ export default [
     "constant": true,
     "inputs": [
       {
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "redemptionCodeHash",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
         "name": "to",
         "type": "address"
       }
@@ -518,12 +460,32 @@ export default [
   {
     "inputs": [
       {
-        "name": "name",
-        "type": "string"
+        "name": "__parentToken",
+        "type": "address"
       },
       {
-        "name": "symbol",
-        "type": "string"
+        "name": "__parentTokenId",
+        "type": "uint256"
+      },
+      {
+        "name": "__totalSupply",
+        "type": "uint256"
+      },
+      {
+        "name": "__currencyAddress",
+        "type": "address"
+      },
+      {
+        "name": "__auctionAllowedAt",
+        "type": "uint256"
+      },
+      {
+        "name": "__minAuctionCompleteWait",
+        "type": "uint256"
+      },
+      {
+        "name": "__minBidDeltaPermille",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -532,31 +494,59 @@ export default [
   },
   {
     "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "SunsetInitiated",
+    "inputs": [],
+    "name": "AuctionStarted",
     "type": "event"
   },
   {
     "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
-        "name": "tokenId",
-        "type": "uint256"
+        "indexed": false,
+        "name": "winner",
+        "type": "address"
       },
       {
         "indexed": false,
-        "name": "redemptionCodeHash",
-        "type": "bytes32"
+        "name": "bid",
+        "type": "uint256"
       }
     ],
-    "name": "RedemptionCodeHashSubmitted",
+    "name": "AuctionCompleted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "bidder",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "bid",
+        "type": "uint256"
+      }
+    ],
+    "name": "Bid",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "balance",
+        "type": "uint256"
+      }
+    ],
+    "name": "Payout",
     "type": "event"
   },
   {
@@ -590,8 +580,8 @@ export default [
         "type": "address"
       },
       {
-        "indexed": true,
-        "name": "tokenId",
+        "indexed": false,
+        "name": "value",
         "type": "uint256"
       }
     ],
@@ -608,38 +598,16 @@ export default [
       },
       {
         "indexed": true,
-        "name": "approved",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "Approval",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "owner",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "name": "operator",
+        "name": "spender",
         "type": "address"
       },
       {
         "indexed": false,
-        "name": "approved",
-        "type": "bool"
+        "name": "value",
+        "type": "uint256"
       }
     ],
-    "name": "ApprovalForAll",
+    "name": "Approval",
     "type": "event"
   }
 ]

@@ -1,6 +1,6 @@
-<div class="modal-content" ng-controller="TransferModalController">
+<div class="modal-content" ng-controller="TransferRiftpactBalanceModalController">
   <div class="modal-header">
-    <h4 class="modal-title">Transfer Oath #{{token.data.idNumber}}: {{token.data.uriData.name}}</h4>
+    <h4 class="modal-title">Transfer Oath #{{token.data.idNumber}} Pieces: {{token.data.uriData.name}}</h4>
     <div ng-include="'/templates/modal-close.html'"></div>
   </div>
   <div class="modal-body">
@@ -12,18 +12,21 @@
       <div class="alert alert-danger" ng-show="networkCheckError">{{networkCheckError.message}}</div>
     </div>
     <div ng-show="stage === 'start'">
-      <h5>Who would you like to send the Oath to?</h5>
+      <h5>Who would you like to send the Oath Pieces to?</h5>
       <div class="input-group">
         <span class="input-group-addon">0x</span>
-        <input type="text" class="form-control" ng-model="receiverHexUnprefixed"/>
+        <input type="text" class="form-control" ng-model="receiverAddressHexUnprefixed"/>
       </div>
+      <hr/>
+      <h5>How many Oath Pieces?</h5>
+      <input type="number" class="form-control" ng-model="amountNumber" min="1" max="{{riftpactBalanceNumber}}"/>
     </div>
     <div ng-show="stage === 'confirmation'">
       <h5>Confirm the details</h5>
       <table class="table">
         <tr>
           <td>Token Type</td>
-          <td>Oath</td>
+          <td>Oath Pieces</td>
         </tr>
         <tr>
           <td>Token Id</td>
@@ -39,17 +42,21 @@
         </tr>
         <tr>
           <td>From</td>
-          <td><a ng-href="{{senderUrl}}" target="_blank">0x{{token.data.ownerHexUnprefixed}}</a></td>
+          <td><a ng-href="{{senderUrl}}" target="_blank">0x{{senderAddressHexUnprefixed}}</a></td>
         </tr>
         <tr>
           <td>To</td>
-          <td><a ng-href="{{receiverUrl}}" target="_blank">0x{{receiverHexUnprefixed}}</a></td>
+          <td><a ng-href="{{receiverUrl}}" target="_blank">0x{{receiverAddressHexUnprefixed}}</a></td>
+        </tr>
+        <tr>
+          <td>Amount</td>
+          <td>{{amountNumber}}</td>
         </tr>
       </table>
       <div class="alert alert-warning">
         <label>
           <input type="checkbox" ng-model="isWarned" />
-          I understand this is final, and neither GuildCrypt nor the Tokenizer can revert this transaction.
+          I understand this is final, and neither GuildCrypt nor anyone else revert this transaction.
         </label>
       </div>
     </div>
@@ -68,7 +75,7 @@
     <button class="btn btn-primary" ng-click="checkNetwork()">Try Again</button>
   </div>
   <div class="modal-footer" ng-show="stage === 'start'">
-    <button class="btn btn-primary" ng-disabled="!isToAddressGood" ng-click="stage = 'confirmation'">Next</button>
+    <button class="btn btn-primary" ng-disabled="!isReceiverAddressGood || !isAmountNumberGood" ng-click="stage = 'confirmation'">Next</button>
   </div>
   <div class="modal-footer" ng-show="stage === 'confirmation'" >
     <button class="btn" ng-click="stage = 'start'">Back</button>

@@ -1,0 +1,30 @@
+<div class="row vertical-align upper-row token">
+  <div class="col-xs-4 token-image" images="token.data.uriData.images">
+  </div>
+  <div class="col-xs-8 vert-center">
+  <div class="container">
+    <div>
+      <h3 class="title">#{{token.data.idNumber}}: {{token.data.uriData.name}}</h3>
+      <span class="badge badge-secondary ng-hide" ng-show="!token.riftpactData">Oath</span>
+      <span class="badge badge-secondary ng-hide" ng-show="token.riftpactData">{{token.riftpactData.totalSupplyNumber | numeric}} Oath Pieces</span>
+      <p>{{token.data.uriData.description}}</p>
+      <p>Sunset length of {{token.getPrettySunsetLength()}}</p>
+      <div ng-if="token.riftpactData">
+        Auction Date: {{token.getPrettyAuctionAllowedAt()}}
+      </div>
+      <div ng-if="riftpactBalanceNumber">
+        Balance: {{riftpactBalanceNumber | numeric}}
+      </div>
+    </div>
+    <div class="token-buttons">
+      <a class="button button-secondary ng-hide" ng-show="token.isUserOathOwner" target="_blank" ng-click="openTransferOathModal()">Transfer</a>
+      <a class="button button-secondary ng-hide" ng-show="riftpactBalanceNumber > 0" target="_blank" ng-click="openTransferRiftpactBalanceModal()">Transfer</a>
+      <a class="button button-secondary" ng-click="toggleIsWatching(token)">
+        <i class="far fa-check-square watch-icon {{token.isWatching ? 'active': ''}}"></i>&nbsp;
+        {{token.isWatching ? 'Watching': 'Watch'}}
+      </a>
+      <a class="button button-secondary" target="_blank" href="{{token.trackerUrl}}">Etherscan</a>
+      <a class="button" target="_blank" href="{{token.buyUrl}}" ng-if="!token.riftpactData">{{token.isUsers ? 'Sell' : 'Buy'}} Oath</a>
+    </div>
+  </div>
+</div>

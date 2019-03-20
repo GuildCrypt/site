@@ -29,11 +29,19 @@ class NetworkManager {
     window.location.reload()
   }
 
-  getOathForgeAddressHexUnprefixed() {
+  getOathforgeAddressHexUnprefixed() {
     if (this.network === 'mainnet') {
       return 'a307b905140c82b37f2d7d806ef9d8858d30ac87'
     } else if (this.network === 'rinkeby') {
       return '8466730da0d53ceec0d1f564dd462713e676fca6'
+    }
+  }
+
+  getRiftpactforgeAddressHexUnprefixed() {
+    if (this.network === 'mainnet') {
+      return 'd7b4a7d2bb0ffa29a7d2f17cd6b7e176c48060a6'
+    } else if (this.network === 'rinkeby') {
+      return 'd7b4a7d2bb0ffa29a7d2f17cd6b7e176c48060a6'
     }
   }
 

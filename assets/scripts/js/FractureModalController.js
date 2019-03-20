@@ -21,11 +21,13 @@ function waitForConfirmation(transactionIdHexUnprefixed) {
   })
 }
 
-export default function TransferModalController($scope, $timeout) {
+export default function FractureModalController($scope, $timeout) {
   $scope.stage = 'networkCheck'
   $scope.token = $scope.options.data
 
   let oathForge
+
+  $scope.lockupDaysString = '90'
 
   $scope.checkNetwork = () => {
     $scope.networkCheckError = null
@@ -63,21 +65,6 @@ export default function TransferModalController($scope, $timeout) {
     }
   })
 
-  $scope.$watch('receiverHexUnprefixed', (receiverHexUnprefixed) => {
-    if (!receiverHexUnprefixed) {
-      $scope.isToAddressGood = false
-      return
-    }
-    if (receiverHexUnprefixed.indexOf('0x') === 0) {
-      $scope.receiverHexUnprefixed = receiverHexUnprefixed.substr(2)
-    }
-    $scope.isToAddressGood = getIsAddressHexUnprefixed(receiverHexUnprefixed)
-
-    if ($scope.isToAddressGood) {
-      $scope.senderUrl = networkManager.getAddressUrl($scope.token.data.ownerHexUnprefixed)
-      $scope.receiverUrl = networkManager.getAddressUrl(receiverHexUnprefixed)
-    }
-  })
 
   $scope.submit = () => {
     $scope.stage = 'submitting'

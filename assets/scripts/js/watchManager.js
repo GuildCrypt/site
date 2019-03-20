@@ -15,7 +15,7 @@ class WatchManager {
       body: JSON.stringify({
         isWatching: isWatching,
         email: emailManager.get(),
-        oathForgeAddressHexUnprefixed: token.oathForgeAddressHexUnprefixed,
+        oathforgeAddressHexUnprefixed: token.oathforgeAddressHexUnprefixed,
         idNumber: token.data.idNumber
       })
     }).then(() => {

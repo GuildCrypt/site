@@ -11,19 +11,19 @@ class Web3Manager {
     }
 
     return new Promise((resolve, reject) => {
-      if (window.ethereum) {
-          this.web3 = new Web3(ethereum)
-          ethereum.enable().then(() => {
-            resolve(this.web3)
-          }, (error) => {
-            reject(new CouldNotEnableEthereumError(error.message))
-          })
-        } else if (window.web3) {
-          resolve(window.web3)
-        }
-        else {
-          reject(new NoEthereumWalletDetectedError('No ethereum wallet detected'))
-        }
+      if (window.web3) {
+        resolve(window.web3)
+      }
+      else if (window.ethereum) {
+        this.web3 = new Web3(ethereum)
+        ethereum.enable().then(() => {
+          resolve(this.web3)
+        }, (error) => {
+          reject(new CouldNotEnableEthereumError(error.message))
+        })
+      } else {
+        reject(new NoEthereumWalletDetectedError('No ethereum wallet detected'))
+      }
     })
   }
 
