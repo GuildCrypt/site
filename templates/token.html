@@ -12,7 +12,7 @@
       <div ng-if="token.riftpactData">
         Auction Date: {{token.getPrettyAuctionAllowedAt()}}
       </div>
-      <div ng-if="riftpactBalanceNumber">
+      <div ng-if="riftpactBalanceNumber !== undefined">
         Balance: {{riftpactBalanceNumber | numeric}}
       </div>
     </div>
