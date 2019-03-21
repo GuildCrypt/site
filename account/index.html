@@ -55,7 +55,8 @@
 			</div>
 			<div>
 				<div ng-if="isLoggedIn" ng-controller="AccountTokensController" class="ng-hide" ng-show="isLoggedIn">
-					<h1>My Oaths</h1>
+					<h1>My Account</h1>
+					<hr/>
 					<p class="ng-hide" ng-show="tokens && tokens.length === 0">Nothing here. You can buy Oaths from the <a href="/browse/">browse</a>.</p>
 					<div tokens="tokens"></div>
 				</div>
