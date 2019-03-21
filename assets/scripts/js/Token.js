@@ -136,6 +136,9 @@ export default class Token {
       throw new NotLoggedInError
     }
     const riftpactData = await this.fetchRiftpactData()
+    if (!riftpactData) {
+      throw new Error
+    }
     return fetchRiftpact(riftpactData.addressHexUnprefixed)
   }
 

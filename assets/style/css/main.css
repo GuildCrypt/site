@@ -755,7 +755,7 @@ input.search {
     color: #370F39;
 }
 
-.section.browse img {
+.tokens img {
     max-width: 260px;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
@@ -763,7 +763,7 @@ input.search {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
-.section.browse .row:not(:last-child) {
+.tokens .row:not(:last-child) {
     margin-bottom: 50px;
 }
 
