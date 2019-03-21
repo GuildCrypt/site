@@ -41,10 +41,28 @@
 			</div>
 		</div>
 		<!-- Account -->
+		<div class="section gradient search">
+	    <div class="cover">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-1"></div>
+						<div class="col-xs-5">
+							<h1>My Account</h1>
+						</div>
+						<div class="col-xs-5">
+							<!--
+							<input type="search" class="search">
+							<i class="fa fa-search"></i>
+							-->
+						</div>
+						<div class="col-xs-1"></div>
+					</div>
+				</div>
+	    </div>
+	  </div>
 		<div class="section account" ng-controller="AccountController">
 			<div ng-if="!isLoggedIn" class="ng-hide" ng-show="!isLoggedIn">
 				<div ng-controller="AccountGateController" class="gate container">
-					<h3>My Account</h3>
 					<p>Oath and OathPieces Manager</p>
 					<label class="tos"><input type="checkbox" required class="tos-checkbox" ng-model="isTosConfirmed"> I agree to the Terms of Service</label>
 					<div class="button" ng-click="login()" ng-disabled="!isTosConfirmed">Login with Ethereum</div>
@@ -55,8 +73,6 @@
 			</div>
 			<div>
 				<div ng-if="isLoggedIn" ng-controller="AccountTokensController" class="ng-hide" ng-show="isLoggedIn">
-					<h1>My Account</h1>
-					<hr/>
 					<p class="ng-hide" ng-show="tokens && tokens.length === 0">Nothing here. You can buy Oaths from the <a href="/browse/">browse</a>.</p>
 					<div tokens="tokens"></div>
 				</div>
