@@ -768,6 +768,7 @@ input.search {
 }
 
 .token {
+    color: #333;
     text-align: left;
     margin-bottom: 40px;
 }
