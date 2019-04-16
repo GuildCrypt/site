@@ -1,8 +1,7 @@
 <div class="row vertical-align upper-row token">
   <div class="col-xs-4 token-image" images="token.data.uriData.images">
   </div>
-  <div class="col-xs-8 vert-center">
-  <div class="container">
+  <div class="col-xs-8">
     <div>
       <h3 class="title">#{{token.data.idNumber}}: {{token.data.uriData.name}}</h3>
       <span class="badge badge-secondary ng-hide" ng-show="!token.riftpactData">Oath</span>
@@ -25,6 +24,7 @@
       </a>
       <a class="button button-secondary" target="_blank" href="{{token.trackerUrl}}">Etherscan</a>
       <a class="button" target="_blank" href="{{token.buyUrl}}" ng-if="!token.riftpactData">{{token.isUsers ? 'Sell' : 'Buy'}} Oath</a>
+      <a class="button" target="_blank" ng-if="token.riftpactData" ng-click="openTradeWindow()">Buy/Sell Oath Pieces</a>
     </div>
   </div>
 </div>

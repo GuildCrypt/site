@@ -2,6 +2,7 @@ import modalManager from './modalManager.js'
 import emailManager from './emailManager.js'
 import watchManager from './watchManager.js'
 import accountsManager from './accountsManager.js'
+import networkManager from './networkManager.js'
 
 export default function tokenDirective () {
   return {
@@ -67,6 +68,21 @@ export default function tokenDirective () {
           })
         }
       })
+
+      $scope.openTradeWindow = async () => {
+        const baseAssetLabel = `${token.data.uriData.name} Oath Pieces`
+        const quoteAssetLabel = 'DAI'
+
+        const riftpactData = await token.fetchRiftpactData()
+        const baseAssetAddressHexUnprefixed = riftpactData.addressHexUnprefixed
+        const quoteAssetAddressHexUnprefixed = networkManager.getDaiAddressHexUnprefixed()
+
+        const left = (screen.availWidth / 2) - 400
+        const top = (screen.availHeight / 2) - 400
+
+        const url = `/trade?${(new Date).getTime()}#${encodeURI(baseAssetLabel)}/${encodeURI(quoteAssetLabel)}/${baseAssetAddressHexUnprefixed}/${quoteAssetAddressHexUnprefixed}`
+        window.open(url, 'trade', `height=800,width=800,toolbar=no,status=no,location=no,menubar=no,top=${top},left=${left}`)
+      }
 
     }
   }

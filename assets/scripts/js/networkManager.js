@@ -45,6 +45,22 @@ class NetworkManager {
     }
   }
 
+  getZocrAddressHexUnprefixed() {
+    if (this.network === 'mainnet') {
+      return '02cfb71048a67a2a34b588b3e39f29d6434b6f67'
+    } else if (this.network === 'rinkeby') {
+      return '02cfb71048a67a2a34b588b3e39f29d6434b6f67'
+    }
+  }
+
+  getDaiAddressHexUnprefixed() {
+    if (this.network === 'mainnet') {
+      return '89d24a6b4ccb1b6faa2625fe562bdd9a23260359'
+    } else if (this.network === 'rinkeby') {
+      return 'e84a3d3c9ee3a8e44be4148982c3b1594b59f5a7'
+    }
+  }
+
   setNetworkVersion(network) {
     if (network === 'mainnet') {
       this.networkVersion = '1'
