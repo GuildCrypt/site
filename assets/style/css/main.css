@@ -314,6 +314,12 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 216px;
 }
 
+@media screen and (max-width: 768px) {
+  .checkers .checker img {
+    margin: 30px 0;
+  }
+}
+
 .checkers .checker h4 {
   color: rgba(105,28,43,1);
   letter-spacing: 1px;
