@@ -64,7 +64,7 @@
 			<div ng-if="!isLoggedIn" class="ng-hide" ng-show="!isLoggedIn">
 				<div ng-controller="AccountGateController" class="gate container">
 					<p>Oath and OathPieces Manager</p>
-					<label class="tos"><input type="checkbox" required class="tos-checkbox" ng-model="isTosConfirmed"> I agree to the Terms of Service</label>
+					<label class="tos"><input type="checkbox" required class="tos-checkbox" ng-model="isTosConfirmed"> I agree to the <a href="/tos.pdf" target="_blank" style="text-decoration:underline">Terms of Service</a></label>
 					<div class="button" ng-click="login()" ng-disabled="!isTosConfirmed">Login with Ethereum</div>
 					<div class="alert alert-danger ng-hide no-web3-notification" ng-show="isNoWeb3">
 						Your browser doesn't currently have access to Ethereum. Please install <a target="_blank" href="https://metamask.io/">Metamask</a> to gain access to Ethereum.
@@ -101,6 +101,7 @@
 					<div class="col-xs-3">
 						<h5>Legal</h5>
 						<br>
+						<p><a href="/tos.pdf" target="_blank">Terms of Service</a></p>
 						<p>Copyright &copy; GuildCrypt 2018.</p>
 						<p>All rights reserved.</p>
 					</div>
