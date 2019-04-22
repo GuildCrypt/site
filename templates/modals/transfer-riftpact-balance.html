@@ -72,16 +72,16 @@
     </div>
   </div>
   <div class="modal-footer" ng-show="stage === 'networkCheck' && networkCheckError">
-    <button class="btn btn-primary" ng-click="checkNetwork()">Try Again</button>
+    <button class="btn btn-gold" ng-click="checkNetwork()">Try Again</button>
   </div>
   <div class="modal-footer" ng-show="stage === 'start'">
-    <button class="btn btn-primary" ng-disabled="!isReceiverAddressGood || !isAmountNumberGood" ng-click="stage = 'confirmation'">Next</button>
+    <button class="btn btn-gold" ng-disabled="!isReceiverAddressGood || !isAmountNumberGood" ng-click="stage = 'confirmation'">Next</button>
   </div>
   <div class="modal-footer" ng-show="stage === 'confirmation'" >
-    <button class="btn" ng-click="stage = 'start'">Back</button>
-    <button class="btn btn-primary" ng-disabled="!isWarned" ng-click="submit()">Submit</button>
+    <button class="btn btn-gold" ng-click="stage = 'start'">Back</button>
+    <button class="btn btn-gold" ng-disabled="!isWarned" ng-click="submit()">Submit</button>
   </div>
   <div class="modal-footer" ng-show="stage === 'submitting' && submittingError" >
-    <button class="btn" ng-click="stage = 'confirmation'">Back</button>
+    <button class="btn btn-gold" ng-click="stage = 'confirmation'">Back</button>
   </div>
 </div>
