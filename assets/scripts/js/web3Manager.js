@@ -29,9 +29,9 @@ class Web3Manager {
 
   fetchContract(abi, addressHexUnprefixed) {
     return this.fetchWeb3().then((web3) => {
-      if (web3.currentProvider.networkVersion !== networkManager.networkVersion) {
-        throw new NetworkMismatchError(`Your ethereuem wallet is on the wrong network. It should be set to ${networkManager.network}.`)
-      }
+      // if (web3.currentProvider.networkVersion !== networkManager.networkVersion) {
+      //   throw new NetworkMismatchError(`Your ethereuem wallet is on the wrong network. It should be set to ${networkManager.network}.`)
+      // }
       return web3.eth.contract(abi).at(addressHexUnprefixed)
     })
   }
