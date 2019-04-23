@@ -1,6 +1,6 @@
 <div class="token-buttons btn-group">
   <a class="btn btn-grey" target="_blank" href="{{token.trackerUrl}}">Etherscan</a>
-  <a class="btn btn-grey" ng-click="toggleIsWatching(token)">
+  <a class="btn btn-grey hidden-xs" ng-click="toggleIsWatching(token)">
     <i class="far fa-check-square watch-icon {{token.isWatching ? 'active': ''}}"></i>&nbsp;
     {{token.isWatching ? 'Watching': 'Watch'}}
   </a>
