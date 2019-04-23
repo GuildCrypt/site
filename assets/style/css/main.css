@@ -763,15 +763,20 @@ input.search {
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
-.tokens .row:not(:last-child) {
-  margin-bottom: 50px;
-}
-
 .token {
   color: #333;
   text-align: left;
   margin-bottom: 40px;
 }
+
+.token:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.token-bottom {
+  text-align: center;
+}
+
 
 .token .badge {
   background-color: rgba(105,28,43,1);
@@ -805,7 +810,7 @@ input.search {
   text-align: center;
 }
 
-.token-buttons {
+.token-right .token-buttons {
   margin-top: 40px;
 }
 

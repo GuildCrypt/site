@@ -1,0 +1,11 @@
+<div class="token-buttons btn-group">
+  <a class="btn btn-grey" ng-hide" ng-show="token.isUserOathOwner" target="_blank" ng-click="openTransferOathModal()">Transfer</a>
+  <a class="btn btn-grey" ng-hide" ng-show="riftpactBalanceNumber > 0" target="_blank" ng-click="openTransferRiftpactBalanceModal()">Transfer</a>
+  <a class="btn btn-grey"" ng-click="toggleIsWatching(token)">
+    <i class="far fa-check-square watch-icon {{token.isWatching ? 'active': ''}}"></i>&nbsp;
+    {{token.isWatching ? 'Watching': 'Watch'}}
+  </a>
+  <a class="btn btn-grey"" target="_blank" href="{{token.trackerUrl}}">Etherscan</a>
+  <a class="btn btn-gold" target="_blank" href="{{token.buyUrl}}" ng-if="!token.riftpactData">{{token.isUsers ? 'Sell' : 'Buy'}} Oath</a>
+  <a class="btn btn-gold" target="_blank" ng-if="token.riftpactData" ng-click="openTradeWindow()">Buy/Sell Oath Pieces</a>
+</div>

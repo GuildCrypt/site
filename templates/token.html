@@ -1,7 +1,8 @@
-<div class="row vertical-align upper-row token">
+<div class="token">
+<div class="row vertical-align upper-row ">
   <div class="col-xs-4 token-image" images="token.data.uriData.images">
   </div>
-  <div class="col-xs-8">
+  <div class="col-xs-8 token-right">
     <div>
       <h3 class="title">{{token.data.uriData.name}}</h3>
       <span class="badge badge-secondary ng-hide" ng-show="!token.riftpactData">Oath</span>
@@ -15,16 +16,12 @@
         Balance: {{riftpactBalanceNumber | numeric}}
       </p>
     </div>
-    <div class="token-buttons">
-      <a class="btn btn-grey" ng-hide" ng-show="token.isUserOathOwner" target="_blank" ng-click="openTransferOathModal()">Transfer</a>
-      <a class="btn btn-grey" ng-hide" ng-show="riftpactBalanceNumber > 0" target="_blank" ng-click="openTransferRiftpactBalanceModal()">Transfer</a>
-      <a class="btn btn-grey"" ng-click="toggleIsWatching(token)">
-        <i class="far fa-check-square watch-icon {{token.isWatching ? 'active': ''}}"></i>&nbsp;
-        {{token.isWatching ? 'Watching': 'Watch'}}
-      </a>
-      <a class="btn btn-grey"" target="_blank" href="{{token.trackerUrl}}">Etherscan</a>
-      <a class="btn btn-gold" target="_blank" href="{{token.buyUrl}}" ng-if="!token.riftpactData">{{token.isUsers ? 'Sell' : 'Buy'}} Oath</a>
-      <a class="btn btn-gold" target="_blank" ng-if="token.riftpactData" ng-click="openTradeWindow()">Buy/Sell Oath Pieces</a>
-    </div>
+    <div ng-include="'/templates/token-buttons.html'" class="hidden-xs"></div>
   </div>
+</div>
+<div class="row hidden visible-xs token-bottom">
+  <div class="col-xs-12">
+    <div ng-include="'/templates/token-buttons.html'"></div>
+  </div>
+</div>
 </div>
