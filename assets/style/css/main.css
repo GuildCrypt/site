@@ -1020,10 +1020,6 @@ label {
     padding-top: 20px;
   }
 
-  .section:not(:last-of-type) {
-    padding-bottom: 20px;
-  }
-
   .mobile-menu {
     display: inline;
     position: absolute;
