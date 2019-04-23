@@ -29,9 +29,10 @@ p:last-child, ul:last-child, ol:last-child, h1:last-child, h2:last-child, h3:las
 	margin-bottom: 0;
 }
 
-input, input:focus {
-  border: none;
+.form-control, .form-control:focus {
+  border: 1px solid #ccc;
   outline: 0;
+  box-shadow: none;
 }
 
 .cover {
@@ -728,24 +729,6 @@ h1, h2, h3, h4, h5, h6 {
   background: -ms-linear-gradient(left, #ffffff 0%, #cccccc 100%);
   background: linear-gradient(to right, #ffffff 0%, #cccccc 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=1 );
-}
-
-input.search {
-  height: 30px;
-  margin-top: 5px;
-  float: right;
-  width: 300px;
-  padding: 5px;
-  padding-left: 30px;
-  border-radius: 5px;
-  color: #444;
-}
-
-.search i {
-  position: absolute;
-  right: 292px;
-  top: 13px;
-  color: #370F39;
 }
 
 @media screen and (max-width: 768px) {
