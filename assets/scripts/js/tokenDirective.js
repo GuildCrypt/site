@@ -73,6 +73,9 @@ export default function tokenDirective () {
         const baseAssetLabel = `${token.data.uriData.name} Oath Pieces`
         const quoteAssetLabel = 'DAI'
 
+        const zocrAddressHexUnprefixed = networkManager.getZocrAddressHexUnprefixed()
+        const exchangeAddressHexUnprefixed = networkManager.getExchangeAddressHexUnprefixed()
+        const erc20ProxyAddressHexUnprefixed = networkManager.getErc20ProxyAddressHexUnprefixed()
         const riftpactData = await token.fetchRiftpactData()
         const baseAssetAddressHexUnprefixed = riftpactData.addressHexUnprefixed
         const quoteAssetAddressHexUnprefixed = networkManager.getDaiAddressHexUnprefixed()
@@ -80,8 +83,7 @@ export default function tokenDirective () {
         const left = (screen.availWidth / 2) - 400
         const top = (screen.availHeight / 2) - 400
 
-        const url = `/trade?${(new Date).getTime()}#${encodeURI(baseAssetLabel)}/${encodeURI(quoteAssetLabel)}/${baseAssetAddressHexUnprefixed}/${quoteAssetAddressHexUnprefixed}`
-        window.open(url, 'trade', `height=800,width=800,toolbar=no,status=no,location=no,menubar=no,top=${top},left=${left}`)
+        window.location.href = `/trade#${zocrAddressHexUnprefixed}/${exchangeAddressHexUnprefixed}/${erc20ProxyAddressHexUnprefixed}/${encodeURI(baseAssetLabel)}/${encodeURI(quoteAssetLabel)}/${baseAssetAddressHexUnprefixed}/${quoteAssetAddressHexUnprefixed}`
       }
 
     }

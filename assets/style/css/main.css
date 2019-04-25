@@ -1090,3 +1090,19 @@ label {
 .network-rinkeby {
   background-color: red;
 }
+
+.section.zocrscope {
+  padding-top:
+}
+
+#zocrscope {
+  color: #333;
+  min-height: calc(100% - 350px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#zocrscope a {
+  color: rgba(105,28,43,1);
+  text-decoration: none;
+}
