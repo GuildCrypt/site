@@ -9,10 +9,12 @@ import TransferRiftpactBalanceModalController from './TransferRiftpactBalanceMod
 import WatchEmailModalController from './WatchEmailModalController.js'
 import RedeemModalController from './RedeemModalController.js'
 import DexInABoxController from './DexInABoxController.js'
+import TradeController from './TradeController.js'
 
 import modalDirective from './modalDirective.js'
 import tokenDirective from './tokenDirective.js'
 import tokensDirective from './tokensDirective.js'
+import tokenMiniDirective from './tokenMiniDirective.js'
 
 const app = angular.module('app', [])
 
@@ -25,10 +27,12 @@ app.controller('TransferRiftpactBalanceModalController', TransferRiftpactBalance
 app.controller('WatchEmailModalController', WatchEmailModalController)
 app.controller('RedeemModalController', RedeemModalController)
 app.controller('DexInABoxController', DexInABoxController)
+app.controller('TradeController', TradeController)
 
 app.directive('tokens', tokensDirective)
 app.directive('token', tokenDirective)
 app.directive('modal', modalDirective)
+app.directive('tokenMini', tokenMiniDirective)
 
 app.directive('images', function () {
   return {

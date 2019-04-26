@@ -685,11 +685,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 10px;
 }
 
-/* Live */
-.section.live {
-  min-height: calc(100% - 350px)
-}
-
 /* Browse */
 
 .section.search {
@@ -748,10 +743,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.tokens img {
-  width: 100%;
-  max-width: 260px;
+.token .images .image {
   border-radius: 5px;
+  max-width: 260px;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
@@ -769,6 +763,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .token-bottom {
   text-align: center;
+}
+
+.token.mini {
+  text-align: center;
+}
+.token.mini .images {
+  margin-top: 20px;
 }
 
 
@@ -1091,15 +1092,45 @@ label {
   background-color: red;
 }
 
-.section.zocrscope {
-  padding-top:
+.fill-vert {
+  min-height: calc(100% - 350px);
 }
 
-#zocrscope {
+.trade {
+  margin-top: -60px;
   color: #333;
-  min-height: calc(100% - 350px);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  text-align: left;
+}
+
+.trade .token .title {
+  margin-top: 0
+}
+
+
+#login-button {
+  margin-top: 10px;
+}
+
+.gate {
+  padding-bottom: 150px;
+  color: #333;
+}
+
+.gate .tos {
+  margin-top: 10px;
+  display: block;
+}
+
+.gate .tos-checkbox {
+  margin-right: 4px;
+}
+
+.gate .button {
+  display: inline;
+}
+
+.images .image {
+  width: 100%;
 }
 
 #zocrscope a {

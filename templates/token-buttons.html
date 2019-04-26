@@ -7,5 +7,5 @@
   <a class="btn btn-grey ng-hide" ng-show="token.isUserOathOwner" target="_blank" ng-click="openTransferOathModal()">Transfer</a>
   <a class="btn btn-grey ng-hide" ng-show="riftpactBalanceNumber > 0" target="_blank" ng-click="openTransferRiftpactBalanceModal()">Transfer</a>
   <a class="btn btn-gold" target="_blank" href="{{token.buyUrl}}" ng-show="!token.riftpactData">{{token.isUsers ? 'Sell' : 'Buy'}} Oath</a>
-  <a class="btn btn-gold" target="_blank" ng-show="token.riftpactData" ng-click="openTradeWindow()">Buy/Sell<span class="hidden-xs">&nbsp;Oath Pieces</span></a>
+  <a class="btn btn-gold" ng-show="token.riftpactData" ng-href="/trade/v0/#/{{token.data.idNumber}}/">Buy/Sell<span class="hidden-xs">&nbsp;Oath Pieces</span></a>
 </div>
