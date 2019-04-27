@@ -42,6 +42,15 @@ app.directive('images', function () {
     templateUrl: `/templates/images.html`,
     link: function ($scope) {
       $scope.index = 0
+
+      if (!$scope.images) {
+        return
+      }
+      $scope.images.forEach((image) => {
+        const imageLoader = new Image
+        console.log('load', image.thumb)
+        imageLoader.src = image.thumb
+      })
     }
   }
 })
