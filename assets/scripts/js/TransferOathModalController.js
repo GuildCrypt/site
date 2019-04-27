@@ -67,7 +67,6 @@ export default function TransferOathModalController($scope, $timeout) {
   $scope.submit = () => {
     $scope.stage = 'submitting'
     const senderAddressHexPrefixed = `0x${$scope.token.data.ownerHexUnprefixed}`
-    console.log(senderAddressHexPrefixed)
     oathforge.transferFrom(
       senderAddressHexPrefixed,
       `0x${$scope.receiverAddressHexUnprefixed}`,

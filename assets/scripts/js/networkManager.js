@@ -7,9 +7,6 @@ class NetworkManager {
       network = localStorage.getItem('network.string')
     }
 
-
-    console.log('network', network)
-
     this.network = network
     this.setNetworkVersion(network)
   }

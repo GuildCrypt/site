@@ -48,7 +48,6 @@ app.directive('images', function () {
       }
       $scope.images.forEach((image) => {
         const imageLoader = new Image
-        console.log('load', image.thumb)
         imageLoader.src = image.thumb
       })
     }

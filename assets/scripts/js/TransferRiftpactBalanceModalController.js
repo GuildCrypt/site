@@ -10,22 +10,17 @@ export default function TransferRiftpactModalController($scope, $timeout) {
   $scope.token = $scope.options.data
   $scope.senderAddressHexUnprefixed = accountsManager.defaultAddressHexUnprefixed
 
-  console.log(accountsManager)
-
   let riftpact
 
   $scope.checkNetwork = () => {
     $scope.networkCheckError = null
     return $scope.token.fetchRiftpact().then((_riftpact) => {
       riftpact = _riftpact
-      console.log(riftpact)
       return $scope.token.fetchRiftpactBalanceNumber().then((riftpactBalanceNumber) => {
-        console.log(riftpactBalanceNumber)
         $scope.riftpactBalanceNumber = $scope.amountNumber = riftpactBalanceNumber
         $scope.stage = 'start'
       })
     }, (networkCheckError) => {
-      console.log(networkCheckError)
       $scope.networkCheckError = networkCheckError
     }).finally(() => {
       $scope.$apply()
