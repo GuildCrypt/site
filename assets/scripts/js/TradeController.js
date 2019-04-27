@@ -23,7 +23,7 @@ export default function TradeController($scope) {
         zocrAddressHexUnprefixed,
         exchangeAddressHexUnprefixed,
         erc20ProxyAddressHexUnprefixed,
-        `${token.data.uriData.name} Oath Pieces`,
+        'Oath Pieces',
         'DAI',
         riftpactData.addressHexUnprefixed,
         quoteAssetAddressHexUnprefixed

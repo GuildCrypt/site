@@ -3,14 +3,10 @@ class NetworkManager {
 
     let network = 'mainnet'
 
-    if(document.cookie) {
-      const cookieString = document.cookie.split(';').find((cookieString) => {
-         return cookieString.indexOf('network=') === 0
-      })
-      if (cookieString) {
-        network = cookieString.replace('network=', '')
-      }
+    if (localStorage.getItem('network.string')) {
+      network = localStorage.getItem('network.string')
     }
+
 
     console.log('network', network)
 
@@ -27,7 +23,7 @@ class NetworkManager {
   }
 
   setNetwork(network) {
-    document.cookie = `network=${network}`
+    localStorage.setItem(network)
     window.location.reload()
   }
 

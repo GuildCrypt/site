@@ -773,11 +773,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+.badge {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #aaa;
+}
+
 .token .badge {
   background-color: rgba(105,28,43,1);
   margin-bottom: 10px;
-  padding: 5px 10px;
-  border-radius: 4px;
 }
 
 .token h3 {
