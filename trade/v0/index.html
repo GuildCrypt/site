@@ -66,6 +66,9 @@
 						<div class="alert alert-warning">
 							Trading is still in beta
 						</div>
+						<div class="alert alert-info" ng-show="!isZocrscopeLoaded">
+							Loading...
+						</div>
 						<div id="zocrscope"></div>
 					</div>
 				</div>
@@ -113,7 +116,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" integrity="sha384-du5g06MyvN/hl4HwDjcFNmKiX3lFDaekrtlW37Bs3hY+FAKWFpVrZwlP/bh20AXW" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js" integrity="sha384-+CaKnwteOIsdVqN3DxF1ZKOTwjH572ZPyEfKv6G4h+fqzUKXZ4l34FKpmcWdZHDY" crossorigin="anonymous"></script>
 		<script type="module" src="/assets/scripts/js/app.js"></script>
-		<script type="text/javascript" src="./bundle.js"></script>
 	</body>
 
 </html>

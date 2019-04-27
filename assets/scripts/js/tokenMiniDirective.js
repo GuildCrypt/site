@@ -12,10 +12,12 @@ export default function tokenMiniDirective () {
     link: ($scope) => {
 
       const token = $scope.token
-      console.log(token.riftpactData)
+
+      if (!token) {
+        return
+      }
 
       token.fetchRiftpactData().then((riftpactData) => {
-        console.log(token.riftpactData)
         $scope.$apply()
         if (riftpactData && accountsManager.isLoggedIn) {
           token.fetchRiftpactBalanceNumber().then((riftpactBalanceNumber) => {
