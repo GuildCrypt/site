@@ -23,10 +23,14 @@ export default function TradeController($scope) {
         zocrAddressHexUnprefixed,
         exchangeAddressHexUnprefixed,
         erc20ProxyAddressHexUnprefixed,
+        'Oath Piece',
+        'DAI',
         'Oath Pieces',
         'DAI',
         riftpactData.addressHexUnprefixed,
-        quoteAssetAddressHexUnprefixed
+        quoteAssetAddressHexUnprefixed,
+        0,
+        18
       )
       $scope.isZocrscopeLoaded = true
       $scope.$apply()
