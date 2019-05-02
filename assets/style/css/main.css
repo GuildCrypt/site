@@ -791,7 +791,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .token p {
-  margin-bottom: 4px;
   text-align: justify;
   color: #666;
 }
