@@ -280,10 +280,12 @@ i.scroll-down:hover {
   z-index: 2;
   padding-top: 100px;
   padding-bottom: 140px;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px -5px 5px -5px rgba(0,0,0,0.5);
   text-align: center;
+}
+
+.section.section-last {
+  padding-bottom:0
 }
 
 .section .cover {
@@ -590,9 +592,7 @@ h1, h2, h3, h4, h5, h6 {
 .hex {
   height: 150px;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
   background-image: url(../../media/images/hex.png);
   background-repeat: repeat;
 }
@@ -678,7 +678,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .hiw.end {
   padding-top: 200px;
-  padding-bottom: 200px;
 }
 
 .hiw.end img {
@@ -1097,7 +1096,7 @@ label {
 }
 
 .fill-vert {
-  min-height: calc(100% - 350px);
+  min-height: calc(100% - 522px);
 }
 
 .trade {
