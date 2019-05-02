@@ -1099,7 +1099,7 @@ label {
 }
 
 .fill-vert {
-  min-height: calc(100% - 522px);
+  min-height: calc(100% - 502px);
 }
 
 .trade {
