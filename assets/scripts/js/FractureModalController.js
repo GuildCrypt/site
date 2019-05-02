@@ -2,7 +2,7 @@ import networkManager from './networkManager.js'
 import accountsManager from './accountsManager.js'
 import getIsAddressHexUnprefixed from './getIsAddressHexUnprefixed.js'
 import fetchOathForge from './fetchOathForge.js'
-import oathForgeApiClient from './oathForgeApiClient.js'
+import oathforgeApiClient from './oathforgeApiClient.js'
 import web3Manager from './web3Manager.js'
 
 function waitForConfirmation(transactionIdHexUnprefixed) {
@@ -14,10 +14,10 @@ function waitForConfirmation(transactionIdHexUnprefixed) {
             resolve()
           }
         }))
-        oathForgeApiClient.removeListener('update', onUpdate)
+        oathforgeApiClient.removeListener('update', onUpdate)
       })
     }
-    oathForgeApiClient.on('update', onUpdate)
+    oathforgeApiClient.on('update', onUpdate)
   })
 }
 
@@ -25,14 +25,14 @@ export default function FractureModalController($scope, $timeout) {
   $scope.stage = 'networkCheck'
   $scope.token = $scope.options.data
 
-  let oathForge
+  let oathforge
 
   $scope.lockupDaysString = '90'
 
   $scope.checkNetwork = () => {
     $scope.networkCheckError = null
-    return fetchOathForge().then((_oathForge) => {
-      oathForge = _oathForge
+    return fetchOathForge().then((_oathforge) => {
+      oathforge = _oathforge
       $scope.stage = 'start'
     }, (networkCheckError) => {
       $scope.networkCheckError = networkCheckError
@@ -69,7 +69,7 @@ export default function FractureModalController($scope, $timeout) {
   $scope.submit = () => {
     $scope.stage = 'submitting'
     const senderHexPrefixed = `0x${$scope.token.data.ownerHexUnprefixed}`
-    oathForge.transferFrom(
+    oathforge.transferFrom(
       senderHexPrefixed,
       `0x${$scope.receiverHexUnprefixed}`,
       $scope.token.data.idNumber,

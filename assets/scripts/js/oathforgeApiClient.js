@@ -8,16 +8,11 @@ class OathforgeApiClient extends ApiClient {
     super(`https://s3-us-west-2.amazonaws.com/oathforge-api/v0/${network}/${oathforgeAddressHexUnprefixed}`)
     this.oathforgeAddressHexUnprefixed = oathforgeAddressHexUnprefixed
   }
-  async fetchTokens() {
-    const data = await this.fetch()
-    return data.data.oathTokens.map((tokenData) => {
-      return new Token(this.oathforgeAddressHexUnprefixed, tokenData)
-    })
-  }
-  async fetchToken(idNumber) {
-    const tokens = await this.fetchTokens()
-    return tokens.find((token) => {
-      return token.data.idNumber === idNumber
+  fetchTokens() {
+    return this.fetch().then((data) => {
+      return data.data.oathTokens.map((tokenData) => {
+        return new Token(this.oathforgeAddressHexUnprefixed, tokenData)
+      })
     })
   }
 }
