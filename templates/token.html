@@ -6,7 +6,7 @@
     <div>
       <h3 class="title">{{token.data.uriData.name}}</h3>
       <span class="badge badge-purple ng-hide" ng-show="!token.riftpactData">Oath</span>
-      <span class="badge badge-purple ng-hide" ng-show="token.riftpactData">Fractured into {{token.riftpactData.totalSupplyNumber | numeric}} Oath Pieces</span>
+      <span class="badge badge-purple ng-hide" ng-show="token.riftpactData">Fractured into {{token.riftpactData.totalSupplyNumber | numeric}} Pieces</span>
       <p>{{token.data.uriData.description}}</p>
       <p>Sunset length of {{token.getPrettySunsetLength()}}</p>
       <p ng-if="token.riftpactData">
