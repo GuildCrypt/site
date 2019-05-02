@@ -778,12 +778,15 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #aaa;
 }
 
-.token .badge {
+.badge.badge-purple {
   background-color: rgba(105,28,43,1);
-  margin-bottom: 10px;
 }
 
 .token h3 {
+  margin-bottom: 10px;
+}
+
+.token .badge {
   margin-bottom: 10px;
 }
 
