@@ -1,7 +1,9 @@
 const static = require('node-static')
 const http = require('http')
 
-const file = new static.Server()
+const file = new static.Server('./', {
+  cache: 0
+})
 
 http.createServer((request, response) => {
   request.addListener('end', function() {

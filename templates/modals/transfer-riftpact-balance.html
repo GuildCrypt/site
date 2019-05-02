@@ -1,0 +1,87 @@
+<div class="modal-content" ng-controller="TransferRiftpactBalanceModalController">
+  <div class="modal-header">
+    <h4 class="modal-title">Transfer Oath #{{token.data.idNumber}} Pieces: {{token.data.uriData.name}}</h4>
+    <div ng-include="'/templates/modal-close.html'"></div>
+  </div>
+  <div class="modal-body">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: progress + '%' }"></div>
+    </div>
+    <div ng-show="stage === 'networkCheck'">
+      <div class="alert alert-info" ng-show="!networkCheckError">Checking network status</div>
+      <div class="alert alert-danger" ng-show="networkCheckError">{{networkCheckError.message}}</div>
+    </div>
+    <div ng-show="stage === 'start'">
+      <h5>Who would you like to send the Oath Pieces to?</h5>
+      <div class="input-group">
+        <span class="input-group-addon">0x</span>
+        <input type="text" class="form-control" ng-model="receiverAddressHexUnprefixed"/>
+      </div>
+      <hr/>
+      <h5>How many Oath Pieces?</h5>
+      <input type="number" class="form-control" ng-model="amountNumber" min="1" max="{{riftpactBalanceNumber}}"/>
+    </div>
+    <div ng-show="stage === 'confirmation'">
+      <h5>Confirm the details</h5>
+      <table class="table">
+        <tr>
+          <td>Token Type</td>
+          <td>Oath Pieces</td>
+        </tr>
+        <tr>
+          <td>Token Id</td>
+          <td>{{token.data.idNumber}}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{token.data.uriData.name}}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>{{token.data.uriData.description}}</td>
+        </tr>
+        <tr>
+          <td>From</td>
+          <td><a ng-href="{{senderUrl}}" target="_blank">0x{{senderAddressHexUnprefixed}}</a></td>
+        </tr>
+        <tr>
+          <td>To</td>
+          <td><a ng-href="{{receiverUrl}}" target="_blank">0x{{receiverAddressHexUnprefixed}}</a></td>
+        </tr>
+        <tr>
+          <td>Amount</td>
+          <td>{{amountNumber}}</td>
+        </tr>
+      </table>
+      <div class="alert alert-warning">
+        <label>
+          <input type="checkbox" ng-model="isWarned" />
+          I understand this is final, and neither GuildCrypt nor anyone else revert this transaction.
+        </label>
+      </div>
+    </div>
+    <div ng-show="stage === 'submitting'">
+      <div class="alert alert-info" ng-show="!submittingError">Please follow the instructions on Metamask</div>
+      <div class="alert alert-danger" ng-show="submittingError">{{submittingError.message}}</div>
+    </div>
+    <div ng-show="stage === 'confirming'" class="alert alert-info">
+      Your transaction has been broadcasted. We're waiting for <a ng-href="{{transactionUrl}}" target="_blank">a confirmation from the Ethereum network</a>.
+    </div>
+    <div ng-show="stage === 'confirmed'" class="alert alert-success">
+      Success! Your transaction has been confirmed. Your account should be updated.
+    </div>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'networkCheck' && networkCheckError">
+    <button class="btn btn-gold" ng-click="checkNetwork()">Try Again</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'start'">
+    <button class="btn btn-gold" ng-disabled="!isReceiverAddressGood || !isAmountNumberGood" ng-click="stage = 'confirmation'">Next</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'confirmation'" >
+    <button class="btn btn-gold" ng-click="stage = 'start'">Back</button>
+    <button class="btn btn-gold" ng-disabled="!isWarned" ng-click="submit()">Submit</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'submitting' && submittingError" >
+    <button class="btn btn-gold" ng-click="stage = 'confirmation'">Back</button>
+  </div>
+</div>

@@ -1,7 +1,7 @@
-import oathForgeApiClient from './oathForgeApiClient.js'
+import oathforgeApiClient from './oathforgeApiClient.js'
 
 export default function BrowseController($scope) {
-  oathForgeApiClient.fetchTokens().then((tokens) => {
+  oathforgeApiClient.fetchTokens().then((tokens) => {
     $scope.tokens = tokens
     $scope.$apply()
   })

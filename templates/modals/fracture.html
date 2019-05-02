@@ -1,0 +1,85 @@
+<div class="modal-content" ng-controller="FractureModalController">
+  <div class="modal-header">
+    <h4 class="modal-title">Fracture Oath #{{token.data.idNumber}}: {{token.data.uriData.name}}</h4>
+    <div ng-include="'/templates/modal-close.html'"></div>
+  </div>
+  <div class="modal-body">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: progress + '%' }"></div>
+    </div>
+    <div ng-show="stage === 'networkCheck'">
+      <div class="alert alert-info" ng-show="!networkCheckError">Checking network status</div>
+      <div class="alert alert-danger" ng-show="networkCheckError">{{networkCheckError.message}}</div>
+    </div>
+    <div ng-show="stage === 'start'">
+      <h5>Fracture Oath into 10,000 OathPices?</h5>
+      <p>Fracturing an Oath means locking it into a smart contract and getting 10,000 OathPieces. Once locked into the smart contract, you will no longer be able to redeem the underlying Magic Card.</p>
+      <p>After the lockup period, a decentralized auction will start. You will be able to collect DAI dividends from the auction proportional to the amount of OathPieces you own.</p>
+      <hr/>
+      <div class="form-group">
+        <label>Lockup Period</label>
+        <select class="form-control" ng-model="lockupDaysString">
+          <option value="30">30 Days</option>
+          <option value="60">60 Days</option>
+          <option value="90" selected>90 Days</option>
+          <option value="180">180 Days</option>
+          <option value="365">365 Days</option>
+        </select>
+      </div>
+    </div>
+    <div ng-show="stage === 'confirmation'">
+      <h5>Confirm the details</h5>
+      <table class="table">
+        <tr>
+          <td>Token Type</td>
+          <td>Oath</td>
+        </tr>
+        <tr>
+          <td>Token Id</td>
+          <td>{{token.data.idNumber}}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{token.data.uriData.name}}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>{{token.data.uriData.description}}</td>
+        </tr>
+        <tr>
+          <td>Lockup Period</td>
+          <td>{{lockupDaysString}} Days</td>
+        </tr>
+      </table>
+      <div class="alert alert-warning">
+        <label>
+          <input type="checkbox" ng-model="isWarned" />
+          I understand this is final, and neither GuildCrypt nor the Tokenizer can revert this transaction.
+        </label>
+      </div>
+    </div>
+    <div ng-show="stage === 'submitting'">
+      <div class="alert alert-info" ng-show="!submittingError">Please follow the instructions on Metamask</div>
+      <div class="alert alert-danger" ng-show="submittingError">{{submittingError.message}}</div>
+    </div>
+    <div ng-show="stage === 'confirming'" class="alert alert-info">
+      Your transaction has been broadcasted. We're waiting for <a ng-href="{{transactionUrl}}" target="_blank">a confirmation from the Ethereum network</a>.
+    </div>
+    <div ng-show="stage === 'confirmed'" class="alert alert-success">
+      Success! Your transaction has been confirmed. Your account should be updated.
+    </div>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'networkCheck' && networkCheckError">
+    <button class="btn btn-gold" ng-click="checkNetwork()">Try Again</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'start'">
+    <button class="btn btn-gold" ng-click="stage = 'confirmation'">Next</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'confirmation'" >
+    <button class="btn btn-gold" ng-click="stage = 'start'">Back</button>
+    <button class="btn btn-gold" ng-disabled="!isWarned" ng-click="submit()">Submit</button>
+  </div>
+  <div class="modal-footer" ng-show="stage === 'submitting' && submittingError" >
+    <button class="btn btn-gold" ng-click="stage = 'confirmation'">Back</button>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<!-- Developed by Kai Micah Mills (https://www.upwork.com/fl/kaimicahmills) -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<title>Trade - GuildCrypt</title>
+
+		<!-- Meta -->
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="With GuildCrypt, you can convert your Magic card into an ERC-721 Ethereum token.">
+		<meta name="keywords" content="GuildCrypt, magic, ethereum, erc-721, cryptocurrency, bitcoin, tokenize, token">
+
+		<!-- Styling -->
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/style/css/main.css" type="text/css">
+
+  	<link rel="icon" href="/assets/media/images/favicon-32x32.png" sizes="32x32" type="image/png">
+  	<link rel="icon" href="/assets/media/images/favicon-16x16.png" sizes="16x16" type="image/png">
+	</head>
+
+	<body ng-app="app">
+
+		<!-- Header -->
+
+		<div class="header">
+			<a href="/">
+				<img class="logo" src="/assets/media/images/logo-final.svg"/>
+			</a>
+			<div class="links">
+				<div class="vertical-center-outer">
+					<div class="vertical-center-inner">
+						<a href="/account/">My Account</a>
+						<a href="/how-it-works/">How it works</a>
+						<a href="https://guildcrypt.typeform.com/to/fTS7dy" target="_blank">Tokenize</a>
+						<a href="/browse/">Browse</a>
+						<a href="/crypt/">Crypt</a>
+
+						<a href="https://github.com/GuildCrypt" target="_blank"><i class="fab fa-github"></i></a>
+						<a href="javascript:;" class="mobile-menu"><i class="fa fa-bars"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section account fill-vert section-last" ng-controller="AccountController">
+			<div ng-if="isLoggedIn === false" class="ng-hide" ng-show="!isLoggedIn">
+				<div ng-controller="AccountGateController" class="gate container">
+					<label class="tos"><input type="checkbox" required class="tos-checkbox" ng-model="isTosConfirmed"> I agree to the <a href="/tos.pdf" target="_blank" style="text-decoration:underline">Terms of Service</a></label>
+					<div id="login-button" class="btn btn-gold" ng-click="login()" ng-disabled="!isTosConfirmed">Login with Ethereum</div>
+					<div class="alert alert-danger ng-hide no-web3-notification" ng-show="isNoWeb3">
+						Your browser doesn't currently have access to Ethereum. Please install <a target="_blank" href="https://metamask.io/">Metamask</a> to gain access to Ethereum.
+					</div>
+				</div>
+			</div>
+			<div ng-controller="TradeController" class="ng-hide container trade" ng-show="isLoggedIn" ng-if="isLoggedIn">
+				<div class="row">
+					<div class="hidden-xs col-sm-4" token-mini="token"></div>
+					<div class="col-xs-12 col-sm-8">
+						<div class="alert alert-warning">
+							Trading is still in beta
+						</div>
+						<div class="alert alert-info" ng-show="!isZocrscopeLoaded">
+							Loading Trading Interface...
+						</div>
+						<div class="progress" ng-show="!isZocrscopeLoaded">
+							<div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: progress + '%' }"></div>
+						</div>
+						<div id="zocrscope"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hex">
+			<div class="hex-cover"></div>
+		</div>
+    <div class="footer">
+			<div class="cover">
+				<div class="container">
+				  	<div class="row">
+					  <div class="col-xs-12 col-sm-3">
+							<h5>Mission</h5>
+							<br>
+							<p>GuildCrypt wants to allow anyone to invest in anything. Today, it's Magic; tomorrow, the world.</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Company</h5>
+							<br>
+							<p>GuildCrypt</p>
+							<p>contact@guildcrypt.com</p>
+							<p>PO Box 4668 #87898</p>
+							<p>New York, New York 10163-4668 US</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Legal</h5>
+							<br>
+							<p><a href="/tos.pdf" target="_blank">Terms of Service</a></p>
+							<p>Copyright &copy; GuildCrypt 2018.</p>
+							<p>All rights reserved.</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Social Media</h5>
+							<br>
+							<p><a href="https://twitter.com/guildcrypt" target="_blank">Twitter</a></p>
+							<p><a href="https://github.com/GuildCrypt" target="_blank">Github</a></p>
+						</div>
+				  	</div>
+				</div>
+			</div>
+			<img src="/assets/media/images/icon-black.svg" class="footer-icon"/>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js" integrity="sha384-CJ+cVuy4UuycwlS2fnvOLZAjXavw5D+nRzvnajUytjRGfDXIA1hQUFPvNoOseK7K" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" integrity="sha384-du5g06MyvN/hl4HwDjcFNmKiX3lFDaekrtlW37Bs3hY+FAKWFpVrZwlP/bh20AXW" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js" integrity="sha384-+CaKnwteOIsdVqN3DxF1ZKOTwjH572ZPyEfKv6G4h+fqzUKXZ4l34FKpmcWdZHDY" crossorigin="anonymous"></script>
+		<script type="module" src="/assets/scripts/js/app.js"></script>
+	</body>
+
+</html>

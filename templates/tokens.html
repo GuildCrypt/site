@@ -1,27 +1,6 @@
 <div class="cover">
   <div class="container tokens">
-    <div ng-repeat="token in tokens" class="row vertical-align upper-row token">
-      <div class="col-xs-4 token-image" images="token.data.uriData.images">
-      </div>
-      <div class="col-xs-8 vert-center">
-      <div class="container">
-        <div>
-          <h3 class="title">#{{token.data.idNumber}}: {{token.data.uriData.name}}</h3>
-          <p>{{token.data.uriData.description}}</p>
-          <p>Sunset length of {{token.getPrettySunsetLength()}}; Tokenized by <a target="_blank" href={{token.termsUrl}}>{{token.tokenizer.name}}</a>.</p>
-        </div>
-        <div class="token-buttons">
-          <a class="button" target="_blank" href="{{token.buyUrl}}">{{token.isUsers ? 'Sell' : 'Buy'}} Oath</a>
-          <a class="button button-secondary ng-hide" ng-show="token.isUsers" target="_blank" ng-click="openTransferModal(token)">Transfer</a>
-          <a class="button button-secondary" target="_blank" href="{{token.data.uriData.termsPdf}}">Terms</a>
-          <a class="button button-secondary" ng-click="toggleIsWatching(token)">
-            <i class="far fa-check-square watch-icon {{token.isWatching ? 'active': ''}}"></i>&nbsp;
-            {{token.isWatching ? 'Watching': 'Watch'}}
-          </a>
-          <a class="button button-secondary" target="_blank" href="{{token.trackerUrl}}">Etherscan</a>
-          <a class="button button-secondary" ng-click="redeem(token)" ng-show="token.isUsers">Redeem</a>
-        </div>
-      </div>
+    <div ng-repeat="token in tokens" token="token">
     </div>
   </div>
 </div>

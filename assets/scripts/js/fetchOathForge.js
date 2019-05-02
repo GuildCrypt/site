@@ -1,15 +1,15 @@
 import web3Manager from './web3Manager.js'
 import networkManager from './networkManager.js'
-import oathForgeAbi from './oathForgeAbi.js'
+import oathforgeAbi from './oathforgeAbi.js'
 
-let oathForge
+let oathforge
 
-export default function fetchOathForge() {
-  if (oathForge) {
-    return Promise.resolve(oathForge)
+export default function fetchOathforge() {
+  if (oathforge) {
+    return Promise.resolve(oathforge)
   }
-  return web3Manager.fetchContract(oathForgeAbi, `0x${networkManager.getOathForgeAddressHexUnprefixed()}`).then((_oathForge) => {
-    oathForge = _oathForge
-    return oathForge
+  return web3Manager.fetchContract(oathforgeAbi, `0x${networkManager.getOathforgeAddressHexUnprefixed()}`).then((_oathforge) => {
+    oathforge = _oathforge
+    return oathforge
   })
 }

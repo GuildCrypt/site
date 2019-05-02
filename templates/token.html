@@ -1,0 +1,27 @@
+<div class="token">
+<div class="row vertical-align upper-row ">
+  <div class="col-xs-4 token-image" images="token.data.uriData.images">
+  </div>
+  <div class="col-xs-8 token-right">
+    <div>
+      <h3 class="title">{{token.data.uriData.name}}</h3>
+      <span class="badge badge-purple ng-hide" ng-show="!token.riftpactData">Oath</span>
+      <span class="badge badge-purple ng-hide" ng-show="token.riftpactData">Fractured into {{token.riftpactData.totalSupplyNumber | numeric}} Pieces</span>
+      <p>{{token.data.uriData.description}}</p>
+      <p>Sunset length of {{token.getPrettySunsetLength()}}</p>
+      <p ng-if="token.riftpactData">
+        Auction Date: {{token.getPrettyAuctionAllowedAt()}}
+      </p>
+      <p ng-if="riftpactBalanceNumber !== undefined">
+        Balance: {{riftpactBalanceNumber | numeric}} -- {{(riftpactBalanceNumber / 100).toFixed(2)}}% of all Pieces
+      </p>
+    </div>
+    <div ng-include="'/templates/token-buttons.html'" class="hidden-xs"></div>
+  </div>
+</div>
+<div class="row hidden visible-xs token-bottom">
+  <div class="col-xs-12">
+    <div ng-include="'/templates/token-buttons.html'"></div>
+  </div>
+</div>
+</div>
