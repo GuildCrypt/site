@@ -15,12 +15,6 @@ class OathforgeApiClient extends ApiClient {
       })
     })
   }
-  async fetchToken(idNumber) {
-    const tokens = await this.fetchTokens()
-    return tokens.find((token) => {
-      return token.data.idNumber === idNumber
-    })
-  }
 }
 
 export default new OathforgeApiClient(networkManager.network, networkManager.getOathforgeAddressHexUnprefixed())
