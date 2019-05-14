@@ -1142,7 +1142,7 @@ label {
   width: 340px;
   padding: 20px;
   margin: 20px auto;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .cryptoloan .prs {
@@ -1242,8 +1242,6 @@ label {
 .cryptoloan .pr-paid .pr-badge {
   background-color: green;
 }
-
-
 
 .cryptoloan h2 {
   color: #ccc;
