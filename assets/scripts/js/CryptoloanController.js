@@ -14,9 +14,14 @@ export default function CryptoloanController($scope, $interval) {
   }, 10)
 
   $scope.goDown = function goDown() {
-    console.log('goDown')
+    console.log({
+      top: window.innerHeight + 49,
+      left: window.scrollX,
+      behavior: 'smooth'
+    })
     window.scrollTo({
-      top: hero.offsetHeight + 49,
+      top: window.innerHeight + 49,
+      left: window.scrollX,
       behavior: 'smooth'
     })
   }

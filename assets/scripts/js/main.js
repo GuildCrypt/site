@@ -44,11 +44,10 @@ $(document).ready(function() {
 	// Scroll down arrow
 
 	$("i.scroll-down").click(function() {
-
-		$("html, body").animate({
-			scrollTop: 50 + $(".splash").height()
-        }, 1000);
-
+		window.scrollTo({
+			top: window.innerHeight + 1,
+			behavior: 'smooth'
+		})
 	});
 
 	// Change flow chart
