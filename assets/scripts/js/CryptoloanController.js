@@ -13,17 +13,4 @@ export default function CryptoloanController($scope, $interval) {
     $scope.remainingView = $scope.remainingView - step
   }, 10)
 
-  $scope.goDown = function goDown() {
-    console.log({
-      top: window.innerHeight + 49,
-      left: window.scrollX,
-      behavior: 'smooth'
-    })
-    window.scrollTo({
-      top: window.innerHeight + 49,
-      left: window.scrollX,
-      behavior: 'smooth'
-    })
-  }
-
 }
