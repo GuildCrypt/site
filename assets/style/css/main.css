@@ -1,10 +1,3 @@
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  overflow-x: hidden;
-}
-
 body {
   font-family: 'Open Sans', sans-serif;
   color: #BFBEC4;
@@ -119,7 +112,7 @@ a.btn {
 /* Home */
 
 .splash {
-  height: calc(100% - 49px);
+  height: calc(100vh - 49px);
   width: 100%;
   position: relative;
   background: url(../../media/images/hero-image-1.jpg) no-repeat center center;
@@ -693,7 +686,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .dib {
   overflow: hidden;
-  height: calc(100% - 300px);
+  height: calc(100vh - 300px);
   min-height: 1000px;
   color: #333;
 }
@@ -1098,7 +1091,7 @@ label {
 }
 
 .fill-vert {
-  min-height: calc(100% - 502px);
+  min-height: calc(100vh - 502px);
 }
 
 .trade {
@@ -1141,4 +1134,132 @@ label {
 #zocrscope a {
   color: rgba(105,28,43,1);
   text-decoration: none;
+}
+
+.cryptoloan .prs {
+  position: relative;
+  margin: 60px 0;
+  height: 200px;
+}
+
+.cryptoloan .pr {
+  position: absolute;
+  cursor: not-allowed;
+  background-color: rgba(256, 256, 256, .96);
+  border-radius: 2px;
+  padding: 10px;
+  width: 600px;
+  text-align: left;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.75);
+  height: 80px;
+  color: #ccc;
+  transition: margin 200ms;
+}
+
+.cryptoloan .pr-col {
+  height: 24px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cryptoloan .pr-col-0 {
+  color: #ddd;
+  text-align: center;
+}
+
+.cryptoloan .pr-col-1 {
+  margin-left: 12px;
+}
+
+.cryptoloan .pr-title {
+  color: #370F39;
+  font-size: 16px;
+}
+
+.cryptoloan .pr-domain {
+  font-size: 12px;
+}
+
+.cryptoloan .pr-info {
+  font-size: 12px;
+}
+
+.cryptoloan .pr-badge {
+  color: #eee;
+  background-color: #666;
+  padding: 2px 4px;
+  margin-left: 2px;
+  font-size: 8px;
+  border-radius: 2px;
+}
+
+.cryptoloan .pr-link {
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+.cryptoloan .hero {
+  min-height: calc(100vh - 49px);
+}
+
+.cryptoloan .pr-recent {
+  left :50%;
+  margin-left: -320px;
+  z-index: 1;
+}
+
+.cryptoloan .pr:hover {
+  margin-top: -20px;
+}
+
+.cryptoloan .pr-deadbeat {
+  left :50%;
+  top: 60px;
+  margin-left: -300px;
+  z-index: 1;
+}
+
+.cryptoloan .pr-deadbeat .pr-badge {
+  background-color: red;
+}
+
+.cryptoloan .pr-paid {
+  left :50%;
+  top: 120px;
+  margin-left: -280px;
+  z-index: 1;
+}
+
+.cryptoloan .pr-paid .pr-badge {
+  background-color: green;
+}
+
+
+
+.cryptoloan h2 {
+  color: #ccc;
+}
+
+.cryptoloan .hook {
+  margin-top: 30px;
+  color: #666;
+}
+
+.cryptoloan h1 {
+  font-size: 48px;
+  text-shadow: 0px 0px 2px rgba(0,0,0,0.25);
+}
+
+.cryptoloan .remaining {
+  color: #eee;
+  margin: 20px 0;
+}
+
+
+.cryptoloan .hook img {
+	max-width: 100%;
+	border: 2px solid #333;
+	border-radius: 2px;
+  padding: 10px;
+	margin: 10px 0;
 }
