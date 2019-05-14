@@ -55,6 +55,12 @@
 			<div class="container">
 				<h1>Get a No-Interest Crypto Loan</h1>
 				<h2>Backed by your Reddit Profile</h2>
+				<h2 class="remaining">
+					<span ng-show="!remainingView">$10,000</span>
+					<span class="ng-hide" ng-show="remainingView">${{remainingView | numeric}}</span>
+					Remaining
+				</h2>
+				<p>If there's $0 remaining, you can still apply and get on the queue</p>
 				<div class="prs">
 					<div class="pr pr-recent">
 						<div class="pr-col pr-col-0">
@@ -162,8 +168,6 @@
 						</div>
 					</div>
 				</div>
-				<h2 class="ng-hide" ng-show="remainingView">${{remainingView | numeric}} Remaining</h2>
-				<p>If there's $0 remaining, you can still apply and get on the queue</p>
 			</div>
 			<i class="fa fa-chevron-down scroll-down" ng-click="goDown()"></i>
 		</div>

@@ -2,7 +2,7 @@ export default function CryptoloanController($scope, $interval) {
   $scope.remaining = 8335
   $scope.remainingView = 10000
 
-  const step = Math.ceil(($scope.remainingView - $scope.remaining) / 50)
+  const step = Math.ceil(($scope.remainingView - $scope.remaining) / 100)
 
   const interval = $interval(() => {
     if ($scope.remainingView <= $scope.remaining) {
