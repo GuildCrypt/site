@@ -10,6 +10,7 @@ import WatchEmailModalController from './WatchEmailModalController.js'
 import RedeemModalController from './RedeemModalController.js'
 import DexInABoxController from './DexInABoxController.js'
 import TradeController from './TradeController.js'
+import CryptoloanController from './CryptoloanController.js'
 
 import modalDirective from './modalDirective.js'
 import tokenDirective from './tokenDirective.js'
@@ -28,6 +29,7 @@ app.controller('WatchEmailModalController', WatchEmailModalController)
 app.controller('RedeemModalController', RedeemModalController)
 app.controller('DexInABoxController', DexInABoxController)
 app.controller('TradeController', TradeController)
+app.controller('CryptoloanController', CryptoloanController)
 
 app.directive('tokens', tokensDirective)
 app.directive('token', tokenDirective)
