@@ -1,6 +1,9 @@
 import accountsManager from './accountsManager.js'
 
 export default function CryptoloanController($scope, $interval) {
+
+  $scope.redditApiUrl = 'https://guildcrypt-reddit-api.herokuapp.com'
+
   const params = document.location.hash.substr(1).split('/')
   const step = params[1]
 
@@ -39,7 +42,7 @@ export default function CryptoloanController($scope, $interval) {
     if (!redditApiUserCookie) {
       return
     }
-    const fetchResult = await fetch(`http://localhost:5000/me/${redditApiUserCookie}`)
+    const fetchResult = await fetch(`${$scope.redditApiUrl}/me/${redditApiUserCookie}`)
     $scope.user = await fetchResult.json()
     $scope.$apply()
   }
@@ -88,7 +91,7 @@ export default function CryptoloanController($scope, $interval) {
       return
     }
     const redditApiUserCookie = localStorage.getItem('redditApi.user.cookie')
-    await fetch('http://localhost:5000/me/addressHexUnprefixed', {
+    await fetch(`${$scope.redditApiUrl}/me/addressHexUnprefixed`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
