@@ -50,173 +50,200 @@
 				</div>
 			</div>
 		</div>
-		<div class="hero section gradient" id="hero" ng-controller="CryptoloanController">
-			<div class="container">
-				<h1>Want to try GuildCrypt but have no Crypto?</h1>
-				<h2>Get a $5 Loan Backed by your Reddit Profile</h2>
-				<h2 class="remaining">
-					<span ng-show="!remainingView">$10,000</span>
-					<span class="ng-hide" ng-show="remainingView">${{remainingView | numeric}}</span>
-					Remaining
-				</h2>
-				<p>If there's $0 remaining, you can still apply and get on the queue</p>
-				<div class="prs">
-					<div class="pr pr-recent">
-						<div class="pr-col pr-col-0">
-							<div class="pr-upvote">▲</div>
-							<div class="pr-score">
-								28
-							</div>
-							<div class="pr-downvote">▼</div>
-						</div>
-						<div class="pr-col pr-col-1">
-							<div>
-								<span class="pr-title">
-									Just took out a crypto loan!
-								</span>
-								<span class="pr-domain">
-									self.reddit.com
-								</span>
-							</div>
-							<div class="pr-info">
-								<span class="pr-submitted">
-									Submitted 6 months ago by /u/aakilfernandes
-								</span>
-								<span class="pr-badge">
-									Owes GuildCrypt $5
-								</span>
-							</div>
-							<div class="pr-links">
-								<span class="pr-link">4 Comments</span>
-								<span class="pr-link">Share</span>
-								<span class="pr-link">Save</span>
-								<span class="pr-link">Hide</span>
-								<span class="pr-link">Report</span>
-								<span class="pr-link">Crosspost</span>
-							</div>
-						</div>
-					</div>
-					<div class="pr pr-deadbeat">
-						<div class="pr-col pr-col-0">
-							<div class="pr-upvote">▲</div>
-							<div class="pr-score">
-								23
-							</div>
-							<div class="pr-downvote">▼</div>
-						</div>
-						<div class="pr-col pr-col-1">
-							<div>
-								<span class="pr-title">
-									Still havent paid back my loan. I should do that soon...
-								</span>
-								<span class="pr-domain">
-									self.reddit.com
-								</span>
-							</div>
-							<div class="pr-info">
-								<span class="pr-submitted">
-									Submitted 2 days ago by /u/aakilfernandes
-								</span>
-								<span class="pr-badge pr-badge">
-									😥 Owes GuildCrypt $5
-								</span>
-							</div>
-							<div class="pr-links">
-								<span class="pr-link">4 Comments</span>
-								<span class="pr-link">Share</span>
-								<span class="pr-link">Save</span>
-								<span class="pr-link">Hide</span>
-								<span class="pr-link">Report</span>
-								<span class="pr-link">Crosspost</span>
-							</div>
-						</div>
-					</div>
-					<div class="pr pr-paid">
-						<div class="pr-col pr-col-0">
-							<div class="pr-upvote">▲</div>
-							<div class="pr-score">
-								95
-							</div>
-							<div class="pr-downvote">▼</div>
-						</div>
-						<div class="pr-col pr-col-1">
-							<div>
-								<span class="pr-title">
-									Just paid off my loan!
-								</span>
-								<span class="pr-domain">
-									self.reddit.com
-								</span>
-							</div>
-							<div class="pr-info">
-								<span class="pr-submitted">
-									Submitted 4 minutes ago by /u/aakilfernandes
-								</span>
-								<span class="pr-badge pr-badge">
-									👍 Debt Free!
-								</span>
-							</div>
-							<div class="pr-links">
-								<span class="pr-link">8 Comments</span>
-								<span class="pr-link">Share</span>
-								<span class="pr-link">Save</span>
-								<span class="pr-link">Hide</span>
-								<span class="pr-link">Report</span>
-								<span class="pr-link">Crosspost</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<i class="fa fa-chevron-down scroll-down"></i>
-		</div>
-			<!--
-			<div class="section gradient hero">
+		<div ng-controller="CryptoloanController">
+			<div class="hero section gradient" id="hero">
 				<div class="container">
-					<h1>Reddit-Backed Crypto Loan</h1>
-					<p>Get an instant 0-interest $5 ETH/DAI loan backed by your Reddit profile.</p>
-					<h2 class="remaining">$5435 Remaining</h2>
-					<p>If there's $0 remaining, you can still apply and be added to a waitlist.</p>
-				</div>
-			</div>
-			-->
-			<div class="container hook fill-vert">
-				<div class="row">
-					<div class="col-xs-12 col-sm-8">
-						<h3>Step 1. Link your Reddit account</h3>
-						<p>Link your Reddit account and subscribe to /r/GuildCrypt. We'll check your account has at least 100 Karma amongst relevant subreddits.</p>
-						<p>Karma must have been acquired prior to X to count. Sorry, no bots!</p>
-						<br/>
-						<a class="btn btn-gold btn-lg" href="https://guildcrypt-reddit-api.herokuapp.com/auth/">
-							Link Reddit
-						</a>
-						<hr/>
-						<h3>Step 2. Link Your Ethereum Wallet</h3>
-						<p>We'll send $1 of ETH and $4 of DAI to your linked wallet.</p>
-						<br/>
-						<a class="btn btn-gold btn-lg">
-							Link Ethereum
-						</a>
-						<hr/>
-						<h3>Step 3. Sit back and relax!</h3>
-						<p>We'll ping you on Reddit the crypto has been sent</p>
+					<h1>No Crypto? No Problem.</h1>
+					<p>Try out <b>GuildCrypt</b> with a $5 no-interest loan connected to your Reddit account</p>
+					<h2 class="remaining">
+						<span ng-show="!remainingView">$10,000</span>
+						<span class="ng-hide" ng-show="remainingView">${{remainingView | numeric}}</span>
+						Remaining
+					</h2>
+					<p>If there's $0 remaining, you can still apply and get on the queue</p>
+					<div class="prs">
+						<div class="pr pr-recent">
+							<div class="pr-col pr-col-0">
+								<div class="pr-upvote">▲</div>
+								<div class="pr-score">
+									28
+								</div>
+								<div class="pr-downvote">▼</div>
+							</div>
+							<div class="pr-col pr-col-1">
+								<div>
+									<span class="pr-title">
+										Just took out a crypto loan!
+									</span>
+									<span class="pr-domain">
+										self.reddit.com
+									</span>
+								</div>
+								<div class="pr-info">
+									<span class="pr-submitted">
+										Submitted 6 months ago by /u/aakilfernandes
+									</span>
+									<span class="pr-badge">
+										Owes GuildCrypt $5
+									</span>
+								</div>
+								<div class="pr-links">
+									<span class="pr-link">4 Comments</span>
+									<span class="pr-link">Share</span>
+									<span class="pr-link">Save</span>
+									<span class="pr-link">Hide</span>
+									<span class="pr-link">Report</span>
+									<span class="pr-link">Crosspost</span>
+								</div>
+							</div>
+						</div>
+						<div class="pr pr-deadbeat">
+							<div class="pr-col pr-col-0">
+								<div class="pr-upvote">▲</div>
+								<div class="pr-score">
+									23
+								</div>
+								<div class="pr-downvote">▼</div>
+							</div>
+							<div class="pr-col pr-col-1">
+								<div>
+									<span class="pr-title">
+										Still havent paid back my loan. I should do that soon...
+									</span>
+									<span class="pr-domain">
+										self.reddit.com
+									</span>
+								</div>
+								<div class="pr-info">
+									<span class="pr-submitted">
+										Submitted 2 days ago by /u/aakilfernandes
+									</span>
+									<span class="pr-badge pr-badge">
+										😥 Owes GuildCrypt $5
+									</span>
+								</div>
+								<div class="pr-links">
+									<span class="pr-link">4 Comments</span>
+									<span class="pr-link">Share</span>
+									<span class="pr-link">Save</span>
+									<span class="pr-link">Hide</span>
+									<span class="pr-link">Report</span>
+									<span class="pr-link">Crosspost</span>
+								</div>
+							</div>
+						</div>
+						<div class="pr pr-paid">
+							<div class="pr-col pr-col-0">
+								<div class="pr-upvote">▲</div>
+								<div class="pr-score">
+									95
+								</div>
+								<div class="pr-downvote">▼</div>
+							</div>
+							<div class="pr-col pr-col-1">
+								<div>
+									<span class="pr-title">
+										Just paid off my loan!
+									</span>
+									<span class="pr-domain">
+										self.reddit.com
+									</span>
+								</div>
+								<div class="pr-info">
+									<span class="pr-submitted">
+										Submitted 4 minutes ago by /u/aakilfernandes
+									</span>
+									<span class="pr-badge pr-badge">
+										👍 Debt Free!
+									</span>
+								</div>
+								<div class="pr-links">
+									<span class="pr-link">8 Comments</span>
+									<span class="pr-link">Share</span>
+									<span class="pr-link">Save</span>
+									<span class="pr-link">Hide</span>
+									<span class="pr-link">Report</span>
+									<span class="pr-link">Crosspost</span>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="xs-hidden col-sm-4">
-						<h3>Recent Loans</h3>
-						<table class="table">
-							<tr>
-								<td>/u/aakilfernandes</td>
-								<td>Borrowed $10</td>
-							</tr>
-							<tr>
-								<td>/u/willyum</td>
-								<td>Pending approval</td>
-							</tr>
-							<tr>
-								<td>/u/someguy</td>
-								<td>Pending approval</td>
-							</tr>
-						</table>
+				</div>
+				<i class="fa fa-chevron-down scroll-down"></i>
+			</div>
+				<!--
+				<div class="section gradient hero">
+					<div class="container">
+						<h1>Reddit-Backed Crypto Loan</h1>
+						<p>Get an instant 0-interest $5 ETH/DAI loan backed by your Reddit profile.</p>
+						<h2 class="remaining">$5435 Remaining</h2>
+						<p>If there's $0 remaining, you can still apply and be added to a waitlist.</p>
+					</div>
+				</div>
+				-->
+				<div class="container hook fill-vert">
+					<div class="row ng-hide" ng-show='stats'>
+						<div class="col-xs-12 col-sm-8">
+							<h3 id="reddit">Step 1. Link your Reddit account</h3>
+							<p>
+								Link your Reddit account and subscribe to /r/GuildCrypt.
+								We'll check your account has at least <b>{{stats.params.score0.threshold}}</b> Karma amongst relevant subreddits.
+								Karma must have been acquired prior to <b>May 15th, 2018</b> to count. Sorry, no bots!
+							</p>
+							<br/>
+							<div class="ng-hide" ng-show="user">
+								<div class="alert alert-success">
+									Linked /u/{{user.redditUsername}}
+								</div>
+								<div class="alert alert-info" ng-show="user.score0 === null">
+									We're checking your Reddit account to make sure you meet the relevant Karma threshold. This may take a few minutes...
+								</div>
+								<div ng-show="user.score0 !== null">
+									<div class="alert alert-success" ng-show="user.score0 >= stats.params.score0.threshold">
+										You have enough relevant Karma!
+									</div>
+									<div class="alert alert-danger" ng-show="user.score0 < stats.params.score0.threshold">
+										Sorry, you only have {{user.score0}} relevant Karma. You need at least {{stats.params.score0.threshold}}.
+									</div>
+								</div>
+							</div>
+							<a ng-show="!user" class="btn btn-gold btn-lg ng-hide" href="http://localhost:5000/auth/">
+								Link Reddit
+							</a>
+							<hr/>
+							<h3>Step 2. Link Your Ethereum Wallet</h3>
+							<p>We'll send $1 of ETH and $4 of DAI to your linked wallet.</p>
+							<br/>
+							<button class="btn btn-gold btn-lg ng-hide" ng-click="linkEthereumWallet()" ng-disabled="!user" ng-show="!user.addressHexUnprefixed">
+								Link Ethereum Wallet
+							</button>
+							<div ng-show="user.addressHexUnprefixed" class="alert alert-success ng-hide">
+								Linked {{user.addressHexUnprefixed}}
+							</div>
+
+							<hr/>
+							<h3>Step 3. Sit back and relax!</h3>
+							<p>We'll ping you on Reddit the crypto has been sent</p>
+							<div class="ng-hide" ng-show="user && user.addressHexUnprefixed">
+								<br/>
+								<div ng-show="user.score0 >= stats.params.score0.threshold">
+									<div class="alert alert-info" ng-show="!user.isCryptoSent">
+										Sending crypto to your address. This might take a few minutes...
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="hidden-xs col-sm-4">
+							<h3>Recent Loans</h3>
+							<table class="table">
+								<tr ng-repeat="user in stats.users">
+									<td>/u/{{user.redditUsername}}</td>
+									<td>
+										{{user.statusText}}
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
