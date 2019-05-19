@@ -11,6 +11,7 @@ import RedeemModalController from './RedeemModalController.js'
 import DexInABoxController from './DexInABoxController.js'
 import TradeController from './TradeController.js'
 import CryptoloanController from './CryptoloanController.js'
+import GiveawayController from './GiveawayController.js'
 
 import modalDirective from './modalDirective.js'
 import tokenDirective from './tokenDirective.js'
@@ -30,6 +31,7 @@ app.controller('RedeemModalController', RedeemModalController)
 app.controller('DexInABoxController', DexInABoxController)
 app.controller('TradeController', TradeController)
 app.controller('CryptoloanController', CryptoloanController)
+app.controller('GiveawayController', GiveawayController)
 
 app.directive('tokens', tokensDirective)
 app.directive('token', tokenDirective)
