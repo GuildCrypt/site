@@ -1359,7 +1359,7 @@ label {
 .countdown {
   font-size: 40px;
   width: 13em;
-  margin: 40px auto;
+  margin: 1em auto;
 }
 
 @media screen and (max-width: 680px) {
@@ -1367,6 +1367,13 @@ label {
     font-size: 30px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .countdown {
+    font-size: 26px;
+  }
+}
+
 
 
 .countdown-muted {
@@ -1395,7 +1402,6 @@ label {
 }
 
 .countdown-muted .raised-glass {
-  transition: all 400ms ease;
   box-shadow: 0 0 .5em 0 rgba(0, 0, 0, .2);
 }
 
