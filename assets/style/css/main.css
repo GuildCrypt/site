@@ -1306,7 +1306,6 @@ label {
   margin: 0px auto;
   border-radius: 14px;
   width: 240px;
-  background-color: rgba(255, 255, 255, .1);
 }
 
 .giveaway .hero .chooser {
@@ -1342,6 +1341,13 @@ label {
   width: 100%;
   padding: 10px;
 }
+
+@media screen and (max-width: 800px) {
+  .giveaway .login {
+    font-size: 14px;
+  }
+}
+
 
 .giveaway .faq {
   color: #333;
@@ -1513,12 +1519,14 @@ label {
 /* Do an horizontal flip when you move the mouse over the flip box container */
 .flip-card.flip-card-hover .flip-card-inner {
   transform: rotateY(180deg);
+  backface-visibility: hidden;
 }
 
 /* Position the front and back side */
 .flip-card-front, .flip-card-back {
   position: absolute;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   width: 100%
 }
 

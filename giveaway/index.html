@@ -43,15 +43,11 @@
 						<span ng-show="giveawayIndex === undefined">Loading...</span>
 						<span class="ng-hide"  ng-show="giveawayIndex !== undefined">
 							<span class="chooser-arrow">
-								<span ng-show="giveawayIndex > 0" ng-click="giveawayIndex = giveawayIndex - 1">
-									&#9664;
-								</span>
+								<i class="fas fa-caret-left" ng-show="giveawayIndex > 0" ng-click="giveawayIndex = giveawayIndex - 1"></i>
 							</span>
 							Drawing #{{giveawayIndex + 1}}
 							<span class="chooser-arrow">
-								<span ng-show="giveawayIndex < stats.giveaways.length - 1" ng-click="giveawayIndex = giveawayIndex + 1">
-									&#9654;
-								</span>
+								<span class="fas fa-caret-right" ng-show="giveawayIndex < stats.giveaways.length - 1" ng-click="giveawayIndex = giveawayIndex + 1"></span>
 							</span>
 						</span>
 					</h2>
@@ -147,7 +143,7 @@
 						</div>
 						<div class="col-xs-12 col-sm-8 ng-hide" ng-show="giveaway" ng-style="{opacity: isGiveawayTransitioned ? 100 : 0 }" style="opacity: 0; transition: all 400ms ease">
 							<div class="btn btn-gold btn-lg login shadow-drop-center">
-								Login w/ Reddit to get your Free Ticket
+								Login w/ Reddit & Get Your Free Ticket
 							</div>
 							<table class="table tickets">
 								<tr>
