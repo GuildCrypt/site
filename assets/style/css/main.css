@@ -1362,6 +1362,13 @@ label {
   margin: 40px auto;
 }
 
+@media screen and (max-width: 680px) {
+  .countdown {
+    font-size: 30px;
+  }
+}
+
+
 .countdown-muted {
   opacity: .5;
 }
