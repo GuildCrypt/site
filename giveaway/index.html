@@ -152,7 +152,7 @@
 								Login w/ Reddit & Get Your Free Ticket
 							</button>
 							<div class="alert alert-warning" ng-show="user">
-								Welcome <b>/u/{{user.redditUsername}}</b>! You currently have <b>1</b> tickets.
+								Welcome <b>/u/{{user.redditUsername}}</b>! You currently have <b>{{user.tickets.length}}</b> tickets.
 							</div>
 							<table class="table tickets">
 								<tr>

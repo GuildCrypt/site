@@ -1311,7 +1311,7 @@ label {
 .giveaway .status {
   min-height: 150px;
   vertical-align: bottom;
-  margin: 0 20px;
+  margin: 0;
 }
 
 .giveaway .status h2 {
