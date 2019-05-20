@@ -18,7 +18,7 @@ import tokenDirective from './tokenDirective.js'
 import tokensDirective from './tokensDirective.js'
 import tokenMiniDirective from './tokenMiniDirective.js'
 
-const app = angular.module('app', [])
+const app = angular.module('app', ['yaru22.angular-timeago'])
 
 app.controller('AccountController', AccountController)
 app.controller('AccountGateController', AccountGateController)
@@ -79,5 +79,20 @@ app.filter('numeric', function() {
         return ''
       }
       return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
+})
+
+app.filter('pad', function() {
+  return function(value, length) {
+      if (value === undefined) {
+        return ''
+      }
+      const valueString = value.toString()
+      if (valueString.length >= length) {
+        return valueString
+      } else {
+        const padding = '0'.repeat(length - valueString.length)
+        return `${padding}${valueString}`
+      }
     }
 })

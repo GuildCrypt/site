@@ -1308,6 +1308,19 @@ label {
   width: 240px;
 }
 
+.giveaway .status {
+  min-height: 150px;
+  vertical-align: bottom;
+  margin: 0 20px;
+}
+
+.giveaway .status h2 {
+  display: inline-block;
+  height: 100%;
+  line-height: 150px;
+  margin-bottom: 0;
+}
+
 .giveaway .hero .chooser {
   width: 200px;
   padding: 10px;
@@ -1322,6 +1335,14 @@ label {
   display: inline-block;
 }
 
+.giveaway .chooser-arrow .fa-caret-left {
+  padding-left: 10px;
+}
+
+.giveaway .chooser-arrow .fa-caret-right {
+  padding-right: 10px;
+}
+
 .giveaway .chooser-arrow [ng-click] {
   cursor: pointer;
 }
@@ -1332,8 +1353,8 @@ label {
   margin-top: 40px;
 }
 
-.giveaway .tickets td {
-  padding: 0px;
+.giveaway .tickets td, .giveaway .tickets th {
+  padding: 0px 4px 0px 0px;
   border-top: none;
 }
 
@@ -1365,7 +1386,7 @@ label {
 .countdown {
   font-size: 40px;
   width: 13em;
-  margin: 1em auto;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 680px) {

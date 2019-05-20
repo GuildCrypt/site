@@ -1,3 +1,5 @@
+import modalManager from './modalManager.js'
+
 function getTime() {
   return Math.floor((new Date).getTime() / 1000)
 }
@@ -10,14 +12,12 @@ export default function GiveawayController($scope, $interval, $timeout) {
   const step = params[1]
 
   if (step === 'reddit-linked') {
-    const $reddit = document.getElementById('reddit')
-    setTimeout(() => {
-      window.scrollTo({
-        top: window.innerHeight + 1,
-        behavior: 'smooth'
-      })
-    })
     localStorage.setItem('redditApi.user.cookie', params[2])
+    window.location.hash = ''
+  }
+
+  async function setTime() {
+    $scope.time = getTime()
   }
 
   async function setUser() {
@@ -26,12 +26,33 @@ export default function GiveawayController($scope, $interval, $timeout) {
       return
     }
     const fetchResult = await fetch(`${$scope.redditApiUrl}/me/${redditApiUserCookie}`)
+    $scope.user = await fetchResult.json()
     $scope.$apply()
   }
 
   async function setStats() {
     const fetchResult = await fetch(`https://s3.amazonaws.com/giveaway-stats-api/stats.json`)
     $scope.stats = await fetchResult.json()
+    $scope.stats.giveaways.forEach((giveaway) => {
+      giveaway.drawingAtPretty = (new Date(giveaway.drawingAt * 1000)).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      })
+    })
+    $scope.stats.tickets.forEach((ticket) => {
+      switch(ticket.reasonCode) {
+        case 'signup':
+          ticket.reasonPretty = 'Signed up for Scrabbleverse'
+          break;
+        case 'reddit-subscribe':
+          ticket.reasonPretty = 'Subscribed to /r/GuildCrypt'
+          break;
+        default:
+          ticket.reasonPretty = ticket.reasonCode
+          break;
+      }
+    })
     $scope.$apply()
   }
 
@@ -129,11 +150,11 @@ export default function GiveawayController($scope, $interval, $timeout) {
     if (!giveawayWas) {
       $timeout(() => {
         $scope.isGiveawayTransitioned = true
-      }, 500)
+      }, 400)
     }
   })
 
-
+  setTime()
   setUser()
   setStats().then(() => {
     const time = getTime()
@@ -145,9 +166,22 @@ export default function GiveawayController($scope, $interval, $timeout) {
   })
 
   setInterval(() => {
+    setTime()
     setUser()
     setStats()
   }, 1000)
 
+
+  $scope.login = function() {
+    console.log('login')
+    modalManager.open({
+      modalSize: 'lg',
+      templateUrl: '/templates/modals/login-with-reddit.html',
+      data: {
+        redditApiUrl: $scope.redditApiUrl,
+        encodedCallbackUrl: encodeURIComponent(window.location.href.split('#')[0])
+      }
+    })
+  }
 
 }
