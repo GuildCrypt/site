@@ -6,7 +6,7 @@ function getTime() {
 
 export default function GiveawayController($scope, $interval, $timeout) {
 
-  $scope.redditApiUrl = 'http://localhost:5000'
+  $scope.redditApiUrl = 'http://guildcrypt-reddit-api.herokuapp.com'
 
   const params = document.location.hash.substr(1).split('/')
   const step = params[1]
