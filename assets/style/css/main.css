@@ -1309,7 +1309,7 @@ label {
 }
 
 .giveaway .status {
-  min-height: 150px;
+  min-height: 14vh;
   vertical-align: bottom;
   margin: 0;
 }
@@ -1317,7 +1317,7 @@ label {
 .giveaway .status h2 {
   display: inline-block;
   height: 100%;
-  line-height: 150px;
+  line-height: 14vh;
   margin-bottom: 0;
 }
 
