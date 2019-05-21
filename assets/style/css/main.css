@@ -1377,6 +1377,10 @@ label {
   padding: 10px;
 }
 
+.giveaway .invite-bonus {
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 800px) {
   .giveaway .login {
     font-size: 14px;
@@ -1397,10 +1401,17 @@ label {
 }
 
 .giveaway-invite .invite-url {
-  font-size: 24px;
+  font-size: 18px;
   margin: 10px 0;
   text-align: center;
 }
+
+@media screen and (max-width: 800px) {
+  .giveaway-invite .invite-url {
+    font-size: 14px;
+  }
+}
+
 
 .giveaway-invite .alert {
   text-align: center;

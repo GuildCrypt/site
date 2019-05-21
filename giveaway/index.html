@@ -148,12 +148,12 @@
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-8 ng-hide" ng-show="giveaway" ng-style="{opacity: isGiveawayTransitioned ? 100 : 0 }" style="opacity: 0; transition: all 400ms ease">
-							<div ng-show="!user && invite" class="alert alert-warning">
-								You'll get a bonus ticket thanks to /u/{{invite.redditUsername}}
-							</div>
 							<button class="btn btn-gold btn-lg login shadow-drop-center" ng-click="login()" ng-show="!user">
 								Login w/ Reddit & Get Your Free Ticket
 							</button>
+							<div ng-show="!user && invite" class="alert alert-warning invite-bonus">
+								You'll get a bonus ticket thanks to /u/{{invite.redditUsername}}
+							</div>
 							<div class="alert alert-warning" ng-show="user">
 								Welcome <b>/u/{{user.redditUsername}}</b>! You currently have <b>{{user.tickets.length}}</b> tickets.
 							</div>
