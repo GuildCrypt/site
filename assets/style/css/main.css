@@ -1309,7 +1309,7 @@ label {
 }
 
 .giveaway .status {
-  min-height: 14vh;
+  min-height: 10vh;
   vertical-align: bottom;
   margin: 0;
 }
@@ -1317,7 +1317,7 @@ label {
 .giveaway .status h2 {
   display: inline-block;
   height: 100%;
-  line-height: 14vh;
+  line-height: 10vh;
   margin-bottom: 0;
 }
 
@@ -1349,13 +1349,27 @@ label {
 
 
 .giveaway .tickets {
-  text-align: left;
   margin-top: 40px;
 }
 
-.giveaway .tickets td, .giveaway .tickets th {
-  padding: 0px 4px 0px 0px;
+@media screen and (max-width: 680px) {
+  .giveaway .tickets {
+    font-size: .8em;
+  }
+}
+
+.giveaway .table td, .giveaway .table th {
+  text-align: left;
+  padding: 0px 4px 4px 0px;
   border-top: none;
+}
+
+.giveaway .goals td:nth-child(2) {
+  padding: .6em;
+}
+
+.giveaway .table .btn {
+  width: 100%;
 }
 
 .giveaway .login {
@@ -1369,7 +1383,6 @@ label {
   }
 }
 
-
 .giveaway .faq {
   color: #333;
 }
@@ -1379,14 +1392,24 @@ label {
   margin-top: 40px;
 }
 
-.giveaway h4 {
+.giveaway .faq h4 {
   margin-top: 20px;
+}
+
+.giveaway-invite .invite-url {
+  font-size: 24px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.giveaway-invite .alert {
+  text-align: center;
 }
 
 .countdown {
   font-size: 40px;
   width: 13em;
-  margin: 0 auto;
+  margin: 3vh auto 0 auto;
 }
 
 @media screen and (max-width: 680px) {

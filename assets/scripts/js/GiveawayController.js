@@ -4,17 +4,33 @@ function getTime() {
   return Math.floor((new Date).getTime() / 1000)
 }
 
+function openInviteModal() {
+  modalManager.open({
+    modalSize: 'lg',
+    templateUrl: '/templates/modals/giveaway-invite.html',
+    data: {
+      redditApiUrl: $scope.redditApiUrl,
+    }
+  })
+}
+
 export default function GiveawayController($scope, $interval, $timeout) {
 
-  $scope.redditApiUrl = 'https://guildcrypt-reddit-api.herokuapp.com'
+  //const redditApiUrl = 'https://guildcrypt-reddit-api.herokuapp.com'
+  $scope.redditApiUrl = window.location.host.indexOf('localhost') === 0 ? 'http://localhost:5000' : 'https://guildcrypt-reddit-api.herokuapp.com'
+  $scope.giveawayUrl = window.location.href.split('#')[0]
 
-  const params = document.location.hash.substr(1).split('/')
-  const step = params[1]
-
-  if (step === 'reddit-linked') {
-    localStorage.setItem('redditApi.user.cookie', params[2])
-    window.location.hash = ''
+  $scope.getLoginUrl = (isSubscribe) => {
+    const encodedCallbackUrl = encodeURIComponent($scope.giveawayUrl)
+    const inviteCode = $scope.invite ? $scope.invite.inviteCode : ''
+    return `${$scope.redditApiUrl}/auth/?callbackUrl=${encodedCallbackUrl}&subscribe=${isSubscribe ? 'yes' : 'no'}&inviteCode=${inviteCode}`
   }
+
+  $scope.getInviteUrl = () => {
+    return `${$scope.giveawayUrl}#/invite/${$scope.user.inviteCode}`
+  }
+
+  $scope.loginAndSubscribeUrl = $scope.getLoginUrl(true)
 
   async function setTime() {
     $scope.time = getTime()
@@ -25,7 +41,11 @@ export default function GiveawayController($scope, $interval, $timeout) {
     if (!redditApiUserCookie) {
       return
     }
-    const fetchResult = await fetch(`${$scope.redditApiUrl}/me/${redditApiUserCookie}`)
+    const fetchResult = await fetch(`${$scope.redditApiUrl}/me/`, {
+      headers: {
+        authorization: redditApiUserCookie
+      }
+    })
     $scope.user = await fetchResult.json()
     $scope.$apply()
   }
@@ -47,6 +67,12 @@ export default function GiveawayController($scope, $interval, $timeout) {
           break;
         case 'reddit-subscribe':
           ticket.reasonPretty = 'Subscribed to /r/GuildCrypt'
+          break;
+        case 'invited':
+          ticket.reasonPretty = `Invited /u/${ticket.invite.toUser.redditUsername}`
+          break;
+        case 'invited-by':
+          ticket.reasonPretty = `Invited by /u/${ticket.invite.fromUser.redditUsername}`
           break;
         default:
           ticket.reasonPretty = ticket.reasonCode
@@ -135,21 +161,22 @@ export default function GiveawayController($scope, $interval, $timeout) {
       $scope.drawingPojos = null
     }
 
-    $flipper.classList.remove('flip-card-hover')
+    // $flipper.classList.remove('flip-card-hover')
     const flipperSrc = `https://s3.amazonaws.com/giveaway-stats-api/cards/${giveaway.card.id}.jpeg`
-    const imageLoader = new Image
-    imageLoader.src = flipperSrc
-    if (flipTimeout) {
-      $timeout.cancel(flipTimeout)
-    }
-    flipTimeout = $timeout(() => {
+    // const imageLoader = new Image
+    // imageLoader.src = flipperSrc
+    // // if (flipTimeout) {
+    //   $timeout.cancel(flipTimeout)
+    // }
+    // flipTimeout = $timeout(() => {
       $scope.flipperSrc = flipperSrc
-      $flipper.classList.add('flip-card-hover')
-    }, giveawayWas ? 1000 : 0)
+      // $flipper.classList.add('flip-card-hover')
+    // }, giveawayWas ? 1000 : 0)
 
     if (!giveawayWas) {
       $timeout(() => {
         $scope.isGiveawayTransitioned = true
+        $flipper.classList.add('flip-card-hover')
       }, 400)
     }
   })
@@ -167,21 +194,59 @@ export default function GiveawayController($scope, $interval, $timeout) {
 
   setInterval(() => {
     setTime()
-    setUser()
+    // setUser()
     setStats()
   }, 1000)
 
 
   $scope.login = function() {
-    console.log('login')
     modalManager.open({
       modalSize: 'lg',
       templateUrl: '/templates/modals/login-with-reddit.html',
       data: {
-        redditApiUrl: $scope.redditApiUrl,
-        encodedCallbackUrl: encodeURIComponent(window.location.href.split('#')[0])
+        loginUrl: $scope.getLoginUrl(),
+        loginAndSubscribeUrl: $scope.getLoginUrl(true)
       }
     })
   }
+
+  $scope.openInviteModal = function() {
+    modalManager.open({
+      modalSize: 'lg',
+      templateUrl: '/templates/modals/giveaway-invite.html',
+      data: {
+        inviteUrl: $scope.getInviteUrl(),
+        user: $scope.user
+      }
+    })
+  }
+
+  async function handleStep() {
+
+    const params = document.location.hash.substr(1).split('/')
+    const step = params[1]
+
+    if (step === 'reddit-linked') {
+      localStorage.setItem('redditApi.user.cookie', params[2])
+      window.location.hash = ''
+      console.log('openInviteModal')
+      $scope.openInviteModal()
+      setUser()
+    }
+
+    if (step === 'invite') {
+      window.location.hash = ''
+      const inviteCode = params[2]
+      localStorage.setItem('inviteCode', inviteCode)
+      const fetchResult = await fetch(`${$scope.redditApiUrl}/invites/${inviteCode}`)
+      $scope.invite = await fetchResult.json()
+      $scope.$apply()
+    }
+
+  }
+
+  handleStep()
+
+
 
 }

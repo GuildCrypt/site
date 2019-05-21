@@ -28,7 +28,7 @@
 	</head>
 
 	<body ng-app="app" class="giveaway">
-
+		<div modal></div>
 		<!-- Header -->
 
 		<div ng-controller="GiveawayController">
@@ -139,21 +139,61 @@
 							<div id="flipper" class="flip-card">
 								<div class="flip-card-inner">
 									<div class="flip-card-front">
-										<img class="item shadow-drop-center" ng-class="{'shadow-drop-center': !giveaway }" src="./back.jpeg">
+										<img class="item shadow-drop-center" src="./back.jpeg">
 									</div>
 									<div class="flip-card-back">
-										<img class="item shadow-drop-center" ng-class="{'shadow-drop-center': !giveaway }" ng-src="{{flipperSrc}}">
+										<img class="item shadow-drop-center" ng-src="{{flipperSrc}}">
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-8 ng-hide" ng-show="giveaway" ng-style="{opacity: isGiveawayTransitioned ? 100 : 0 }" style="opacity: 0; transition: all 400ms ease">
+							<div ng-show="!user && invite" class="alert alert-warning">
+								You'll get a bonus ticket thanks to /u/{{invite.redditUsername}}
+							</div>
 							<button class="btn btn-gold btn-lg login shadow-drop-center" ng-click="login()" ng-show="!user">
 								Login w/ Reddit & Get Your Free Ticket
 							</button>
 							<div class="alert alert-warning" ng-show="user">
 								Welcome <b>/u/{{user.redditUsername}}</b>! You currently have <b>{{user.tickets.length}}</b> tickets.
 							</div>
+							<table class="table goals" ng-show="user
+							">
+								<tr>
+									<td>
+										<button class="btn btn-gold btn-xs" ng-click="openInviteModal()">Invite a friend</button>
+									</td>
+									<td class="goal-explanation">
+										1 Ticket for every friend that signs up
+									</td>
+								</tr>
+								<tr ng-show="!user.isRedditSubscribed">
+									<td>
+										<a class="btn btn-grey btn-xs" href="{{loginAndSubscribeUrl}}">Subscribe to /r/GuildCrypt</a>
+									</td>
+									<td class="goal-explanation">
+										1 Ticket
+									</td>
+								</tr>
+								<!--
+								<tr>
+									<td>
+										<button class="btn btn-grey btn-xs">Follow @GuildCrypt on Twitter</button>
+									</td>
+									<td>
+										3 Tickets
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button class="btn btn-grey btn-xs">Follow @GuildCrypt on Facebook</button>
+									</td>
+									<td>
+										3 Tickets
+									</td>
+								</tr>
+								-->
+							</table>
 							<table class="table tickets">
 								<tr>
 									<th>Ticket #</th>
@@ -240,7 +280,6 @@
 			</div>
 			<img src="/assets/media/images/icon-black.svg" class="footer-icon"/>
 		</div>
-		<div modal></div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js" integrity="sha384-CJ+cVuy4UuycwlS2fnvOLZAjXavw5D+nRzvnajUytjRGfDXIA1hQUFPvNoOseK7K" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" integrity="sha384-du5g06MyvN/hl4HwDjcFNmKiX3lFDaekrtlW37Bs3hY+FAKWFpVrZwlP/bh20AXW" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js" integrity="sha384-+CaKnwteOIsdVqN3DxF1ZKOTwjH572ZPyEfKv6G4h+fqzUKXZ4l34FKpmcWdZHDY" crossorigin="anonymous"></script>
