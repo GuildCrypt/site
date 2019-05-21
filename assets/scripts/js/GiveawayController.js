@@ -229,7 +229,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
     if (step === 'reddit-linked') {
       localStorage.setItem('redditApi.user.cookie', params[2])
       window.location.hash = ''
-      setUser()
+      await setUser()
       $scope.openInviteModal()
     }
 
