@@ -74,6 +74,9 @@ export default function GiveawayController($scope, $interval, $timeout) {
         case 'invited-by':
           ticket.reasonPretty = `Invited by /u/${ticket.invite.fromUser.redditUsername}`
           break;
+        case 'email':
+          ticket.reasonPretty = 'Joined our mailing list'
+          break;
         default:
           ticket.reasonPretty = ticket.reasonCode
           break;
@@ -220,6 +223,19 @@ export default function GiveawayController($scope, $interval, $timeout) {
       }
     })
   }
+
+  $scope.openEmailModal = async function() {
+    await modalManager.open({
+      modalSize: 'lg',
+      templateUrl: '/templates/modals/giveaway-email.html',
+      data: {
+        redditApiUrl: $scope.redditApiUrl,
+        user: $scope.user
+      }
+    })
+    await setUser()
+  }
+
 
   async function handleStep() {
 

@@ -1,0 +1,15 @@
+<div class="modal-content giveaway-invite" ng-controller="GiveawayEmailController">
+  <form ng-submit="submit()">
+    <div class="modal-header">
+      <h4 class="modal-title">Join Our Mailing List</h4>
+      <div ng-include="'/templates/modal-close.html'"></div>
+    </div>
+    <div class="modal-body">
+      <h5>Email:</h5>
+      <input class="form-control" type="email" ng-model="email"></input>
+    </div>
+    <div class="modal-footer" >
+      <button class="btn btn-gold" ng-disabled="!isEmailGood">Submit</button>
+    </div>
+  </form>
+</div>
