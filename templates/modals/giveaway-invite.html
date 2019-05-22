@@ -4,14 +4,12 @@
     <div ng-include="'/templates/modal-close.html'"></div>
   </div>
   <div class="modal-body">
-      <div ng-click="copy()">
-        <div class="invite-url alert alert-info">{{options.data.inviteUrl}}</div>
-        <center ng-show="isCopied">Copied!</center>
-      </div>
+      <div class="invite-url alert alert-info">{{options.data.inviteUrl}}</div>
+      <center>
+        <button class="btn btn-gold" ng-click="copy()" ng-disabled="isCopied"><i class="fas fa-paste"></i> {{isCopied ? 'Copied' : 'Copy'}}</button>
+        <a class="btn btn-gold" ng-href="{{tweetUrl}}" target="_blank"><i class="fab fa-twitter"></i> Tweet</a>
+      </center>
       <hr/>
-      <div ng-show="options.data.user.invites.length === 0">
-        Currenty {{options.data.user.invites.length}} friends have accepted your invitation
-      </div>
       <div ng-show="options.data.user.invites.length > 0">
         <h3>Accepted Invites ({{options.data.user.invites.length}})</h3>
         <table class="table">
