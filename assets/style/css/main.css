@@ -1435,6 +1435,10 @@ label {
   text-align: center;
 }
 
+.giveaway-invite .btn {
+  min-width: 90px;
+}
+
 .countdown {
   font-size: 40px;
   width: 13em;
