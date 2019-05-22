@@ -13,6 +13,7 @@ import TradeController from './TradeController.js'
 import CryptoloanController from './CryptoloanController.js'
 import GiveawayController from './GiveawayController.js'
 import GiveawayEmailController from './GiveawayEmailController.js'
+import GiveawayInviteController from './GiveawayInviteController.js'
 
 import modalDirective from './modalDirective.js'
 import tokenDirective from './tokenDirective.js'
@@ -34,6 +35,7 @@ app.controller('TradeController', TradeController)
 app.controller('CryptoloanController', CryptoloanController)
 app.controller('GiveawayController', GiveawayController)
 app.controller('GiveawayEmailController', GiveawayEmailController)
+app.controller('GiveawayInviteController', GiveawayInviteController)
 
 app.directive('tokens', tokensDirective)
 app.directive('token', tokenDirective)

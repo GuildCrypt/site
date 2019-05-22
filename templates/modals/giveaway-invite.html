@@ -1,16 +1,19 @@
-<div class="modal-content giveaway-invite">
+<div class="modal-content giveaway-invite" ng-controller="GiveawayInviteController">
   <div class="modal-header">
     <h4 class="modal-title">Invite a Friend, you'll each get 1 additional ticket</h4>
     <div ng-include="'/templates/modal-close.html'"></div>
   </div>
   <div class="modal-body">
-      <div class="invite-url">{{options.data.inviteUrl}}</div>
+      <div ng-click="copy()">
+        <input type="text" class="invite-url alert alert-info" ng-model="options.data.inviteUrl" disabled></input>
+        <center ng-show="isCopied">Copied!</center>
+      </div>
       <hr/>
-      <div class="alert alert-info">
+      <div ng-show="options.data.user.invites.length === 0">
         Currenty {{options.data.user.invites.length}} friends have accepted your invitation
       </div>
       <div ng-show="options.data.user.invites.length > 0">
-        <h3>Accepted Invites</h3>
+        <h3>Accepted Invites ({{options.data.user.invites.length}})</h3>
         <table class="table">
           <tr ng-repeat="invite in options.data.user.invites">
             <td>/u/{{invite.toUser.redditUsername}}</td>

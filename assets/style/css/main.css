@@ -1421,6 +1421,7 @@ label {
   font-size: 18px;
   margin: 10px 0;
   text-align: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 800px) {
