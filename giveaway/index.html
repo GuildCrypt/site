@@ -203,25 +203,27 @@
 								</tr>
 								-->
 							</table>
-							<table class="table tickets">
-								<tr>
-									<th>Ticket #</th>
-									<th>User</th>
-									<th>Reason</th>
-								</tr>
-								<tr ng-repeat="ticket in stats.tickets">
-									<td>
-										{{ticket.id | pad: 5}}
-									</td>
-									<td>
-										/u/{{ticket.user.redditUsername}}
-									</td>
-									<td>{{ticket.reasonPretty}}</td>
-									<td class="hidden-xs hidden-sm">
-										{{ticket.createdAt * 1000 | timeAgo}}
-									</td>
-								</tr>
-							</table>
+							<div class="tickets">
+								<table class="table">
+									<tr>
+										<th>Ticket #</th>
+										<th>User</th>
+										<th>Reason</th>
+									</tr>
+									<tr ng-repeat="ticket in stats.tickets">
+										<td>
+											{{ticket.id | pad: 5}}
+										</td>
+										<td>
+											/u/{{ticket.user.redditUsername}}
+										</td>
+										<td>{{ticket.reasonPretty}}</td>
+										<td class="hidden-xs hidden-sm">
+											{{ticket.createdAt * 1000 | timeAgo}}
+										</td>
+									</tr>
+								</table>
+							</div>
 						</div>
 					</div>
 					<i class="fa fa-chevron-down scroll-down ng-hide" ng-show="isGiveawayTransitioned"></i>

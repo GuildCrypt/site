@@ -96,16 +96,16 @@ a.btn {
 	background: rgba(181,211,231,0.35);
 }
 
-::-webkit-scrollbar {
+html::-webkit-scrollbar {
 	height: 0;
 	width: 7px;
 }
 
-::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
 	background-color: #370F39;
 }
 
-::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
 	background-color: #eee;
 }
 
@@ -1350,6 +1350,23 @@ label {
 
 .giveaway .tickets {
   margin-top: 40px;
+  max-height: 200px;
+  overflow-y:scroll;
+}
+
+.giveaway .tickets::-webkit-scrollbar {
+	background-color: none;
+  width: 4px;
+}
+
+.giveaway .tickets::-webkit-scrollbar-thumb {
+	background-color: #ccc;
+  border-radius: 2px;
+}
+
+
+.giveaway .tickets .table {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 680px) {
