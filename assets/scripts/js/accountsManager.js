@@ -11,7 +11,6 @@ class AccountsManager extends EventEmitter {
   constructor() {
     super()
     this.isLoggedIn = false
-    this.bootstrap()
   }
 
   acceptTos() {

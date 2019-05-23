@@ -6,4 +6,5 @@ export default function AccountController($scope) {
     $scope.isLoggedIn = true
     $scope.$apply()
   })
+  accountsManager.bootstrap()
 }
