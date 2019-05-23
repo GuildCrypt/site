@@ -1300,24 +1300,15 @@ label {
 }
 
 
-.giveaway .item {
-  display: block;
-  max-width: 100%;
-  margin: 0px auto;
-  border-radius: 14px;
-  width: 240px;
-}
-
 .giveaway .status {
-  min-height: 10vh;
   vertical-align: bottom;
   margin: 0;
+  margin-bottom: 3vw;
 }
 
 .giveaway .status h2 {
   display: inline-block;
   height: 100%;
-  line-height: 10vh;
   margin-bottom: 0;
 }
 
@@ -1580,8 +1571,10 @@ label {
   background-color: transparent;
   perspective: 1000px;
   width: 100%;
-  height: 360px;
   transition: width 2s;
+  height: 36vh;
+  max-height: 360px;
+  margin-bottom: 2vh;
 }
 
 /* This container is needed to position the front and back side */
@@ -1590,7 +1583,8 @@ label {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  width: 100%
+  width: 100%;
+  height: 100%;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -1604,8 +1598,19 @@ label {
   position: absolute;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  width: 100%
+  width: 100%;
+  height: 100%;
 }
+
+
+.flip-card .item {
+  display: block;
+  max-width: 100%;
+  margin: 0px auto;
+  border-radius: 14px;
+  height: 100%;
+}
+
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
