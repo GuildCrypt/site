@@ -122,7 +122,9 @@ a.btn {
   height: calc(100% - 49px);
   width: 100%;
   position: relative;
-  background: url(../../media/images/hero-image-1.jpg) no-repeat center center;
+  background-image: url(/assets/media/images/hero-image-1.jpg);
+  background-position: center center;
+  background-size: cover;
   text-align: center;
   transition: 2.5s;
 }
