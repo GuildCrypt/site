@@ -1,0 +1,314 @@
+<!-- Developed by Kai Micah Mills (https://www.upwork.com/fl/kaimicahmills) -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<title>Scrambleverse - GuildCrypt</title>
+
+		<!-- Meta -->
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+		<meta name="description" content="With GuildCrypt, you can convert your Magic card into an ERC-721 Ethereum token.">
+		<meta name="keywords" content="GuildCrypt, magic, ethereum, erc-721, cryptocurrency, bitcoin, tokenize, token">
+
+
+		<!-- Styling -->
+		<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/style/css/main.css" type="text/css">
+  	<link rel="icon" href="/assets/media/images/favicon-32x32.png" sizes="32x32" type="image/png">
+  	<link rel="icon" href="/assets/media/images/favicon-16x16.png" sizes="16x16" type="image/png">
+
+	</head>
+
+	<body ng-app="app" class="giveaway">
+		<div modal></div>
+		<!-- Header -->
+
+		<div ng-controller="GiveawayController">
+			<div class="hero section gradient" id="hero">
+				<div class="container">
+					<a href="/"><img class="guildcrypt" src="/assets/media/images/logo-final-inverse.png"/></a>
+					<h1>SCRAMBLEVERSE</h1>
+					<p>Win free magic cards</p>
+					<p>No purchase necessary. Void where prohibited.</p>
+					<br/>
+					<h2 class="chooser raised-glass">
+						<span ng-show="giveawayIndex === undefined">Loading...</span>
+						<span class="ng-hide"  ng-show="giveawayIndex !== undefined">
+							<span class="chooser-arrow">
+								<i class="fas fa-caret-left" ng-show="giveawayIndex > 0" ng-click="giveawayIndex = giveawayIndex - 1"></i>
+							</span>
+							<span>{{giveaway.drawingAtPretty}}</span>
+							<span class="chooser-arrow">
+								<span class="fas fa-caret-right" ng-show="giveawayIndex < stats.giveaways.length - 1" ng-click="giveawayIndex = giveawayIndex + 1"></span>
+							</span>
+						</span>
+					</h2>
+					<div class="status">
+						<h2 class="ng-hide" ng-show="giveaway && giveaway.drawingAt < time">
+							<span ng-show="giveaway.winningUser">Won by /u/{{giveaway.winningUser.redditUsername}}!</span>
+							<span ng-show="!giveaway.winningUser">Drawing...</span>
+						</h2>
+						<div ng-hide="giveaway && giveaway.drawingAt < time">
+							<div class="countdown countdown-muted" ng-show="!drawingPojos">
+							<div class="countdown-group">
+								<div class="countdown-group">
+									<div class="countdown-key">Days</div>
+									<div class="countdown-character raised-glass" >
+										0
+									</div>
+									<div class="countdown-character raised-glass" >
+										0
+									</div>
+								</div>
+							</div>
+							<div class="countdown-group">
+								<div class="countdown-circles">
+									<div class="countdown-circle"></div>
+									<div class="countdown-circle"></div>
+								</div>
+								<div class="countdown-group">
+									<div class="countdown-key">Hours</div>
+									<div class="countdown-character raised-glass" >
+										0
+									</div>
+									<div class="countdown-character raised-glass" >
+										0
+									</div>
+								</div>
+							</div>
+							<div class="countdown-group">
+								<div class="countdown-circles">
+									<div class="countdown-circle"></div>
+									<div class="countdown-circle"></div>
+								</div>
+								<div class="countdown-group">
+									<div class="countdown-key">Minutes</div>
+									<div class="countdown-character raised-glass" >
+										0
+									</div>
+									<div class="countdown-character raised-glass" >
+										0
+									</div>
+								</div>
+							</div>
+							<div class="countdown-group">
+								<div class="countdown-circles">
+									<div class="countdown-circle"></div>
+									<div class="countdown-circle"></div>
+								</div>
+								<div class="countdown-group">
+									<div class="countdown-key">Seconds</div>
+									<div class="countdown-character raised-glass" >
+										0
+									</div>
+									<div class="countdown-character raised-glass" >
+										0
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+							<div class="countdown ng-hide" ng-show="drawingPojos">
+							<div ng-repeat="drawingPojo in drawingPojos" class="countdown-group">
+								<div ng-if="$index !== 0" class="countdown-circles">
+									<div class="countdown-circle"></div>
+									<div class="countdown-circle"></div>
+								</div>
+								<div class="countdown-group" ng-class="{'countdown-muted': drawingPojo.value === 0}">
+									<div class="countdown-key">
+										{{drawingPojo.key}}
+									</div>
+									<div class="countdown-character raised-glass" ng-repeat="character in drawingPojo.characters track by $index">
+										{{character}}
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12" ng-class="{'col-sm-4': giveaway}" style="transition: all 400ms ease">
+							<div id="flipper" class="flip-card">
+								<div class="flip-card-inner">
+									<div class="flip-card-front">
+										<img class="item shadow-drop-center" src="./back.jpeg">
+									</div>
+									<div class="flip-card-back">
+										<img class="item shadow-drop-center" ng-src="{{flipperSrc}}">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-8 ng-hide" ng-show="giveaway" ng-style="{opacity: isGiveawayTransitioned ? 100 : 0 }" style="opacity: 0; transition: all 400ms ease">
+							<button class="btn btn-gold btn-lg login shadow-drop-center" ng-click="login()" ng-show="!user">
+								Login w/ Reddit & Get Your Free Ticket
+							</button>
+							<div ng-show="!user && invite" class="alert alert-warning invite-bonus">
+								You'll get a bonus ticket thanks to /u/{{invite.redditUsername}}
+							</div>
+							<div class="alert alert-warning" ng-show="user">
+								Welcome <b>/u/{{user.redditUsername}}</b>! You currently have <b>{{user.tickets.length}}</b> tickets.
+							</div>
+							<table class="table goals" ng-show="user
+							">
+								<tr>
+									<td>
+										<button class="btn btn-gold btn-xs" ng-click="openInviteModal()">Invite a friend</button>
+									</td>
+									<td class="goal-explanation">
+										1 Ticket for every friend that signs up
+									</td>
+								</tr>
+								<tr ng-show="!user.isRedditSubscribed">
+									<td>
+										<a class="btn btn-grey btn-xs" href="{{loginAndSubscribeUrl}}">Subscribe to /r/GuildCrypt</a>
+									</td>
+									<td class="goal-explanation">
+										1 Ticket
+									</td>
+								</tr>
+								<tr ng-show="!user.email">
+									<td>
+										<button class="btn btn-grey btn-xs" ng-click="openEmailModal()">Join our mailing list</button>
+									</td>
+									<td class="goal-explanation">
+										1 Ticket
+									</td>
+								</tr>
+
+								<!--
+								<tr>
+									<td>
+										<button class="btn btn-grey btn-xs">Follow @GuildCrypt on Twitter</button>
+									</td>
+									<td>
+										3 Tickets
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button class="btn btn-grey btn-xs">Follow @GuildCrypt on Facebook</button>
+									</td>
+									<td>
+										3 Tickets
+									</td>
+								</tr>
+								-->
+							</table>
+							<div class="tickets">
+								<table class="table">
+									<tr>
+										<th>Ticket #</th>
+										<th>User</th>
+										<th>Reason</th>
+									</tr>
+									<tr ng-repeat="ticket in stats.tickets">
+										<td>
+											{{ticket.id | pad: 5}}
+										</td>
+										<td>
+											/u/{{ticket.user.redditUsername}}
+										</td>
+										<td>{{ticket.reasonPretty}}</td>
+										<td class="hidden-xs hidden-sm">
+											{{ticket.createdAt * 1000 | timeAgo}}
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<i class="fa fa-chevron-down scroll-down ng-hide" ng-show="isGiveawayTransitioned"></i>
+				</div>
+			</div>
+			<div>
+				<!--
+				<div class="section gradient hero">
+					<div class="container">
+						<h1>Reddit-Backed Crypto Loan</h1>
+						<p>Get an instant 0-interest $5 ETH/DAI loan backed by your Reddit profile.</p>
+						<h2 class="remaining">$5435 Remaining</h2>
+						<p>If there's $0 remaining, you can still apply and be added to a waitlist.</p>
+					</div>
+				</div>
+				-->
+				<div class="container faq">
+					<h3 class="faq-title">FAQ</h3>
+					<h4>Who operates Scrambleverse?</h4>
+					<p>Scrambleverse is operated by <a href="https://guildcrypt.com">GuildCrypt</a>. This site is not affiliated with Wizards of the Coast, Reddit, or any other company.</p>
+					<h4>What happens when I win?</h4>
+					<p>We'll send you a PM on Reddit to get your address and send you your prize. If you don't hear from us within 2 weeks please email contact@guildcrypt.com</p>
+					<h4>Do I have to pay for shipping?</h4>
+					<p>We'll ship free within the continental US. Outside the continental US you'll have to pay the shipping.</p>
+					<h4>Do I have to sign up each day?</h4>
+					<p>Nope, your tickets roll over. We may require you to "re-activate" your account at some point in the future. After logging in, make sure to sign up for the mailing list to receive updates.</p>
+				</div>
+			</div>
+		</div>
+		<div class="hex">
+			<div class="hex-cover"></div>
+		</div>
+		<div class="footer">
+			<div class="cover">
+				<div class="container">
+				  	<div class="row">
+					    <div class="col-xs-12 col-sm-3">
+							<h5>Mission</h5>
+							<br>
+							<p>GuildCrypt wants to allow anyone to invest in anything. Today, it's Magic; tomorrow, the world.</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Company</h5>
+							<br>
+							<p>GuildCrypt</p>
+							<p>contact@guildcrypt.com</p>
+							<p>PO Box 4668 #87898</p>
+							<p>New York, New York 10163-4668 US</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Legal</h5>
+							<br>
+							<p><a href="/tos.pdf" target="_blank">Terms of Service</a></p>
+							<p>Copyright &copy; GuildCrypt 2018.</p>
+							<p>All rights reserved.</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Social Media</h5>
+							<br>
+							<p><a href="https://twitter.com/guildcrypt" target="_blank">Twitter</a></p>
+							<p><a href="https://github.com/GuildCrypt" target="_blank">Github</a></p>
+						</div>
+				  	</div>
+				</div>
+			</div>
+			<img src="/assets/media/images/icon-black.svg" class="footer-icon"/>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js" integrity="sha384-CJ+cVuy4UuycwlS2fnvOLZAjXavw5D+nRzvnajUytjRGfDXIA1hQUFPvNoOseK7K" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" integrity="sha384-du5g06MyvN/hl4HwDjcFNmKiX3lFDaekrtlW37Bs3hY+FAKWFpVrZwlP/bh20AXW" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js" integrity="sha384-+CaKnwteOIsdVqN3DxF1ZKOTwjH572ZPyEfKv6G4h+fqzUKXZ4l34FKpmcWdZHDY" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha384-U/+EF1mNzvy5eahP9DeB32duTkAmXrePwnRWtuSh1C/bHHhyR1KZCr/aGZBkctpY" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/assets/scripts/js/main.js"></script>
+		<script type="text/javascript" src="/assets/scripts/angular-timeago.min.js"></script>
+		<script type="module" src="/assets/scripts/js/app.js"></script>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-57M5XD7');</script>
+		<!-- End Google Tag Manager -->
+
+	</body>
+
+</html>

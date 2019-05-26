@@ -11,7 +11,10 @@ $(document).ready(function() {
 	});
 
 
-	window.backgroundImage = 2;
+	$(".splash").css("background", "url(/assets/media/images/hero-image-1.jpg) no-repeat center center");
+	$(".splash").css("background-size", "cover");
+
+	window.backgroundImage = 1;
 
 	window.setInterval(function() {
 
@@ -40,11 +43,10 @@ $(document).ready(function() {
 	// Scroll down arrow
 
 	$("i.scroll-down").click(function() {
-
-		$("html, body").animate({
-			scrollTop: $(".section.checkers").offset().top
-        }, 1000);
-
+		window.scrollTo({
+			top: window.innerHeight + 1,
+			behavior: 'smooth'
+		})
 	});
 
 	// Change flow chart

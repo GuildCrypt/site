@@ -1,10 +1,3 @@
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  overflow-x: hidden;
-}
-
 body {
   font-family: 'Open Sans', sans-serif;
   color: #BFBEC4;
@@ -103,23 +96,23 @@ a.btn {
 	background: rgba(181,211,231,0.35);
 }
 
-::-webkit-scrollbar {
+html::-webkit-scrollbar {
 	height: 0;
 	width: 7px;
 }
 
-::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
 	background-color: #370F39;
 }
 
-::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
 	background-color: #eee;
 }
 
 /* Home */
 
 .splash {
-  height: calc(100% - 49px);
+  height: calc(100vh - 49px);
   width: 100%;
   position: relative;
   background-image: url(/assets/media/images/hero-image-1.jpg);
@@ -166,6 +159,15 @@ a.btn {
   margin-top: 10px;
   text-shadow: 0px 0px 5px rgba(0,0,0,0.25);
 }
+
+.gradient.section h1, .gradient.section h2, .gradient.section h3, .gradient.section h4, .gradient.section h5, .gradient.section h6 {
+  color: #ccc;
+}
+
+.hero {
+  min-height: calc(100vh - 49px);
+}
+
 
 @keyframes scroll-down {
   0%   {
@@ -695,7 +697,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .dib {
   overflow: hidden;
-  height: calc(100% - 300px);
+  height: calc(100vh - 300px);
   min-height: 1000px;
   color: #333;
 }
@@ -1100,7 +1102,7 @@ label {
 }
 
 .fill-vert {
-  min-height: calc(100% - 502px);
+  min-height: calc(100vh - 502px);
 }
 
 .trade {
@@ -1143,4 +1145,480 @@ label {
 #zocrscope a {
   color: rgba(105,28,43,1);
   text-decoration: none;
+}
+
+.cryptoloan .remaining {
+  background-color: #eee;
+  color: #370F39;
+  width: 340px;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.cryptoloan .prs {
+  position: relative;
+  margin: 60px 0;
+  height: 200px;
+}
+
+.cryptoloan .pr {
+  position: absolute;
+  cursor: not-allowed;
+  background-color: rgba(256, 256, 256, .96);
+  border-radius: 2px;
+  padding: 10px;
+  width: 600px;
+  text-align: left;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.75);
+  height: 80px;
+  color: #ccc;
+  transition: margin 200ms;
+}
+
+.cryptoloan .pr-col {
+  height: 24px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cryptoloan .pr-col-0 {
+  color: #ddd;
+  text-align: center;
+}
+
+.cryptoloan .pr-col-1 {
+  margin-left: 12px;
+}
+
+.cryptoloan .pr-title {
+  color: #370F39;
+  font-size: 16px;
+}
+
+.cryptoloan .pr-domain {
+  font-size: 12px;
+}
+
+.cryptoloan .pr-info {
+  font-size: 12px;
+}
+
+.cryptoloan .pr-badge {
+  color: #eee;
+  background-color: #666;
+  padding: 2px 4px;
+  margin-left: 2px;
+  font-size: 8px;
+  border-radius: 2px;
+}
+
+.cryptoloan .pr-link {
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+.cryptoloan .pr-recent {
+  left :50%;
+  margin-left: -320px;
+  z-index: 1;
+}
+
+.cryptoloan .pr:hover {
+  margin-top: -20px;
+}
+
+.cryptoloan .pr-deadbeat {
+  left :50%;
+  top: 60px;
+  margin-left: -300px;
+  z-index: 1;
+}
+
+.cryptoloan .pr-deadbeat .pr-badge {
+  background-color: red;
+}
+
+.cryptoloan .pr-paid {
+  left :50%;
+  top: 120px;
+  margin-left: -280px;
+  z-index: 1;
+}
+
+.cryptoloan .pr-paid .pr-badge {
+  background-color: green;
+}
+
+.cryptoloan h2 {
+  color: #ccc;
+}
+
+.cryptoloan .hook {
+  margin-top: 30px;
+  color: #666;
+}
+
+.cryptoloan h1 {
+  font-size: 48px;
+  text-shadow: 0px 0px 2px rgba(0,0,0,0.25);
+}
+
+
+.cryptoloan .hook img {
+	max-width: 100%;
+	border: 2px solid #333;
+	border-radius: 2px;
+  padding: 10px;
+	margin: 10px 0;
+}
+
+.giveaway .guildcrypt {
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.giveaway .hero h1 {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 8vw;
+  margin-bottom: 0;
+}
+
+.giveaway .hero h2 {
+  font-size: 4vw;
+}
+
+
+@media screen and (min-width: 1200px) {
+  .giveaway .hero h1 {
+    font-size: 100px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .giveaway .hero h2 {
+    font-size: 30px;
+  }
+}
+
+
+.giveaway .status {
+  vertical-align: bottom;
+  margin: 0;
+  margin-bottom: 3vw;
+}
+
+.giveaway .status h2 {
+  display: inline-block;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.giveaway .hero .chooser {
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto 20px auto;
+  border-radius: 4px;
+  font-size: 18px;
+  user-select: none;
+}
+
+.giveaway .chooser-arrow {
+  width: 16px;
+  display: inline-block;
+}
+
+.giveaway .chooser-arrow .fa-caret-left {
+  padding-left: 10px;
+}
+
+.giveaway .chooser-arrow .fa-caret-right {
+  padding-right: 10px;
+}
+
+.giveaway .chooser-arrow [ng-click] {
+  cursor: pointer;
+}
+
+
+.giveaway .tickets {
+  margin-top: 40px;
+  max-height: 200px;
+  overflow-y:scroll;
+}
+
+.giveaway .tickets::-webkit-scrollbar {
+	background-color: none;
+  width: 4px;
+}
+
+.giveaway .tickets::-webkit-scrollbar-thumb {
+	background-color: #ccc;
+  border-radius: 2px;
+}
+
+
+.giveaway .tickets .table {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 680px) {
+  .giveaway .tickets {
+    font-size: .8em;
+  }
+}
+
+.giveaway .table td, .giveaway .table th {
+  text-align: left;
+  padding: 0px 4px 4px 0px;
+  border-top: none;
+}
+
+.giveaway .goals td:nth-child(2) {
+  padding: .6em;
+}
+
+.giveaway .table .btn {
+  width: 100%;
+}
+
+.giveaway .login {
+  width: 100%;
+  padding: 10px;
+}
+
+.giveaway .invite-bonus {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .giveaway .login {
+    font-size: 14px;
+  }
+}
+
+.giveaway .faq {
+  color: #333;
+}
+
+.giveaway .faq-title {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.giveaway .faq h4 {
+  margin-top: 20px;
+}
+
+.giveaway-invite .invite-url {
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .giveaway-invite .invite-url {
+    font-size: 14px;
+  }
+}
+
+
+.giveaway-invite .alert {
+  text-align: center;
+}
+
+.giveaway-invite .btn {
+  min-width: 90px;
+}
+
+.countdown {
+  font-size: 40px;
+  width: 13em;
+  margin: 3vh auto 0 auto;
+}
+
+@media screen and (max-width: 680px) {
+  .countdown {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .countdown {
+    font-size: 26px;
+  }
+}
+
+
+
+.countdown-muted {
+  opacity: .5;
+}
+
+.countdown-group {
+  float: left;
+}
+
+.countdown-key {
+  font-size: .4em;
+  margin-bottom: .3em;
+  text-transform: uppercase;
+}
+
+.countdown-character {
+  border-radius: .12em;
+  float: left;
+  margin: 0 .1em;
+  width: 1.35em;
+  padding: .2em 0;
+  /* background: linear-gradient(60deg, rgba(170, 170, 170,.1) 0%, rgba(224, 224, 224, .1) 50%), rgba(170, 170, 170,.1) 100%; */ */
+  font-weight: bold;
+  position: relative;
+}
+
+.countdown-muted .raised-glass {
+  box-shadow: 0 0 .5em 0 rgba(0, 0, 0, .2);
+}
+
+.raised-glass {
+  box-shadow: 0 0 .5em 0 rgba(0, 0, 0, .5);
+  color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, .05);
+}
+
+.countdown-character-line {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+}
+
+.countdown-circles {
+  float: left;
+  height: 1.9em;
+  margin-top: .6em;
+  width: .2em;
+  position: relative;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+.countdown-circle {
+  height: .1em;
+  width: .1em;
+  border-radius: 1em;
+  box-shadow: 0 0 .2em 0 rgba(0, 0, 0, .9);
+  background-color: rgba(255, 255, 255, .1);
+  /* background: linear-gradient(to bottom, rgba(204, 204, 204, 1) 0%, rgba(255,255,255,1) 100%); */
+  position: absolute;
+  left: .08em;
+}
+
+.countdown-circle:first-child {
+  top: .7em;
+}
+.countdown-circle:last-child {
+  bottom: .7em;
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-5-17 12:47:6
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation shadow-drop-center
+ * ----------------------------------------
+ */
+@-webkit-keyframes shadow-drop-center {
+  0% {
+    box-shadow: 0 0 15px 0 rgba(255, 255, 255, .2);
+  }
+  40% {
+    box-shadow: 0 0 20px 0px rgba(255, 255, 255, .4);
+  }
+  60% {
+    box-shadow: 0 0 20px 0px rgba(255, 255, 255, .4);
+  }  100% {
+    box-shadow: 0 0 20px 0px rgba(255, 255, 255, .2);
+  }
+}
+@keyframes shadow-drop-center {
+  0% {
+    box-shadow: 0 0 15px 0 rgba(247, 164, 1, .2);
+  }
+  40% {
+    box-shadow: 0 0 20px 0px rgba(247, 164, 1, .4);
+  }
+  60% {
+    box-shadow: 0 0 20px 0px rgba(247, 164, 1, .4);
+  }
+  100% {
+    box-shadow: 0 0 15px 0 rgba(247, 164, 1, .2);
+  }
+}
+
+
+.shadow-drop-center {
+	-webkit-animation: shadow-drop-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite;
+	        animation: shadow-drop-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  width: 100%;
+  transition: width 2s;
+  height: 36vh;
+  max-height: 360px;
+  margin-bottom: 2vh;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card.flip-card-hover .flip-card-inner {
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+
+.flip-card .item {
+  display: block;
+  max-width: 100%;
+  margin: 0px auto;
+  border-radius: 14px;
+  height: 100%;
+}
+
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
 }

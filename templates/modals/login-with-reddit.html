@@ -1,0 +1,16 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Login with Reddit</h4>
+    <div ng-include="'/templates/modal-close.html'"></div>
+  </div>
+  <div class="modal-body">
+    You will soon be directed to Reddit to login. Would you also like to subscribe to /r/GuildCrypt for an additional ticket?
+  </div>
+  <div class="modal-footer">
+    <div class="btn-group">
+      <a class="btn btn-grey" href="{{options.data.loginUrl}}">No thanks</a>
+      <a class="btn btn-gold" href="{{options.data.loginAndSubscribeUrl}}">Yes</a>
+    </div>
+
+  </div>
+</div>

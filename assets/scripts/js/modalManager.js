@@ -3,6 +3,7 @@ import EventEmitter from './EventEmitter.js'
 class ModalManager extends EventEmitter {
 
   open(options) {
+    console.log('open')
     let resolve
     this.promise = new Promise((_resolve, reject) => {
       resolve = _resolve
