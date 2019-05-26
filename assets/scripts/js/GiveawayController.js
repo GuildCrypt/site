@@ -188,6 +188,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
   setUser()
   setStats().then(() => {
     const time = getTime()
+    $scope.giveawayIndex = 0;
     $scope.stats.giveaways.forEach((giveaway, index) => {
       if (giveaway.drawingAt < time) {
       $scope.giveawayIndex = index + 1
