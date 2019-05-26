@@ -63,7 +63,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
     $scope.stats.tickets.forEach((ticket) => {
       switch(ticket.reasonCode) {
         case 'signup':
-          ticket.reasonPretty = 'Signed up for Scrabbleverse'
+          ticket.reasonPretty = 'Signed up for Scrambleverse'
           break;
         case 'reddit-subscribe':
           ticket.reasonPretty = 'Subscribed to /r/GuildCrypt'
