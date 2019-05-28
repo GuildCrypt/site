@@ -1,0 +1,227 @@
+<!-- Developed by Kai Micah Mills (https://www.upwork.com/fl/kaimicahmills) -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<title>Black Lotus Price - GuildCrypt</title>
+
+		<!-- Meta -->
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+		<meta name="description" content="With GuildCrypt, you can convert your Magic card into an ERC-721 Ethereum token.">
+		<meta name="keywords" content="GuildCrypt, magic, ethereum, erc-721, cryptocurrency, bitcoin, tokenize, token">
+		<meta property="og:image" content="https://guildcrypt.com/assets/media/images/dex-in-a-box.png" />
+
+
+		<!-- Styling -->
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/style/css/main.css" type="text/css">
+
+    	<link rel="icon" href="/assets/media/images/favicon-32x32.png" sizes="32x32" type="image/png">
+    	<link rel="icon" href="/assets/media/images/favicon-16x16.png" sizes="16x16" type="image/png">
+
+		<!-- Scripts -->
+
+	</head>
+
+	<body ng-app="app" ng-controller="BlackLotusPriceController" class="black-lotus-price">
+
+		<!-- Header -->
+
+		<div class="header">
+			<a href="/">
+				<img class="logo" src="/assets/media/images/logo-final.svg"/>
+			</a>
+			<div class="links">
+				<div class="vertical-center-outer">
+					<div class="vertical-center-inner">
+						<a href="/account/">My Account</a>
+						<a href="/how-it-works/">How it works</a>
+
+						<a href="/browse/">Browse</a>
+						<a href="/crypt/">Crypt</a>
+
+						<a href="https://github.com/GuildCrypt" target="_blank"><i class="fab fa-github"></i></a>
+						<a href="javascript:;" class="mobile-menu"><i class="fa fa-bars"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+    <!-- How it Works -->
+    <div class="section gradient">
+			<div class="container">
+				<h1>
+					<small>The Price of a Black Lotus is</small>
+					<br>$166,100
+				</h1>
+				<div class="black-lotus-price-blurb">
+					<p>The Black Lotus is the most coveted card in all of Magic the Gathering. In a game full of dragons and wizards, a simple flower reigns supreme. The Black Lotus is so powerful, it was ultimately restricted or outright banned in most tournaments.</p>
+					<p>On February 27, 2019 a Gem Mint BGS 9.5 Black Lotus sold on eBay for $166,100. While all Black Lotuses are rare, the price can vary greatly by print and grading. This site is dedicated to tracking the price across various auctions and compiling them into a single source. As always, past prices may not hold in the future.</p>
+				</div>
+			</div>
+		</div>
+		<div class="fill-vert">
+			<br/>
+			<br/>
+			<div class="container ng-hide" ng-show="blackLotus">
+				<div class="row">
+					<div class="col-xs-12 col-md-2 black-lotus-price-col">
+						<select ng-model="prints" class="form-control">
+							<option value="abcu">
+								All Prints
+							</option>
+							<option value="a">
+								Alpha
+							</option>
+							<option value="b">
+								Beta
+							</option>
+							<option value="c">
+								Collectors Edition
+							</option>
+							<option value="u">
+								Unlimited
+							</option>
+						</select>
+						<div
+							ng-repeat="(key, value) in printsKey"
+							class="black-lotus-price-key"
+							ng-class="{ 'black-lotus-price-key-selected': prints.indexOf(key) > -1 }"
+						>
+							<span
+								class="scatterplot-item"
+								ng-style="{ backgroundColor: printsKey[key].color }"
+							></span> {{value.name}}
+						</div>
+						<hr/>
+						<select ng-model="graders" class="form-control">
+							<option value="bp">
+								BGS and PSA
+							</option>
+							<option value="b">
+								BGS
+							</option>
+							<option value="p">
+								PSA
+							</option>
+						</select>
+						<div
+							ng-repeat="(key, value) in gradersKey"
+							class="black-lotus-price-key"
+							ng-class="{ 'black-lotus-price-key-selected': graders.indexOf(key) > -1 }"
+						>
+							<span
+								class="scatterplot-item scatterplot-item-{{value.shape}}"
+							></span> {{value.name}}
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6 black-lotus-price-col">
+						<div class="scatterplot">
+							<div class="scatterplot-inner">
+								<div class="scatterplot-inner-inner">
+									<div class="scatterplot-labels scatterplot-labels-y">
+										<div
+											class="scatterplot-label scatterplot-label-y"
+											ng-repeat="usdPriceStep in usdPriceSteps"
+											ng-style="{bottom: usdPriceStep.value * 100 + '%'}"
+										>
+											{{usdPriceStep.label}}
+										</div>
+									</div>
+									<div class="scatterplot-labels scatterplot-labels-x">
+										<div
+											class="scatterplot-label scatterplot-label-x"
+											ng-repeat="gradeStep in gradeSteps"
+											ng-style="{left: gradeStep.value * 100 + '%'}"
+										>
+											{{gradeStep.label}}
+										</div>
+									</div>
+									<a
+										ng-repeat="blackLotus in blackLoti"
+										class="scatterplot-item ng-hide scatterplot-item-{{gradersKey[blackLotus.grader].shape}}"
+										ng-class="{'scatterplot-item-selected': blackLotus.isSelected}"
+										ng-mouseover="select(blackLotus)"
+										ng-click="select(blackLotus)"
+										ng-show="prints.indexOf(blackLotus.print) > -1 && graders.indexOf(blackLotus.grader) > -1"
+										ng-style="{left: blackLotus.x * 100 + '%', bottom: blackLotus.y * 100 + '%', backgroundColor: printsKey[blackLotus.print].color}"
+									>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-4 black-lotus-price-col">
+						<div class="black-lotus-price-preview">
+							<h3>{{printsKey[blackLotus.print].name}} - {{gradersKey[blackLotus.grader].name}} {{blackLotus.grade}}</h3>
+							<h4>Sold for ${{blackLotus.ebay.usdPriceNumber.toFixed(2) | numeric}}</h4>
+							<a href="{{blackLotus.ebay.cvipUrl}}" target="_blank">View on eBay</a>
+							<br/>
+							<img ng-src="{{blackLotus.ebay.imageUrl}}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="cover">
+				<div class="container">
+				  	<div class="row">
+					    <div class="col-xs-12 col-sm-3">
+							<h5>Mission</h5>
+							<br>
+							<p>GuildCrypt wants to allow anyone to invest in anything. Today, it's Magic; tomorrow, the world.</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Company</h5>
+							<br>
+							<p>GuildCrypt</p>
+							<p>contact@guildcrypt.com</p>
+							<p>PO Box 4668 #87898</p>
+							<p>New York, New York 10163-4668 US</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Legal</h5>
+							<br>
+							<p><a href="/tos.pdf" target="_blank">Terms of Service</a></p>
+							<p>Copyright &copy; GuildCrypt 2018.</p>
+							<p>All rights reserved.</p>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<h5>Social Media</h5>
+							<br>
+							<p><a href="https://twitter.com/guildcrypt" target="_blank">Twitter</a></p>
+							<p><a href="https://github.com/GuildCrypt" target="_blank">Github</a></p>
+						</div>
+				  	</div>
+				</div>
+			</div>
+			<img src="/assets/media/images/icon-black.svg" class="footer-icon"/>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js" integrity="sha384-CJ+cVuy4UuycwlS2fnvOLZAjXavw5D+nRzvnajUytjRGfDXIA1hQUFPvNoOseK7K" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" integrity="sha384-du5g06MyvN/hl4HwDjcFNmKiX3lFDaekrtlW37Bs3hY+FAKWFpVrZwlP/bh20AXW" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js" integrity="sha384-+CaKnwteOIsdVqN3DxF1ZKOTwjH572ZPyEfKv6G4h+fqzUKXZ4l34FKpmcWdZHDY" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha384-U/+EF1mNzvy5eahP9DeB32duTkAmXrePwnRWtuSh1C/bHHhyR1KZCr/aGZBkctpY" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/assets/scripts/js/main.js"></script>
+		<script type="text/javascript" src="/assets/scripts/angular-timeago.min.js"></script>
+<script type="module" src="/assets/scripts/js/app.js"></script>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-57M5XD7');</script>
+		<!-- End Google Tag Manager -->
+
+	</body>
+
+</html>
