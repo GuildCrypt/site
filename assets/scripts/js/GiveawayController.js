@@ -22,7 +22,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
 
   $scope.getLoginUrl = (isSubscribe) => {
     const encodedCallbackUrl = encodeURIComponent($scope.giveawayUrl)
-    const inviteCode = $scope.invite ? $scope.invite.inviteCode : ''
+    const inviteCode = localStorage.getItem('inviteCode') ? localStorage.getItem('inviteCode') : ''
     return `${$scope.redditApiUrl}/auth/?callbackUrl=${encodedCallbackUrl}&subscribe=${isSubscribe ? 'yes' : 'no'}&inviteCode=${inviteCode}`
   }
 
@@ -237,6 +237,17 @@ export default function GiveawayController($scope, $interval, $timeout) {
     await setUser()
   }
 
+  async function setInvite() {
+    const inviteCode = localStorage.getItem('inviteCode')
+    if (!inviteCode) {
+      return
+    }
+    const fetchResult = await fetch(`${$scope.redditApiUrl}/invites/${inviteCode}`)
+    $scope.invite = await fetchResult.json()
+    $scope.$apply()
+  }
+
+  setInvite()
 
   async function handleStep() {
 
@@ -254,9 +265,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
       window.location.hash = ''
       const inviteCode = params[2]
       localStorage.setItem('inviteCode', inviteCode)
-      const fetchResult = await fetch(`${$scope.redditApiUrl}/invites/${inviteCode}`)
-      $scope.invite = await fetchResult.json()
-      $scope.$apply()
+      setInvite()
     }
 
   }
