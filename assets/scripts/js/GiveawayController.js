@@ -51,7 +51,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
   }
 
   async function setStats() {
-    const fetchResult = await fetch(`https://s3.amazonaws.com/giveaway-stats-api/stats.json`)
+    const fetchResult = await fetch(`https://s3.amazonaws.com/giveaway-stats-api/stats.json?rand=${(new Date).getTime()}`)
     $scope.stats = await fetchResult.json()
     $scope.stats.giveaways.forEach((giveaway) => {
       giveaway.drawingAtPretty = (new Date(giveaway.drawingAt * 1000)).toLocaleDateString('en-US', {
