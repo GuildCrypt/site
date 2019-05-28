@@ -1415,11 +1415,19 @@ label {
   margin: 10px 0;
   text-align: center;
   width: 100%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 800px) {
   .giveaway-invite .invite-url {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .giveaway-invite .invite-url {
+    font-size: 12px;
   }
 }
 
