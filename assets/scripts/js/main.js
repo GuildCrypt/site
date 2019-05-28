@@ -5,40 +5,30 @@ $(document).ready(function() {
     // Prevent image dragging
 
 	$("img").on("dragstart", function(event) {
-
         event.preventDefault();
-
 	});
 
+	const splashImageUrls = [
+		'/assets/media/images/hero-image-1.jpg',
+		'/assets/media/images/hero-image-2.jpg',
+		'/assets/media/images/hero-image-3.jpg'
+	]
 
-	$(".splash").css("background", "url(/assets/media/images/hero-image-1.jpg) no-repeat center center");
-	$(".splash").css("background-size", "cover");
+	splashImageUrls.forEach((splashImageUrl) => {
+		const imageLoader = new Image
+		imageLoader.src = splashImageUrl
+	})
 
-	window.backgroundImage = 1;
+	let nextSplashImageUrlIndex = 0
 
-	window.setInterval(function() {
+	function setSplashImage() {
+		const splashImageUrl = splashImageUrls[nextSplashImageUrlIndex]
+		$('.splash').css('background-image', `url(${splashImageUrl})`)
+		nextSplashImageUrlIndex = (nextSplashImageUrlIndex + 1) % splashImageUrls.length
+	}
 
-		if(window.backgroundImage === 1) {
-
-			$(".splash").css("background", "url(/assets/media/images/hero-image-2.jpg) no-repeat center center");
-			$(".splash").css("background-size", "cover");
-			window.backgroundImage = 2;
-
-		} else if(window.backgroundImage === 2) {
-
-			$(".splash").css("background", "url(/assets/media/images/hero-image-3.jpg) no-repeat center center");
-			$(".splash").css("background-size", "cover");
-			window.backgroundImage = 3;
-
-		} else if(window.backgroundImage === 3) {
-
-			$(".splash").css("background", "url(/assets/media/images/hero-image-1.jpg) no-repeat center center");
-			$(".splash").css("background-size", "cover");
-			window.backgroundImage = 1;
-
-		}
-
-	}, 3000);
+	setSplashImage()
+	window.setInterval(setSplashImage, 5000);
 
 	// Scroll down arrow
 
