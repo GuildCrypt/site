@@ -1622,3 +1622,99 @@ label {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+
+.scatterplot {
+  position: relative;
+  width: 100%;
+  padding-bottom: 50%;
+  border-width: 0px 0px 1px 1px;
+  border-color: #ccc;
+  border-style: dotted;
+}
+
+.scatterplot-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.scatterplot-inner-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.scatterplot-item {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-bottom: -4px;
+  background-color: #ccc;
+  border: 1px solid #333;
+  opacity: .2;
+  cursor: pointer;
+}
+
+.scatterplot-item-selected {
+  opacity: 1;
+}
+
+.scatterplot-item-circle {
+  border-radius: 4px;
+}
+
+.black-lotus-price-blurb {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.black-lotus-price-blurb p {
+  margin-bottom: 20px;
+}
+
+.black-lotus-price small {
+  color: inherit;
+}
+
+.black-lotus-price-key {
+  margin-top: 4px;
+  color: #333;
+  opacity: .2;
+}
+
+.black-lotus-price-key-selected {
+  opacity: 1;
+}
+
+.black-lotus-price-key .scatterplot-item {
+  margin-left: 0;
+  margin-bottom: 0;
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  margin-right: 5px;
+}
+
+.black-lotus-price-preview {
+  text-align: center;
+  color: #666;
+}
+
+.black-lotus-price-preview img {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .black-lotus-price-key {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .black-lotus-price-col {
+    padding-bottom: 20px;
+  }
+}
