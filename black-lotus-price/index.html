@@ -6,7 +6,7 @@
 
 	<head>
 
-		<title>DEX-in-a-Box - GuildCrypt</title>
+		<title>Black Lotus Price - GuildCrypt</title>
 
 		<!-- Meta -->
 
@@ -31,7 +31,7 @@
 
 	</head>
 
-	<body ng-app="app" ng-controller="BlackLotusPriceController">
+	<body ng-app="app" ng-controller="BlackLotusPriceController" class="black-lotus-price">
 
 		<!-- Header -->
 
@@ -61,16 +61,18 @@
 					<small>The Price of a Black Lotus is</small>
 					<br>$166,100
 				</h1>
-				<p>The Black Lotus is the most coveted card in all of Magic the Gathering. In a game full of dragons and wizards, a simple flower reigns supreme. The Black Lotus is so powerful, it was ultimately restricted or outright banned in most tournaments.</p>
-				<br/>
-				<p>On February 27, 2019 a Gem Mint BGS 9.5 Black Lotus sold on eBay for $166,100. While all Black Loti are rare, the price can vary greatly by print and grading. This site is dedicated to tracking the price across various auctions and compiling them into a single source. As always, past prices may not hold in the future.</p>
-				<br/>
+				<div class="black-lotus-price-blurb">
+					<p>The Black Lotus is the most coveted card in all of Magic the Gathering. In a game full of dragons and wizards, a simple flower reigns supreme. The Black Lotus is so powerful, it was ultimately restricted or outright banned in most tournaments.</p>
+					<p>On February 27, 2019 a Gem Mint BGS 9.5 Black Lotus sold on eBay for $166,100. While all Black Loti are rare, the price can vary greatly by print and grading. This site is dedicated to tracking the price across various auctions and compiling them into a single source. As always, past prices may not hold in the future.</p>
+				</div>
 			</div>
 		</div>
 		<div class="fill-vert">
-			<div class="container">
+			<br/>
+			<br/>
+			<div class="container ng-hide" ng-show="blackLotus">
 				<div class="row">
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-md-2 black-lotus-price-col">
 						<select ng-model="prints" class="form-control">
 							<option value="abcu">
 								All Prints
@@ -88,6 +90,16 @@
 								Unlimited
 							</option>
 						</select>
+						<div
+							ng-repeat="(key, value) in printsKey"
+							class="black-lotus-price-key"
+							ng-class="{ 'black-lotus-price-key-selected': prints.indexOf(key) > -1 }"
+						>
+							<span
+								class="scatterplot-item"
+								ng-style="{ backgroundColor: printsKey[key].color }"
+							></span> {{value.name}}
+						</div>
 						<hr/>
 						<select ng-model="graders" class="form-control">
 							<option value="bp">
@@ -100,23 +112,45 @@
 								PSA
 							</option>
 						</select>
-
+						<div
+							ng-repeat="(key, value) in gradersKey"
+							class="black-lotus-price-key"
+							ng-class="{ 'black-lotus-price-key-selected': graders.indexOf(key) > -1 }"
+						>
+							<span
+								class="scatterplot-item scatterplot-item-{{value.shape}}"
+							></span> {{value.name}}
+						</div>
 					</div>
-					<div class="col-xs-8">
+					<div class="col-xs-12 col-md-6 black-lotus-price-col">
 						<div class="scatterplot">
 							<div class="scatterplot-inner">
 								<div class="scatterplot-inner-inner">
-									<div
+									<a
 										ng-repeat="blackLotus in blackLoti"
-										class="scatterplot-item ng-hide"
+										class="scatterplot-item ng-hide scatterplot-item-{{gradersKey[blackLotus.grader].shape}}"
+										ng-class="{'scatterplot-item-selected': blackLotus.isSelected}"
+										ng-mouseover="select(blackLotus)"
+										ng-click="select(blackLotus)"
 										ng-show="prints.indexOf(blackLotus.print) > -1 && graders.indexOf(blackLotus.grader) > -1"
-										ng-style="{left: blackLotus.x * 100 + '%', bottom: blackLotus.y * 100 + '%'}">
-									</div>
+										ng-style="{left: blackLotus.x * 100 + '%', bottom: blackLotus.y * 100 + '%', backgroundColor: printsKey[blackLotus.print].color}"
+										href="{{blackLotus.ebay.cvipUrl}}"
+										target="_blank"
+									>
+									</a>
 								</div>
 							</div>
 						</div>
 					</div>
-
+					<div class="col-xs-12 col-md-4 black-lotus-price-col">
+						<div class="black-lotus-price-preview">
+							<h3>{{printsKey[blackLotus.print].name}} - {{gradersKey[blackLotus.grader].name}} {{blackLotus.grade}}</h3>
+							<h4>Sold for ${{blackLotus.ebay.usdPriceNumber.toFixed(2) | numeric}}</h4>
+							<a href="{{blackLotus.ebay.cvipUrl}}" target="_blank">View on eBay</a>
+							<br/>
+							<img ng-src="{{blackLotus.ebay.imageUrl}}">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

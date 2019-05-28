@@ -11,12 +11,36 @@ export default function BlackLotusPriceController($scope) {
   $scope.prints = 'abcu'
   $scope.graders = 'bp'
 
-  $scope.scatterplotItemColors = {
-    'a': '#111',
-    'b': '#333',
-    'u': '#666',
-    'c': '#999'
+  $scope.printsKey = {
+    'a': {
+      name: 'Alpha',
+      color: 'red'
+    },
+    'b': {
+      name: 'Beta',
+      color: 'blue'
+    },
+    'u': {
+      name: 'Unlimited',
+      color: 'green'
+    },
+    'c': {
+      name: 'Collectors Edition',
+      color: 'orange'
+    }
   }
+
+  $scope.gradersKey = {
+    'b': {
+      name: 'BGS',
+      shape: 'circle'
+    },
+    'p': {
+      name: 'PSA',
+      shape: 'square'
+    }
+  }
+
 
   blackLoti.forEach((blackLotus) => {
     blackLotus.ebay.usdPriceNumber = parseFloat(blackLotus.ebay.usdPrice)
@@ -60,4 +84,14 @@ export default function BlackLotusPriceController($scope) {
       (blackLotus.ebay.usdPriceNumber - blackLotusUsdPriceNumberMin)
       / (blackLotusUsdPriceNumberMax - blackLotusUsdPriceNumberMin)
   })
+
+  $scope.select = function select(blackLotus) {
+    if ($scope.blackLotus) {
+      $scope.blackLotus.isSelected = false
+    }
+    blackLotus.isSelected = true
+    $scope.blackLotus = blackLotus
+  }
+
+  $scope.select(blackLoti[0])
 }
