@@ -10,10 +10,10 @@ import WatchEmailModalController from './WatchEmailModalController.js'
 import RedeemModalController from './RedeemModalController.js'
 import DexInABoxController from './DexInABoxController.js'
 import TradeController from './TradeController.js'
-import CryptoloanController from './CryptoloanController.js'
 import GiveawayController from './GiveawayController.js'
 import GiveawayEmailController from './GiveawayEmailController.js'
 import GiveawayInviteController from './GiveawayInviteController.js'
+import BlackLotusPriceController from './BlackLotusPriceController.js'
 
 import modalDirective from './modalDirective.js'
 import tokenDirective from './tokenDirective.js'
@@ -32,10 +32,10 @@ app.controller('WatchEmailModalController', WatchEmailModalController)
 app.controller('RedeemModalController', RedeemModalController)
 app.controller('DexInABoxController', DexInABoxController)
 app.controller('TradeController', TradeController)
-app.controller('CryptoloanController', CryptoloanController)
 app.controller('GiveawayController', GiveawayController)
 app.controller('GiveawayEmailController', GiveawayEmailController)
 app.controller('GiveawayInviteController', GiveawayInviteController)
+app.controller('BlackLotusPriceController', BlackLotusPriceController)
 
 app.directive('tokens', tokensDirective)
 app.directive('token', tokenDirective)

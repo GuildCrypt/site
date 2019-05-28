@@ -1622,3 +1622,35 @@ label {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+
+.scatterplot {
+  position: relative;
+  width: 100%;
+  padding-bottom: 50%;
+  border-width: 0px 0px 1px 1px;
+  border-color: #ccc;
+  border-style: dotted;
+}
+
+.scatterplot-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.scatterplot-inner-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.scatterplot-item {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+}
