@@ -93,5 +93,29 @@ export default function BlackLotusPriceController($scope) {
     $scope.blackLotus = blackLotus
   }
 
+  $scope.usdPriceSteps = []
+  $scope.gradeSteps = []
+
+  for (let i = 0; i <= blackLotusUsdPriceNumberMax / 1000; i += 50 ) {
+    if (i * 1000 < blackLotusUsdPriceNumberMin) {
+      continue
+    }
+    $scope.usdPriceSteps.push({
+      label: `$${i}k`,
+      value: ((i * 1000) - blackLotusUsdPriceNumberMin) / (blackLotusUsdPriceNumberMax - blackLotusUsdPriceNumberMin)
+    })
+  }
+
+  for (let i = 0; i <= blackLotusGradingNumberMax; i += .5 ) {
+    if (i  < blackLotusGradingNumberMin) {
+      continue
+    }
+    $scope.gradeSteps.push({
+      label: i.toFixed(1),
+      value: (i - blackLotusGradingNumberMin) / (blackLotusGradingNumberMax - blackLotusGradingNumberMin)
+    })
+  }
+
+
   $scope.select(blackLoti[0])
 }

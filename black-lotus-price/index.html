@@ -126,6 +126,24 @@
 						<div class="scatterplot">
 							<div class="scatterplot-inner">
 								<div class="scatterplot-inner-inner">
+									<div class="scatterplot-labels scatterplot-labels-y">
+										<div
+											class="scatterplot-label scatterplot-label-y"
+											ng-repeat="usdPriceStep in usdPriceSteps"
+											ng-style="{bottom: usdPriceStep.value * 100 + '%'}"
+										>
+											{{usdPriceStep.label}}
+										</div>
+									</div>
+									<div class="scatterplot-labels scatterplot-labels-x">
+										<div
+											class="scatterplot-label scatterplot-label-x"
+											ng-repeat="gradeStep in gradeSteps"
+											ng-style="{left: gradeStep.value * 100 + '%'}"
+										>
+											{{gradeStep.label}}
+										</div>
+									</div>
 									<a
 										ng-repeat="blackLotus in blackLoti"
 										class="scatterplot-item ng-hide scatterplot-item-{{gradersKey[blackLotus.grader].shape}}"

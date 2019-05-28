@@ -1631,7 +1631,39 @@ label {
   border-width: 0px 0px 1px 1px;
   border-color: #ccc;
   border-style: dotted;
+  margin: 0 0 20px 20px;
 }
+
+.scatterplot-labels {
+  position: absolute;
+  color: #666;
+  font-size: 8px;
+
+}
+
+.scatterplot-labels-y {
+  height: 100%;
+  left: 0;
+}
+
+.scatterplot-labels-x {
+  width: 100%;
+  bottom: 0;
+}
+
+.scatterplot-label {
+  position: absolute;
+}
+
+.scatterplot-label-y {
+  right: 18px;
+}
+
+.scatterplot-label-x {
+  top: 18px;
+  margin-left: -5px;
+}
+
 
 .scatterplot-inner {
   position: absolute;
