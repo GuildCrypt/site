@@ -25,7 +25,7 @@ export default function BlackLotusPriceController($scope) {
       color: 'green'
     },
     'c': {
-      name: 'Collectors Edition',
+      name: 'Collectors',
       color: 'orange'
     }
   }
