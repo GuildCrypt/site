@@ -1,8 +1,6 @@
 import modalManager from './modalManager.js'
-
-function getTime() {
-  return Math.floor((new Date).getTime() / 1000)
-}
+import getTime from './getTime.js'
+import getCountdownPojos from './getCountdownPojos.js'
 
 function openInviteModal() {
   modalManager.open({
@@ -32,10 +30,6 @@ export default function GiveawayController($scope, $interval, $timeout) {
 
   $scope.loginAndSubscribeUrl = $scope.getLoginUrl(true)
 
-  async function setTime() {
-    $scope.time = getTime()
-  }
-
   async function setUser() {
     const redditApiUserCookie = localStorage.getItem('redditApi.user.cookie')
     if (!redditApiUserCookie) {
@@ -51,7 +45,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
   }
 
   async function setStats() {
-    const fetchResult = await fetch(`https://s3.amazonaws.com/giveaway-stats-api/stats.json?rand=${(new Date).getTime()}`)
+    const fetchResult = await fetch(`https://s3.amazonaws.com/giveaway-stats-api/stats.json?rand=${getTime()}`)
     $scope.stats = await fetchResult.json()
     $scope.stats.giveaways.forEach((giveaway) => {
       giveaway.drawingAtPretty = (new Date(giveaway.drawingAt * 1000)).toLocaleDateString('en-US', {
@@ -106,45 +100,10 @@ export default function GiveawayController($scope, $interval, $timeout) {
       return string.split('')
     }
 
-
-    const time = getTime()
-    if ($scope.giveaway.drawingAt <= time) {
-      return
-    } else {
-      const diffSeconds = $scope.giveaway.drawingAt - time
-      const seconds = diffSeconds % 60
-
-      const diffMin = Math.floor(diffSeconds / 60)
-      const minutes = diffMin % 60
-
-      const diffHours = Math.floor(diffMin / 60)
-      const hours = diffHours % 24
-
-      const days = (diffHours - hours) / 24
-
-      $scope.drawingPojos = [
-        {
-          key: 'days',
-          value: days,
-          characters: getCharacters(days, 2)
-        },
-        {
-          key: 'hours',
-          value: hours,
-          characters: getCharacters(hours, 2)
-        },
-        {
-          key: 'minutes',
-          value: minutes,
-          characters: getCharacters(minutes, 2)
-        },
-        {
-          key: 'seconds',
-          value: seconds,
-          characters: getCharacters(seconds, 2)
-        },
-      ]
-    }
+    $scope.drawingPojos = getCountdownPojos($scope.giveaway.drawingAt)
+    $scope.drawingPojos.map((coutdownPojo) => {
+      coutdownPojo.characters = getCharacters(coutdownPojo.value, 2)
+    })
   }
 
   let flipTimeout
@@ -173,7 +132,6 @@ export default function GiveawayController($scope, $interval, $timeout) {
     }
   })
 
-  setTime()
   setUser()
   setStats().then(() => {
     const time = getTime()
@@ -186,8 +144,6 @@ export default function GiveawayController($scope, $interval, $timeout) {
   })
 
   setInterval(() => {
-    setTime()
-    // setUser()
     setStats()
   }, 1000)
 
