@@ -137,16 +137,7 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12" ng-class="{'col-sm-4': giveaway}" style="transition: all 400ms ease">
-							<div id="flipper" class="flip-card">
-								<div class="flip-card-inner">
-									<div class="flip-card-front">
-										<img class="item shadow-drop-center" src="./back.jpeg">
-									</div>
-									<div class="flip-card-back">
-										<img class="item shadow-drop-center" ng-src="{{flipperSrc}}">
-									</div>
-								</div>
-							</div>
+							<div flip-card flip-card-src="flipCardSrc" flip-card-is-face-up="flipCardIsFaceUp"></div>
 						</div>
 						<div class="col-xs-12 col-sm-8 ng-hide" ng-show="giveaway" ng-style="{opacity: isGiveawayTransitioned ? 100 : 0 }" style="opacity: 0; transition: all 400ms ease">
 							<button class="btn btn-gold btn-lg login shadow-drop-center" ng-click="login()" ng-show="!user">

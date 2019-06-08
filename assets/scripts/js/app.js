@@ -14,6 +14,7 @@ import GiveawayController from './GiveawayController.js'
 import GiveawayEmailController from './GiveawayEmailController.js'
 import GiveawayInviteController from './GiveawayInviteController.js'
 import BlackLotusPriceController from './BlackLotusPriceController.js'
+import ScrambleverseFooterController from './ScrambleverseFooterController.js'
 
 import modalDirective from './modalDirective.js'
 import tokenDirective from './tokenDirective.js'
@@ -36,6 +37,7 @@ app.controller('GiveawayController', GiveawayController)
 app.controller('GiveawayEmailController', GiveawayEmailController)
 app.controller('GiveawayInviteController', GiveawayInviteController)
 app.controller('BlackLotusPriceController', BlackLotusPriceController)
+app.controller('ScrambleverseFooterController', ScrambleverseFooterController)
 
 app.directive('tokens', tokensDirective)
 app.directive('token', tokenDirective)
@@ -99,4 +101,17 @@ app.filter('pad', function() {
         return `${padding}${valueString}`
       }
     }
+})
+
+app.directive('flipCard', function () {
+  return {
+    templateUrl: `/templates/flip-card.html`
+  }
+})
+
+
+app.directive('scrambleverseFooter', function () {
+  return {
+    templateUrl: `/templates/scrambleverse-footer.html`
+  }
 })

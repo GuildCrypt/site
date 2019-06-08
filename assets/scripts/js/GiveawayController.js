@@ -147,7 +147,6 @@ export default function GiveawayController($scope, $interval, $timeout) {
     }
   }
 
-  const $flipper = document.getElementById('flipper')
   let flipTimeout
 
   $scope.$watch('giveaway', (giveaway, giveawayWas) => {
@@ -164,22 +163,12 @@ export default function GiveawayController($scope, $interval, $timeout) {
       $scope.drawingPojos = null
     }
 
-    // $flipper.classList.remove('flip-card-hover')
-    const flipperSrc = `https://s3.amazonaws.com/giveaway-stats-api/cards/${giveaway.card.id}.jpeg`
-    // const imageLoader = new Image
-    // imageLoader.src = flipperSrc
-    // // if (flipTimeout) {
-    //   $timeout.cancel(flipTimeout)
-    // }
-    // flipTimeout = $timeout(() => {
-      $scope.flipperSrc = flipperSrc
-      // $flipper.classList.add('flip-card-hover')
-    // }, giveawayWas ? 1000 : 0)
+    $scope.flipCardSrc = `https://s3.amazonaws.com/giveaway-stats-api/cards/${giveaway.card.id}.jpeg`
 
     if (!giveawayWas) {
       $timeout(() => {
         $scope.isGiveawayTransitioned = true
-        $flipper.classList.add('flip-card-hover')
+        $scope.flipCardIsFaceUp = true
       }, 400)
     }
   })
