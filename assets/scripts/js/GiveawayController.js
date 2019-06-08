@@ -88,6 +88,9 @@ export default function GiveawayController($scope, $interval, $timeout) {
 
   let updateDrawingPojosInterval
 
+  function setTime() {
+    $scope.time = getTime()
+  }
 
   function updateDrawingPojos() {
 
@@ -133,6 +136,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
   })
 
   setUser()
+  setTime()
   setStats().then(() => {
     const time = getTime()
     $scope.giveawayIndex = 0;
@@ -145,6 +149,7 @@ export default function GiveawayController($scope, $interval, $timeout) {
 
   setInterval(() => {
     setStats()
+    setTime()
   }, 1000)
 
 
