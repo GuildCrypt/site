@@ -148,12 +148,12 @@
 									</div>
 									<a
 										ng-repeat="blackLotus in blackLoti"
-										class="scatterplot-item ng-hide scatterplot-item-{{gradersKey[blackLotus.grader].shape}}"
+										class="scatterplot-item ng-hide scatterplot-item-{{gradersKey[blackLotus.graderId].shape}}"
 										ng-class="{'scatterplot-item-selected': blackLotus.isSelected}"
 										ng-mouseover="select(blackLotus)"
 										ng-click="select(blackLotus)"
-										ng-show="prints.indexOf(blackLotus.print) > -1 && graders.indexOf(blackLotus.grader) > -1"
-										ng-style="{left: blackLotus.x * 100 + '%', bottom: blackLotus.y * 100 + '%', backgroundColor: printsKey[blackLotus.print].color}"
+										ng-show="prints.indexOf(blackLotus.printId) > -1 && graders.indexOf(blackLotus.graderId) > -1"
+										ng-style="{left: blackLotus.x * 100 + '%', bottom: blackLotus.y * 100 + '%', backgroundColor: printsKey[blackLotus.printId].color}"
 									>
 									</a>
 								</div>
@@ -162,11 +162,12 @@
 					</div>
 					<div class="col-xs-12 col-md-4 black-lotus-price-col">
 						<div class="black-lotus-price-preview">
-							<h3>{{printsKey[blackLotus.print].name}} - {{gradersKey[blackLotus.grader].name}} {{blackLotus.grade}}</h3>
-							<h4>Sold for ${{blackLotus.ebay.usdPriceNumber.toFixed(2) | numeric}}</h4>
-							<a href="{{blackLotus.ebay.cvipUrl}}" target="_blank">View on eBay</a>
+							<h3>{{printsKey[blackLotus.printId].name}} - {{gradersKey[blackLotus.graderId].name}} {{blackLotus.grade}}</h3>
+							<h4>Sold for ${{blackLotus.usdPriceNumber.toFixed(2) | numeric}}</h4>
+							<h4>{{blackLotus.daysAgo}} Days Ago</h4>
+							<a href="{{blackLotus.cvipUrl}}" target="_blank">View on eBay</a>
 							<br/>
-							<img ng-src="{{blackLotus.ebay.imageUrl}}">
+							<img ng-src="{{blackLotus.imageUrl}}">
 						</div>
 					</div>
 				</div>
