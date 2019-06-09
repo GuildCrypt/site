@@ -1756,7 +1756,7 @@ label {
   background: linear-gradient(241deg, #f9da9c, #d88d02);
   background-size: 400% 400%;
   position: fixed;
-  padding: 40px;
+  padding: 20px;
   bottom: -240px;
   left: 0;
   width: 100%;
@@ -1802,7 +1802,7 @@ label {
 .scrambleverse-footer .flip-card {
   width: 100%;
   position: absolute;
-  top: -80px;
+  top: -40px;
   right: 0px;
 }
 
