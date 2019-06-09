@@ -48,8 +48,8 @@ export default async function ScrambleverseFooterController($scope, $interval, $
       $scope.flipCardIsFaceUp = false
       $timeout(() => {
         showAndHideNextImage()
-      }, 500)
-    }, 5000)
+      }, 1000)
+    }, 7500)
   }
 
   $scope.go = function go() {
