@@ -119,5 +119,7 @@ export default function BlackLotusPriceController($scope) {
   }
 
 
-  $scope.select(blackLoti[0])
+  $scope.select(blackLoti.find((blackLotus) => {
+    return blackLotus.id === 192
+  }))
 }
