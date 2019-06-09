@@ -8,8 +8,8 @@ export default function BlackLotusPriceController($scope) {
   let blackLotusGradingNumberMax = null
 
   $scope.blackLoti = blackLoti
-  $scope.prints = 'abcu'
-  $scope.graders = 'bp'
+  $scope.prints = 'a'
+  $scope.graders = 'b'
 
   $scope.printsKey = {
     'a': {
@@ -43,22 +43,22 @@ export default function BlackLotusPriceController($scope) {
 
 
   blackLoti.forEach((blackLotus) => {
-    blackLotus.ebay.usdPriceNumber = parseFloat(blackLotus.ebay.usdPrice)
+    blackLotus.usdPriceNumber = parseFloat(blackLotus.usdPrice)
     blackLotus.gradeNumber = parseFloat(blackLotus.grade)
 
 
     if (
       blackLotusUsdPriceNumberMin === null
-      || blackLotus.ebay.usdPriceNumber < blackLotusUsdPriceNumberMin
+      || blackLotus.usdPriceNumber < blackLotusUsdPriceNumberMin
     ) {
-      blackLotusUsdPriceNumberMin = blackLotus.ebay.usdPriceNumber
+      blackLotusUsdPriceNumberMin = blackLotus.usdPriceNumber
     }
 
     if (
       blackLotusUsdPriceNumberMax === null
-      || blackLotus.ebay.usdPriceNumber > blackLotusUsdPriceNumberMax
+      || blackLotus.usdPriceNumber > blackLotusUsdPriceNumberMax
     ) {
-      blackLotusUsdPriceNumberMax = blackLotus.ebay.usdPriceNumber
+      blackLotusUsdPriceNumberMax = blackLotus.usdPriceNumber
     }
 
     if (
@@ -81,8 +81,10 @@ export default function BlackLotusPriceController($scope) {
       (blackLotus.gradeNumber - blackLotusGradingNumberMin)
       / (blackLotusGradingNumberMax - blackLotusGradingNumberMin)
     blackLotus.y =
-      (blackLotus.ebay.usdPriceNumber - blackLotusUsdPriceNumberMin)
+      (blackLotus.usdPriceNumber - blackLotusUsdPriceNumberMin)
       / (blackLotusUsdPriceNumberMax - blackLotusUsdPriceNumberMin)
+
+    blackLotus.daysAgo = Math.round(((new Date).getTime() - (blackLotus.endedAt * 1000)) / (24 * 60 * 60 * 1000))
   })
 
   $scope.select = function select(blackLotus) {
